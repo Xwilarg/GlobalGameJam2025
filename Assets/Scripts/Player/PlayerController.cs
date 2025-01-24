@@ -1,6 +1,5 @@
 using GGJ.Manager;
 using GGJ.Prop;
-using GGJ.SO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -46,7 +45,11 @@ namespace GGJ.Player
         {
             if (value.phase == InputActionPhase.Started)
             {
-
+                var coll = Physics2D.OverlapCircle(transform.position + (Vector3)_direction * ResourceManager.Instance.PlayerInfo.InteractionDistance, ResourceManager.Instance.PlayerInfo.InteractionSize, LayerMask.GetMask("Prop"));
+                if (coll != null && coll.TryGetComponent<IInteractible>(out var interact))
+                {
+                    interact.Interact(this);
+                }
             }
         }
 
