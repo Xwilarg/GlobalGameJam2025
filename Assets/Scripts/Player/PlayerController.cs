@@ -11,11 +11,18 @@ namespace GGJ.Player
         private Vector2 _direction = Vector2.up;
         private Rigidbody2D _rb;
 
-        private ITakeable _carriedObject;
+        private int _money;
+
+        public ITakeable CarriedObject { private set; get; }
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void Start()
+        {
+            PlayerManager.Instance.Register(this);
         }
 
         private void FixedUpdate()
@@ -59,11 +66,16 @@ namespace GGJ.Player
         /// <returns>Could the object be carried</returns>
         public bool Carry(ITakeable takeable)
         {
-            if (_carriedObject != null) return false;
+            if (CarriedObject != null) return false;
 
-            _carriedObject = takeable;
-            _carriedObject.GameObject.SetActive(false);
+            CarriedObject = takeable;
+            CarriedObject.GameObject.SetActive(false);
             return true;
+        }
+
+        public override string ToString()
+        {
+            return $"Player (Money: {_money})";
         }
     }
 }

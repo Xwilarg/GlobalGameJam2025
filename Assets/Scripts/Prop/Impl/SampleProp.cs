@@ -7,6 +7,8 @@ namespace GGJ.Prop.Impl
     {
         public GameObject GameObject => gameObject;
 
+        public bool CanBeSold => true;
+
         public bool Interact(PlayerController pc)
         {
             pc.Carry(this);
