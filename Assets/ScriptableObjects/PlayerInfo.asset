@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
   Speed: 5
+  InteractionDistance: 0.75
+  InteractionSize: 0.5
