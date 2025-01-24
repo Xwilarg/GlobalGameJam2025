@@ -1,7 +1,7 @@
 using GGJ.Player;
 using UnityEngine;
 
-namespace GGJ.Prop
+namespace GGJ.Prop.Impl
 {
     public class SampleProp : MonoBehaviour, IInteractible, ITakeable
     {
