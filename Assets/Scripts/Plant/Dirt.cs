@@ -13,6 +13,10 @@ public class Dirt : MonoBehaviour, IInteractible
 
     int plantCount = 0;
 
+    private void Start()
+    {
+        GameManager.Instance.Register(this);
+    }
 
     void PlantPlant(Color flowerColor)
     {
@@ -37,5 +41,15 @@ public class Dirt : MonoBehaviour, IInteractible
     public bool CanInteract(PlayerController pc)
     {
         return !plant && pc.CarriedObject != null && pc.CarriedObject.CanPlant;
+    }
+
+    public void Clear()
+    {
+        if (plant)
+        {
+            Destroy(plant.gameObject);
+            plantCount = 0;
+            plant = null;
+        }
     }
 }
