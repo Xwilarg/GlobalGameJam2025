@@ -18,7 +18,7 @@ MonoBehaviour:
   InteractionSize: 1.75
   StunDuration: 0.5
   StunForce: 25
-  HitEffectTime: 5
+  HitEffectTime: 0.2
   MinMaxPrice:
     Min: 1
     Max: 100
@@ -160,7 +160,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   NeedWaterDeltaTime: 5
-  SpreadRange: 3
+  SpreadRange: 5
   GameLevel:
     asset: {fileID: 102900000, guid: bffd93a1553358748ac02c1fbba4f087, type: 3}
     guid: bffd93a1553358748ac02c1fbba4f087
