@@ -56,6 +56,10 @@ namespace GGJ.Player
             }
         }
 
+        bool isLookingLeft = true;
+        bool isRunning = false;
+        string animationName = "PlayerIdleLeft";
+
         public Vector2 SpawnPoint { set; private get; }
 
         private Vector2? _stunDirection = null;
@@ -80,14 +84,27 @@ namespace GGJ.Player
             PlayerManager.Instance.Register(this);
         }
 
+        void SetAnimationName(string animationName)
+        {
+            if (this.animationName == animationName)
+                return;
+
+            this.animationName = animationName;
+
+            _animator.Play(animationName);
+        }
+
         private void FixedUpdate()
         {
-            int runAnimation = 0;
+            isRunning = _rb.linearVelocity.sqrMagnitude > 0.01f;
 
-            if (_rb.linearVelocity.sqrMagnitude > 0.01f)
-                runAnimation = _direction.x > 0 ? 1 : -1;
+            if (Mathf.Abs(_rb.linearVelocity.x) > 0.01f)
+                isLookingLeft = _rb.linearVelocity.x < 0;
 
-            _animator.SetInteger("Run", runAnimation);
+            if      (isRunning && isLookingLeft)  SetAnimationName("PlayerRunLeft");
+            else if (isRunning && !isLookingLeft) SetAnimationName("PlayerRunRight");
+            else if (!isRunning && isLookingLeft) SetAnimationName("PlayerIdleLeft");
+            else                                  SetAnimationName("PlayerIdleRight");
 
             if (_stunDirection.HasValue)
             {
