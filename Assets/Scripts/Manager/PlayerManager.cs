@@ -27,6 +27,11 @@ namespace GGJ.Manager
             pc.SpawnPoint = spawn;
             pc.Color = _colors[_players.Count % _startAreas.Count];
             _players.Add(pc);
+
+            if (_players.Count == 2)
+            {
+                GameManager.Instance.ShowReadyPendingText();
+            }
         }
 
         public void Register(Transform start)
