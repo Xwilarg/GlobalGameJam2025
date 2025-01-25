@@ -9,10 +9,14 @@ namespace GGJ.Prop.Impl
 
         public bool CanBeSold => true;
 
-        public bool Interact(PlayerController pc)
+        public bool CanInteract(PlayerController pc)
+        {
+            return pc.CarriedObject == null;
+        }
+
+        public void Interact(PlayerController pc)
         {
             pc.Carry(this);
-            return true;
         }
     }
 }

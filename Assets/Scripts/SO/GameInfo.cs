@@ -14,7 +14,13 @@ namespace GGJ.SO
 
         [Header("Money")]
         [Tooltip("Min/Max the selling price can reach")] public Range MinMaxPrice;
-        [Tooltip("Curve for the base prices")] public AnimationCurve PriceCurve;
+        [Tooltip("Curve for the base prices during increase phase")] public AnimationCurve RaisePriceCurve;
+        [Tooltip("Curve for the base prices during crash phase")] public AnimationCurve CrashPriceCurve;
+
+        [Header("Time")]
+        [Tooltip("How much time in seconds a day is")] public float DayDuration;
+        [Tooltip("Duration of the phase where prices increase in days")] public int RaisePhaseDuration;
+        [Tooltip("Duration of the phase where prices crashes in days")] public int CrashPhaseDuration;
     }
 
     [System.Serializable]

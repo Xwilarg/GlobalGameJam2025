@@ -10,6 +10,7 @@ namespace GGJ.Manager
         public static PlayerManager Instance { private set; get; }
 
         private readonly List<PlayerController> _players = new();
+        private readonly List<Transform> _startAreas = new();
 
         private void Awake()
         {
@@ -18,7 +19,13 @@ namespace GGJ.Manager
 
         public void Register(PlayerController pc)
         {
+            pc.transform.position = _startAreas[_players.Count % _startAreas.Count].position;
             _players.Add(pc);
+        }
+
+        public void Register(Transform start)
+        {
+            _startAreas.Add(start);
         }
 
         // TODO: Unregister
