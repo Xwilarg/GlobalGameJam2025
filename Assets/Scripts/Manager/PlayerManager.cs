@@ -27,6 +27,7 @@ namespace GGJ.Manager
             pc.SpawnPoint = spawn;
             pc.Color = _colors[_players.Count % _startAreas.Count];
             _players.Add(pc);
+            pc.Id = _players.Count;
 
             if (_players.Count == 2)
             {

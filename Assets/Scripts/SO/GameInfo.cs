@@ -1,3 +1,4 @@
+using Eflatun.SceneReference;
 using UnityEngine;
 
 namespace GGJ.SO
@@ -35,6 +36,9 @@ namespace GGJ.SO
 
         [Header("Plant")]
         [Tooltip("How long before plant need water")] public float NeedWaterDeltaTime = 3;
+
+        [Header("Levels")]
+        public SceneReference GameLevel;
     }
 
     [System.Serializable]
