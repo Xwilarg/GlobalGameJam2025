@@ -24,7 +24,7 @@ namespace GGJ.Prop.Impl
             return (GameManager.Instance.GamePhase == GamePhase.PriceRaise || GameManager.Instance.GamePhase == GamePhase.PriceCrash) && pc.CarriedObject != null && pc.CarriedObject.CanBeSold;
         }
 
-        public string AddSign(float nb)
+        public string AddSign(int nb)
         {
             if (nb >= 0f) return $"+{nb}";
             else return $"-{Mathf.Abs(nb)}";
@@ -32,13 +32,13 @@ namespace GGJ.Prop.Impl
         public void UpdateUI()
         {
             if (GameManager.Instance.GamePhase == GamePhase.GameEnded) _priceText.text = "Closed";
-            else _priceText.text = $"{EconomyManager.Instance.CurrentPrice * Variation}? ({AddSign(Variation):0.00})";
+            else _priceText.text = $"{EconomyManager.Instance.CurrentPrice * Variation}f ({AddSign(Mathf.RoundToInt(Variation))})";
         }
 
         public void UpdateVariation(float average)
         {
             Variation = (1f + Variation) / 2f;
-            Variation += AmountSold - average;
+            Variation += AmountSold + average;
         }
 
         public void Interact(PlayerController pc)
