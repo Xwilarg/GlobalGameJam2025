@@ -35,6 +35,11 @@ namespace GGJ.Manager
             }
         }
 
+        public void ClearRegisters()
+        {
+            _startAreas.Clear();
+        }
+
         public void Register(Transform start)
         {
             _startAreas.Add(start);

@@ -36,6 +36,11 @@ namespace GGJ.Manager
             });
         }
 
+        public void ClearRegisters()
+        {
+            OnNewDay.RemoveAllListeners();
+        }
+
         private void Update()
         {
             if (!_isTimerStarted) return;

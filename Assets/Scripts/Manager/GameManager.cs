@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -44,7 +43,15 @@ namespace GGJ.Manager
         private IEnumerator SwitchToLobbyDebug()
         {
             yield return SceneManager.UnloadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name);
+            OnResetAll();
             yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
+        }
+
+        public void OnResetAll()
+        {
+            PlayerManager.Instance.ClearRegisters();
+            OnNextPhase.RemoveAllListeners();
+            TimeManager.Instance.ClearRegisters();
         }
 
         public void ShowReadyPendingText()
@@ -91,12 +98,15 @@ namespace GGJ.Manager
                 yield return new WaitForSeconds(1f);
             }
             yield return SceneManager.UnloadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name);
+            OnResetAll();
             yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
+            SetPhase(GamePhase.LobbyPreparation);
         }
 
         private IEnumerator ReloadScene()
         {
             yield return SceneManager.UnloadSceneAsync("Lobby");
+            OnResetAll();
             yield return SceneManager.LoadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name, LoadSceneMode.Additive);
         }
 
