@@ -38,7 +38,7 @@ namespace GGJ.Manager
                 var val01 = ((TimeManager.Instance.Day01 * 10f) + TimeManager.Instance.TimeWithinDay01) / 10f;
                 _bgmSad.volume = val01 * _maxVolume;
                 _bgmHappy.volume = _maxVolume - (val01 * _maxVolume);
-                _bgmNeutral.volume = _maxVolume;
+                _bgmNeutral.volume = 0f;
             }
         }
     }
