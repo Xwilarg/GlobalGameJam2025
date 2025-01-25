@@ -56,8 +56,6 @@ namespace GGJ.Manager
         public void OnResetAll()
         {
             PlayerManager.Instance.ClearRegisters();
-            OnNextPhase.RemoveAllListeners();
-            TimeManager.Instance.ClearRegisters();
         }
 
         public void ShowReadyPendingText()
