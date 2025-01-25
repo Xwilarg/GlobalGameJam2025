@@ -36,9 +36,6 @@ public class Plant : MonoBehaviour, IInteractible
         this.needWater = needWater;
 
         needWaterPopup.SetActive(needWater);
-
-        if (needWater)
-            Invoke("Water", 1); // TODO : test
     }
     void SetNeedWaterTrue() => SetNeedWater(true);
 
@@ -46,9 +43,6 @@ public class Plant : MonoBehaviour, IInteractible
     {
         this.needCut = needCut;
         needCutPopup.SetActive(needCut);
-
-        if (needCut)
-            Invoke("Cut", 1); // TODO : test
     }
 
     void SetNeedCutTrue() => SetNeedCut(true);
@@ -123,7 +117,7 @@ public class Plant : MonoBehaviour, IInteractible
 
     public bool CanInteract(PlayerController pc)
     {
-        return (needCut && pc.CarriedObject.GameObject && pc.CarriedObject.CanCut) ||
-               (needWater && pc.CarriedObject.GameObject && pc.CarriedObject.CanWater);
+        return (needCut && pc.CarriedObject != null && pc.CarriedObject.CanCut) ||
+               (needWater && pc.CarriedObject != null && pc.CarriedObject.CanWater);
     }
 }
