@@ -32,7 +32,7 @@ namespace GGJ.Prop.Impl
         public void UpdateUI()
         {
             if (GameManager.Instance.GamePhase == GamePhase.GameEnded) _priceText.text = "Closed";
-            else _priceText.text = $"{EconomyManager.Instance.CurrentPrice * Variation}? (+{AddSign(Variation):0.00})";
+            else _priceText.text = $"{EconomyManager.Instance.CurrentPrice * Variation}? ({AddSign(Variation):0.00})";
         }
 
         public void UpdateVariation(float average)
