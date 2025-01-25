@@ -17,6 +17,7 @@ namespace GGJ.Manager
 
         [SerializeField]
         private TMP_Text _timerText;
+        Animator _timerAnimator;
 
         [SerializeField]
         private PlayerInputManager _inputManager;
@@ -35,6 +36,7 @@ namespace GGJ.Manager
 
             _infoText.text = "Press any button to join...";
             _timerText.text = string.Empty;
+            _timerAnimator = _timerText.GetComponent<Animator>();
         }
 
         private void Start()
@@ -87,6 +89,7 @@ namespace GGJ.Manager
             for (int i = 3; i > 0; i--)
             {
                 _timerText.text = i.ToString();
+                _timerAnimator.Play("TimerCount", 0, 0f);
                 yield return new WaitForSeconds(1f);
             }
             _timerText.text = "";
