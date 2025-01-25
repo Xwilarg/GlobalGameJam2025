@@ -1,5 +1,6 @@
 using GGJ.Manager;
 using GGJ.Player;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ namespace GGJ.Prop.Impl
 
         public bool CanInteract(PlayerController pc)
         {
-            return (GameManager.Instance.GamePhase == GamePhase.PriceRaise || GameManager.Instance.GamePhase == GamePhase.PriceCrash) && pc.CarriedObject != null && pc.CarriedObject.CanBeSold;
+            return (GameManager.Instance.GamePhase == GamePhase.PriceRaise || GameManager.Instance.GamePhase == GamePhase.PriceCrash) && pc.Sellables.Any();
         }
 
         public string AddSign(int nb)
@@ -43,16 +44,17 @@ namespace GGJ.Prop.Impl
 
         public void Interact(PlayerController pc)
         {
-            int money = Mathf.RoundToInt(EconomyManager.Instance.CurrentPrice * Variation);
+            foreach (var item in pc.Sellables)
+            {
+                int money = Mathf.RoundToInt(EconomyManager.Instance.CurrentPrice * Variation);
+                if (item is CutedPlant &&
+                    ((CutedPlant)item).PlayerId != pc.Id)
+                    money = (int)(money * ResourceManager.Instance.GameInfo.OtherPlayerPlantPriceCoef);
 
-            if (pc.CarriedObject != null &&
-                pc.CarriedObject is CutedPlant &&
-                ((CutedPlant)pc.CarriedObject).PlayerId != pc.Id)
-                money = (int)(money * ResourceManager.Instance.GameInfo.OtherPlayerPlantPriceCoef);
-
-            AmountSold++;
-            pc.GainMoney(money);
-            pc.DiscardCarry();
+                pc.GainMoney(money);
+            }
+            AmountSold += pc.Sellables.Count;
+            pc.DiscardSellablesCarry();
         }
     }
 }

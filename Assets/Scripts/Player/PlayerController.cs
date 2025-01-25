@@ -1,6 +1,7 @@
 using GGJ.Manager;
 using GGJ.Prop;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -32,6 +33,7 @@ namespace GGJ.Player
         public bool IsReady { private set; get; }
 
         public ITakeable CarriedObject { private set; get; }
+        public List<ITakeable> Sellables { private set; get; } = new();
 
         public Color Color { set; get; }
         public Vector2 SpawnPoint { set; private get; }
@@ -195,6 +197,13 @@ namespace GGJ.Player
         /// <returns>Could the object be carried</returns>
         public bool Carry(ITakeable takeable)
         {
+            if (takeable.CanBeSold)
+            {
+                Sellables.Add(takeable);
+                takeable.GameObject.SetActive(false);
+                return true;
+            }
+
             if (CarriedObject != null) return false;
 
             CarriedObject = takeable;
@@ -213,13 +222,13 @@ namespace GGJ.Player
         /// <summary>
         /// Delete object carried
         /// </summary>
-        public void DiscardCarry()
+        public void DiscardSellablesCarry()
         {
-            Assert.IsNotNull(CarriedObject);
-            Destroy(CarriedObject.GameObject);
-            CarriedObject = null;
-
-            DesactiveAllItems();
+            foreach (var item in Sellables)
+            {
+                Destroy(item.GameObject);
+            }
+            Sellables.Clear();
         }
 
         public void GainMoney(int amount)
