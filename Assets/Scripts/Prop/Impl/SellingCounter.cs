@@ -44,6 +44,8 @@ namespace GGJ.Prop.Impl
 
         public void Interact(PlayerController pc)
         {
+            if (!pc.Sellables.Any()) return;
+
             foreach (var item in pc.Sellables)
             {
                 int money = Mathf.RoundToInt(EconomyManager.Instance.CurrentPrice * Variation);
@@ -55,6 +57,7 @@ namespace GGJ.Prop.Impl
             }
             AmountSold += pc.Sellables.Count;
             pc.DiscardSellablesCarry();
+            AudioManager.Instance.PlaySell();
         }
     }
 }
