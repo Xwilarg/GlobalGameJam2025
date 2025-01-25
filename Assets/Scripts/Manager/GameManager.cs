@@ -1,4 +1,3 @@
-using Eflatun.SceneReference;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,9 +17,6 @@ namespace GGJ.Manager
         [SerializeField]
         private TMP_Text _timerText;
 
-        [SerializeField]
-        private SceneReference _targetScene;
-
         public GamePhase GamePhase { private set; get; }
 
         public UnityEvent<GamePhase> OnNextPhase { get; } = new();
@@ -37,7 +33,7 @@ namespace GGJ.Manager
 #if !UNITY_EDITOR
             SceneManager.LoadScene("Lobby", LoadSceneMode.Additive);
 #else
-            SceneManager.UnloadScene(_targetScene.Name);
+            SceneManager.UnloadScene(ResourceManager.Instance.GameInfo.GameLevel.Name);
 #endif
         }
 
@@ -69,7 +65,7 @@ namespace GGJ.Manager
             }
             _timerText.text = "";
             _infoText.text = string.Empty;
-            StartCoroutine(ReloadScene(_targetScene.Name));
+            StartCoroutine(ReloadScene(ResourceManager.Instance.GameInfo.GameLevel.Name));
             PlayerManager.Instance.ResetAllPlayers();
         }
 
