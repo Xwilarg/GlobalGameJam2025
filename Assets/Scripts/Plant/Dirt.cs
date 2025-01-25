@@ -14,7 +14,7 @@ public class Dirt : MonoBehaviour, IInteractible
     int plantCount = 0;
 
 
-    void PlantPlant(Color bulbColor)
+    void PlantPlant(Color flowerColor)
     {
         if (plant)
             return;
@@ -22,7 +22,7 @@ public class Dirt : MonoBehaviour, IInteractible
         plant = Instantiate(_plantPrefab, transform.position, transform.rotation).GetComponent<Plant>();
         plant.Dirt = this;
 
-        plant.SetBulbColor(bulbColor);
+        plant.SetFlowerColor(flowerColor);
 
         plantCount++;
     }
