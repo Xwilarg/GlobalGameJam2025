@@ -261,6 +261,12 @@ namespace GGJ.Player
                 Destroy(CarriedObject.GameObject);
                 CarriedObject = null;
             }
+            foreach (var s in Sellables)
+            {
+                Destroy(s.GameObject);
+            }
+            Sellables.Clear();
+            _multiplier.text = string.Empty;
             transform.position = SpawnPoint;
 
             DesactiveAllItems();
