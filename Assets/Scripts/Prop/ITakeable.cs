@@ -10,5 +10,6 @@ namespace GGJ.Prop
         public bool CanCut { get; }
         public bool CanWater { get; }
         public bool CanPlant { get; }
+        public bool IsSwitchAllowed { get; }
     }
 }

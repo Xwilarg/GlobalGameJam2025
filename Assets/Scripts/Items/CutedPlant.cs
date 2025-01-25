@@ -10,6 +10,7 @@ public class CutedPlant : MonoBehaviour, IInteractible, ITakeable
     public bool CanWater => false;
     public bool CanCut => false;
     public bool CanPlant => false;
+    public bool IsSwitchAllowed => false;
 
     [SerializeField] SpriteRenderer flowerSpriteRenderer;
 
