@@ -37,6 +37,11 @@ namespace GGJ.Manager
             _counters.Add(counter);
         }
 
+        public void ClearRegisters()
+        {
+            _counters.Clear();
+        }
+
         public int CurrentPrice
         {
             get

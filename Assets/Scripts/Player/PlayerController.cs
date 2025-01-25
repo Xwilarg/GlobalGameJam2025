@@ -122,7 +122,7 @@ namespace GGJ.Player
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("CutedPlant"))
+            if (collision.CompareTag("CutedPlant")) // 2 people getting that at once?
             {
                 var takeable = collision.GetComponent<ITakeable>();
                 Sellables.Add(takeable);

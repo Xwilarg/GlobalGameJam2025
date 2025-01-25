@@ -59,6 +59,7 @@ namespace GGJ.Manager
         public void OnResetAll()
         {
             PlayerManager.Instance.ClearRegisters();
+            EconomyManager.Instance.ClearRegisters();
         }
 
         public void ShowReadyPendingText()
