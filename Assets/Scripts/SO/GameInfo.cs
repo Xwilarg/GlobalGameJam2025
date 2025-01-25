@@ -41,6 +41,10 @@ namespace GGJ.SO
 
         [Header("Levels")]
         public SceneReference GameLevel;
+
+        [Header("UI")]
+        [Tooltip("Player plants counter scale = PlayerPlantsCounterDefaultScale + PlayerPlantsCounterScaleCoef * nombreDePlantes")] public float PlayerPlantsCounterDefaultScale = 2;
+        [Tooltip("Player plants counter scale = PlayerPlantsCounterDefaultScale + PlayerPlantsCounterScaleCoef * nombreDePlantes")] public float PlayerPlantsCounterScaleCoef = 0.2f;
     }
 
     [System.Serializable]

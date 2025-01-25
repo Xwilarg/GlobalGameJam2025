@@ -164,3 +164,5 @@ MonoBehaviour:
   GameLevel:
     asset: {fileID: 102900000, guid: bffd93a1553358748ac02c1fbba4f087, type: 3}
     guid: bffd93a1553358748ac02c1fbba4f087
+  PlayerPlantsCounterDefaultScale: 1.7
+  PlayerPlantsCounterScaleCoef: 0.1

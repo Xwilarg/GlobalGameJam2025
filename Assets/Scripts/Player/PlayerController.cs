@@ -128,6 +128,7 @@ namespace GGJ.Player
                 Sellables.Add(takeable);
                 takeable.GameObject.SetActive(false);
                 _multiplier.text = $"x{Sellables.Count}";
+                UpdateMultiplierScale();
             }
         }
 
@@ -331,6 +332,11 @@ namespace GGJ.Player
             _seeds.SetActive(false);
             _wateringCan.SetActive(false);
             _cutedPlant.SetActive(false);
+        }
+
+        void UpdateMultiplierScale()
+        {
+            _multiplier.transform.localScale = Vector3.one * (ResourceManager.Instance.GameInfo.PlayerPlantsCounterDefaultScale + ResourceManager.Instance.GameInfo.PlayerPlantsCounterScaleCoef * Sellables.Count);
         }
     }
 }
