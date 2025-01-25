@@ -256,7 +256,7 @@ MonoBehaviour:
   _maxVolume: 0.5
   _bgmHappy: {fileID: 1464844442}
   _bgmSad: {fileID: 1533818788}
-  _bgmNeutral: {fileID: 1252085735}
+  _bgmNeutral: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
