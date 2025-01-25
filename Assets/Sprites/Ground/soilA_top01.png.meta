@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 156cd59b1db057f4a8f78e1509cec72f
+guid: 6482f374f8dae094692e386a03a47220
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6620569824337058027
-    second: soilLeft_0
+      213: 7749238904245008501
+    second: soilA_top01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: soilLeft_0
+      name: soilA_top01_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 281
+        width: 280
         height: 280
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 51728b172d20f14a0800000000000000
-      internalID: -6620569824337058027
+      spriteID: 5783927e9b3da8b60800000000000000
+      internalID: 7749238904245008501
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      soilLeft_0: -6620569824337058027
+      soilA_top01_0: 7749238904245008501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

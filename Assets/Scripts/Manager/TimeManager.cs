@@ -11,19 +11,13 @@ namespace GGJ.Manager
         /// <summary>
         /// Value between 0 and 1 representing how much time elapsed in the current phase
         /// </summary>
-        private float _day01;
-        public float Day01
-        {
-            private set
-            {
-                _day01 = value;
-                OnNewDay.Invoke();
-            }
-            get
-            {
-                return _day01;
-            }
-        }
+        public float Day01 => _day / (float)ResourceManager.Instance.GameInfo.RaisePhaseDuration;
+        public float TimeWithinDay01 => _timer / ResourceManager.Instance.GameInfo.DayDuration;
+
+        private int _day;
+
+        private bool _isTimerStarted;
+        private float _timer;
 
         public UnityEvent OnNewDay { get; } = new();
 
@@ -38,24 +32,37 @@ namespace GGJ.Manager
             {
                 if (phase == GamePhase.PriceRaise)
                 {
-                    StartCoroutine(WaitDays());
+                    _isTimerStarted = true;
                 }
             });
         }
 
-        private IEnumerator WaitDays()
+        private void Update()
         {
+            if (!_isTimerStarted) return;
+
             var info = ResourceManager.Instance.GameInfo;
-            for (int i = 0; i < info.RaisePhaseDuration; i++)
+            _timer += Time.deltaTime;
+            if (_timer >= info.DayDuration)
             {
-                Day01 = i / (float)info.RaisePhaseDuration;
-                yield return new WaitForSeconds(info.DayDuration);
-            }
-            GameManager.Instance.SetPhase(GamePhase.PriceCrash);
-            for (int i = 0; i < info.CrashPhaseDuration; i++)
-            {
-                Day01 = i / (float)info.CrashPhaseDuration;
-                yield return new WaitForSeconds(info.DayDuration);
+                _timer = 0f;
+                _day++;
+                if (GameManager.Instance.GamePhase == GamePhase.PriceRaise)
+                {
+                    if (_day == info.RaisePhaseDuration)
+                    {
+                        _day = 0;
+                        GameManager.Instance.SetPhase(GamePhase.PriceCrash);
+                    }
+                }
+                else
+                {
+                    if (_day == info.CrashPhaseDuration)
+                    {
+                        _day = 0;
+                        // TODO: Game end
+                    }
+                }
             }
         }
     }

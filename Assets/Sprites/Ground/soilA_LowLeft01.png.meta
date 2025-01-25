@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 191ca542dc4924b8997bd9a68485d056
+guid: 0294d0e52b9118f438807dbd1e2c20c9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5339227926592569288
-    second: TulipRipe_0
+      213: 1249753946041420568
+    second: soilA_LowLeft01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.3, y: 0.05}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +101,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TulipRipe_0
+      name: soilA_LowLeft01_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 91
-        height: 324
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 280
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8cf3563c28fb81a40800000000000000
-      internalID: 5339227926592569288
+      spriteID: 81b017aa794085110800000000000000
+      internalID: 1249753946041420568
       vertices: []
       indices: 
       edges: []
@@ -138,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 96319023b3d5044e7b2d89523026037c
-    internalID: 537601710
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TulipRipe_0: 5339227926592569288
+      soilA_LowLeft01_0: 1249753946041420568
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

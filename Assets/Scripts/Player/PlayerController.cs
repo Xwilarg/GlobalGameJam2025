@@ -90,13 +90,19 @@ namespace GGJ.Player
                 }
                 else if (CarriedObject != null) // We carry smth and there is empty space in front of us
                 {
-                    CarriedObject.GameObject.transform.position = center;
-                    CarriedObject.GameObject.SetActive(true);
-                    CarriedObject = null;
+                    DropItem();
                 }
             }
         }
         #endregion Inputs
+
+        public void DropItem()
+        {
+            var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
+            CarriedObject.GameObject.transform.position = center;
+            CarriedObject.GameObject.SetActive(true);
+            CarriedObject = null;
+        }
 
         public void Ready()
         {

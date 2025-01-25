@@ -75,7 +75,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  DayDuration: 10
+  DayDuration: 3
   RaisePhaseDuration: 10
   CrashPhaseDuration: 10
   PercSellVariation: 10
