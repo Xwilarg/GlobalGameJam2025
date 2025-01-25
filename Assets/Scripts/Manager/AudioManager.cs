@@ -8,7 +8,7 @@ namespace GGJ.Manager
         private float _maxVolume;
 
         [SerializeField]
-        private AudioSource _bgmHappy, _bgmSad;
+        private AudioSource _bgmHappy, _bgmSad, _bgmNeutral;
 
         private void Awake()
         {

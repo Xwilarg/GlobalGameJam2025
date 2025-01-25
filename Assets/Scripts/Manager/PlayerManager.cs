@@ -22,9 +22,16 @@ namespace GGJ.Manager
 
         public void Register(PlayerController pc)
         {
-            pc.transform.position = _startAreas[_players.Count % _startAreas.Count].position;
+            var spawn = _startAreas[_players.Count % _startAreas.Count].position;
+            pc.transform.position = spawn;
+            pc.SpawnPoint = spawn;
             pc.Color = _colors[_players.Count % _startAreas.Count];
             _players.Add(pc);
+
+            if (_players.Count == 2)
+            {
+                GameManager.Instance.ShowReadyPendingText();
+            }
         }
 
         public void Register(Transform start)
@@ -41,6 +48,14 @@ namespace GGJ.Manager
                     p.UnreadyForGameStart();
                 }
                 GameManager.Instance.SetPhase(GamePhase.PriceRaise);
+            }
+        }
+
+        public void ResetAllPlayers()
+        {
+            foreach (var p in _players)
+            {
+                p.ResetAll();
             }
         }
 

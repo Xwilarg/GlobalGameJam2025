@@ -25,6 +25,7 @@ public class Dirt : MonoBehaviour, IInteractible
 
         plant = Instantiate(_plantPrefab, transform.position, transform.rotation).GetComponent<Plant>();
         plant.Dirt = this;
+        plant.transform.parent = plant.Dirt.transform;
 
         plant.SetFlowerColor(flowerColor);
 
@@ -41,15 +42,5 @@ public class Dirt : MonoBehaviour, IInteractible
     public bool CanInteract(PlayerController pc)
     {
         return !plant && pc.CarriedObject != null && pc.CarriedObject.CanPlant;
-    }
-
-    public void Clear()
-    {
-        if (plant)
-        {
-            Destroy(plant.gameObject);
-            plantCount = 0;
-            plant = null;
-        }
     }
 }

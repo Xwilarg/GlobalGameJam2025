@@ -1,12 +1,18 @@
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace GGJ.Manager
 {
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { private set; get; }
+
+        [SerializeField]
+        private TMP_Text _infoText;
 
         public GamePhase GamePhase { private set; get; }
 
@@ -20,9 +26,16 @@ namespace GGJ.Manager
         {
             Instance = this;
 
+            _infoText.text = "Press any button to join...";
+
 #if !UNITY_EDITOR
             SceneManager.LoadScene("01");
 #endif
+        }
+
+        public void ShowReadyPendingText()
+        {
+            _infoText.text = "Waiting for players to plant a tulip";
         }
 
         public void SetPhase(GamePhase targetPhase)
@@ -34,12 +47,17 @@ namespace GGJ.Manager
 
                 if (GamePhase == GamePhase.PriceRaise)
                 {
-                    foreach (var d in _dirts)
-                    {
-                        d.Clear();
-                    }
+                    _infoText.text = string.Empty;
+                    StartCoroutine(ReloadScene(_targetScene));
+                    PlayerManager.Instance.ResetAllPlayers();
                 }
             }
+        }
+
+        private IEnumerator ReloadScene(string scene)
+        {
+            yield return SceneManager.UnloadSceneAsync(scene);
+            yield return SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
         }
 
         public void Register(Dirt d)
