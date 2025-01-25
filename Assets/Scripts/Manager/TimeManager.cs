@@ -62,6 +62,7 @@ namespace GGJ.Manager
                         // TODO: Game end
                     }
                 }
+                OnNewDay.Invoke();
             }
         }
     }

@@ -41,6 +41,6 @@ public class Dirt : MonoBehaviour, IInteractible
 
     public bool CanInteract(PlayerController pc)
     {
-        return !plant && pc.CarriedObject != null && pc.CarriedObject.CanPlant;
+        return !plant && !pc.IsReady && pc.CarriedObject != null && pc.CarriedObject.CanPlant;
     }
 }
