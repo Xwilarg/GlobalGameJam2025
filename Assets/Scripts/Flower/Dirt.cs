@@ -12,17 +12,6 @@ public class Dirt : MonoBehaviour, IInteractible
     int flowerCount = 0;
 
 
-    public bool Interact(PlayerController pc)
-    {
-        if (!flower/* && player carry seeds*/)
-        {
-            PlantFlower();
-            return true;
-        }
-
-        return false;
-    }
-
     void PlantFlower()
     {
         if (flower)
@@ -32,5 +21,15 @@ public class Dirt : MonoBehaviour, IInteractible
         flower.Dirt = this;
 
         flowerCount++;
+    }
+
+    void IInteractible.Interact(PlayerController pc)
+    {
+        PlantFlower();
+    }
+
+    public bool CanInteract(PlayerController pc)
+    {
+        return !flower && pc.CarriedObject.GameObject.name == "Seeds";
     }
 }

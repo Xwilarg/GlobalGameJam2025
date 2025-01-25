@@ -94,20 +94,19 @@ public class Flower : MonoBehaviour, IInteractible
     }
 
 
-    public bool Interact(PlayerController pc)
+  
+    void IInteractible.Interact(PlayerController pc)
     {
-        if (needCut /* && player carry scissors */)
-        {
+        if (needCut)
             Cut();
-            return true;
-        }
 
-        else if (needWater /* && player carry water */)
-        {
+        else if (needWater)
             Water();
-            return true;
-        }
+    }
 
-        return false;
+    public bool CanInteract(PlayerController pc)
+    {
+        return (needCut && pc.CarriedObject.GameObject.name == "Scissors") ||
+               (needCut && pc.CarriedObject.GameObject.name == "Water");
     }
 }
