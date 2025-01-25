@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -53,6 +54,10 @@ namespace GGJ.Manager
                 {
                     StartCoroutine(ReadyupTimer());
                 }
+                else if (GamePhase == GamePhase.GameEnded)
+                {
+                    StartCoroutine(BackToLobby());
+                }
             }
         }
 
@@ -65,14 +70,25 @@ namespace GGJ.Manager
             }
             _timerText.text = "";
             _infoText.text = string.Empty;
-            StartCoroutine(ReloadScene(ResourceManager.Instance.GameInfo.GameLevel.Name));
+            StartCoroutine(ReloadScene());
             PlayerManager.Instance.ResetAllPlayers();
         }
 
-        private IEnumerator ReloadScene(string scene)
+        private IEnumerator BackToLobby()
+        {
+            for (int i = 10; i > 0; i--)
+            {
+                _infoText.text = $"Redirecting to lobby in {i}...";
+                yield return new WaitForSeconds(1f);
+            }
+            yield return SceneManager.UnloadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name);
+            yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
+        }
+
+        private IEnumerator ReloadScene()
         {
             yield return SceneManager.UnloadSceneAsync("Lobby");
-            yield return SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+            yield return SceneManager.LoadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name, LoadSceneMode.Additive);
         }
 
         public void Register(Dirt d)
