@@ -24,9 +24,14 @@ namespace GGJ.Prop.Impl
             return GameManager.Instance.GamePhase > GamePhase.LobbyPreparation && pc.CarriedObject != null && pc.CarriedObject.CanBeSold;
         }
 
+        public string AddSign(float nb)
+        {
+            if (nb >= 0f) return $"+{nb}";
+            else return $"-{Mathf.Abs(nb)}";
+        }
         public void UpdateUI()
         {
-            _priceText.text = $"{EconomyManager.Instance.CurrentPrice * Variation}ƒ (+{Variation:0.00})";
+            _priceText.text = $"{EconomyManager.Instance.CurrentPrice * Variation}ƒ (+{AddSign(Variation):0.00})";
         }
 
         public void UpdateVariation(float average)

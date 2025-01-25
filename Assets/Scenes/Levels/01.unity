@@ -7829,6 +7829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SellingCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 745127749832957586, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5461843439958581248, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
