@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: a7122f7e62d5f774285e6a457fd038d9
+guid: 018488d1d8d87db4984d7b33e35fe6f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4108581731169195084
-    second: seller_wip_0
-  - first:
-      213: -4418960467943068450
-    second: seller_wip_1
+      213: 8619566886128831510
+    second: grass02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: seller_wip_0
+      name: grass02_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1043
-        height: 693
+        width: 281
+        height: 280
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c44dff8f05d940930800000000000000
-      internalID: 4108581731169195084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: seller_wip_1
-      rect:
-        serializedVersion: 2
-        x: 1041
-        y: 325
-        width: 13
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: edc62c7fdd2bca2c0800000000000000
-      internalID: -4418960467943068450
+      spriteID: 61ccd6d1a6ade9770800000000000000
+      internalID: 8619566886128831510
       vertices: []
       indices: 
       edges: []
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      seller_wip_0: 4108581731169195084
-      seller_wip_1: -4418960467943068450
+      grass02_0: 8619566886128831510
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

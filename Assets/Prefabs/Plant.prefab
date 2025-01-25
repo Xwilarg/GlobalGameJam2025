@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5339227926592569288, guid: 191ca542dc4924b8997bd9a68485d056, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 191ca542dc4924b8997bd9a68485d056, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.91, y: 3.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -164,12 +164,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3410417774093980281, guid: ff8f37ee4308f480c9fef0144982b30c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff8f37ee4308f480c9fef0144982b30c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.88, y: 2.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -274,12 +274,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4174882035479105401, guid: 46f37bffc30b844a2914988fa0104538, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46f37bffc30b844a2914988fa0104538, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.88, y: 2.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -383,12 +383,12 @@ SpriteRenderer:
   m_SortingLayerID: -574426315
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 540337217444644243, guid: 6655fde72398445d6aa26b100ceaaa8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6655fde72398445d6aa26b100ceaaa8f, type: 3}
   m_Color: {r: 0.14684942, g: 0.25930288, b: 0.9433962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.91, y: 3.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -450,13 +450,13 @@ MonoBehaviour:
   needCutPopup: {fileID: 4299380022173581811}
   cutedPlantPrefab: {fileID: 385365920325629815, guid: dcffee11429d64fab8de66ff0310c436, type: 3}
   plantSprites:
-  - {fileID: -6478797528356011927, guid: c5710c7424d884392aa13fd360724b2f, type: 3}
-  - {fileID: -4427725134241655194, guid: 145c07376695b41309ace5a4d9234641, type: 3}
-  - {fileID: 5339227926592569288, guid: 191ca542dc4924b8997bd9a68485d056, type: 3}
+  - {fileID: 21300000, guid: c5710c7424d884392aa13fd360724b2f, type: 3}
+  - {fileID: 21300000, guid: 145c07376695b41309ace5a4d9234641, type: 3}
+  - {fileID: 21300000, guid: 191ca542dc4924b8997bd9a68485d056, type: 3}
   flowerSprites:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 540337217444644243, guid: 6655fde72398445d6aa26b100ceaaa8f, type: 3}
+  - {fileID: 21300000, guid: 6655fde72398445d6aa26b100ceaaa8f, type: 3}
 --- !u!58 &1239454384954076126
 CircleCollider2D:
   m_ObjectHideFlags: 0
