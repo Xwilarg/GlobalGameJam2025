@@ -146,6 +146,12 @@ namespace GGJ.Player
         public void GetStunned(Vector2 dir)
         {
             DropItem();
+            foreach (var s in Sellables)
+            {
+                s.GameObject.SetActive(true);
+                s.GameObject.transform.position = transform.position + (Vector3)Random.insideUnitCircle * ResourceManager.Instance.GameInfo.SpreadRange;
+            }
+            Sellables.Clear();
             _stunDirection = dir;
             StartCoroutine(StunTimer());
             StartCoroutine(HitEffect());

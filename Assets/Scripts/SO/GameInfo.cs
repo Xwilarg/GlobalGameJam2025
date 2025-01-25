@@ -37,6 +37,7 @@ namespace GGJ.SO
 
         [Header("Plant")]
         [Tooltip("How long before plant need water")] public float NeedWaterDeltaTime = 3;
+        [Tooltip("How far flowers are spread when stunned")] public float SpreadRange;
 
         [Header("Levels")]
         public SceneReference GameLevel;
