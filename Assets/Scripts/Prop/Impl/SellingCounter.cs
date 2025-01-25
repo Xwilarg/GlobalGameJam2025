@@ -10,12 +10,12 @@ namespace GGJ.Prop.Impl
         [SerializeField]
         private TMP_Text _priceText;
 
+        public int AmountSold { set; get; }
+        public float Variation { set; get; } = 1f;
+
         private void Start()
         {
-            TimeManager.Instance.OnNewDay.AddListener(() =>
-            {
-                UpdateUI();
-            });
+            EconomyManager.Instance.Register(this);
             UpdateUI();
         }
 
@@ -24,14 +24,20 @@ namespace GGJ.Prop.Impl
             return pc.CarriedObject != null && pc.CarriedObject.CanBeSold;
         }
 
-        private void UpdateUI()
+        public void UpdateUI()
         {
-            _priceText.text = $"{EconomyManager.Instance.CurrentPrice}ƒ";
+            _priceText.text = $"{EconomyManager.Instance.CurrentPrice * Variation}ƒ (+{Variation:0.00})";
+        }
+
+        public void UpdateVariation(float average)
+        {
+            Variation = (1f + Variation) / 2f;
+            Variation += AmountSold - average;
         }
 
         public void Interact(PlayerController pc)
         {
-
+            AmountSold++;
             pc.GainMoney(EconomyManager.Instance.CurrentPrice);
             pc.DiscardCarry();
         }
