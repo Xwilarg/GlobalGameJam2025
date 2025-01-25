@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6169725de20378042a3176f63512283e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxVolume: 0.5
+  _maxVolume: 0.4
   _bgmHappy: {fileID: 1464844442}
   _bgmSad: {fileID: 1533818788}
   _bgmNeutral: {fileID: 1252085735}
