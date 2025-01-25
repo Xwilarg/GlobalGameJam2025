@@ -89,8 +89,8 @@ namespace GGJ.Player
                 }
                 else if (CarriedObject != null) // We carry smth and there is empty space in front of us
                 {
-                    CarriedObject.GameObject.SetActive(true);
                     CarriedObject.GameObject.transform.position = center;
+                    CarriedObject.GameObject.SetActive(true);
                     CarriedObject = null;
                 }
             }
