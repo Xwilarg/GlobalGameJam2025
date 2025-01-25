@@ -51,26 +51,53 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -2.4287066
-      outSlope: -2.4287066
+      inSlope: -0.30167788
+      outSlope: -0.30167788
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.35172775
-      value: 0.14575648
-      inSlope: -0.58484244
-      outSlope: -0.58484244
-      tangentMode: 0
+      time: 0.24178281
+      value: 0.9270595
+      inSlope: -0.77320135
+      outSlope: -0.77320135
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.24457832
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.37747413
+      value: 0.7581611
+      inSlope: -2.1828313
+      outSlope: -2.1828313
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5099424
+      value: 0.34473583
+      inSlope: -2.1274967
+      outSlope: -2.1274967
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.76217705
+      value: 0.05868774
+      inSlope: -0.6904131
+      outSlope: -0.6904131
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -0.22483838
-      outSlope: -0.22483838
+      inSlope: -0.24677071
+      outSlope: -0.24677071
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -130,3 +157,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  NeedWaterDeltaTime: 5
