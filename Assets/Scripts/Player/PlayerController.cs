@@ -27,6 +27,9 @@ namespace GGJ.Player
         [SerializeField]
         private SpriteRenderer _spriteAlpha;
 
+        [SerializeField]
+        private TMP_Text _multiplier;
+
         private Vector2 _mov;
         private Vector2 _direction = Vector2.up;
         private Rigidbody2D _rb;

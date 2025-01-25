@@ -1343,6 +1343,7 @@ MonoBehaviour:
   _cutedPlant: {fileID: 54181189019794795}
   _cutedPlantFlowerSprite: {fileID: 3656109868383522491}
   _spriteAlpha: {fileID: 8387135472553323613}
+  _multiplier: {fileID: 524586079890210429}
 --- !u!114 &840272370479334935
 MonoBehaviour:
   m_ObjectHideFlags: 0
