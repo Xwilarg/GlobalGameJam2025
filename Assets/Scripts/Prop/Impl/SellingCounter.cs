@@ -11,6 +11,9 @@ namespace GGJ.Prop.Impl
         [SerializeField]
         private TMP_Text _priceText;
 
+        [SerializeField]
+        private GameObject _sellVFX;
+
         public int AmountSold { set; get; }
         public float Variation { set; get; } = 1f;
 
@@ -58,6 +61,7 @@ namespace GGJ.Prop.Impl
             AmountSold += pc.Sellables.Count;
             pc.DiscardSellablesCarry();
             AudioManager.Instance.PlaySell();
+            Destroy(Instantiate(_sellVFX, transform.position, Quaternion.identity), 1f);
         }
     }
 }
