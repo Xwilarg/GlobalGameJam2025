@@ -198,6 +198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0920b892b34bb584fae49f7172e210e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _colors:
+  - {r: 0.7607843, g: 0.20784314, b: 0.12941177, a: 1}
+  - {r: 0.99215686, g: 0.8901961, b: 0.16470589, a: 1}
+  - {r: 0.9490196, g: 0.9372549, b: 0.9098039, a: 1}
+  - {r: 0.6627451, g: 0.3019608, b: 0.49411765, a: 1}
 --- !u!114 &209424493
 MonoBehaviour:
   m_ObjectHideFlags: 0

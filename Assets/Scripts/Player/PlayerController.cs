@@ -25,6 +25,8 @@ namespace GGJ.Player
 
         public ITakeable CarriedObject { private set; get; }
 
+        public Color Color { set; get; }
+
         #region Unity methods
         private void Awake()
         {
@@ -97,8 +99,10 @@ namespace GGJ.Player
 
         public void Ready()
         {
+            Debug.Log("Check ready");
             if (GameManager.Instance.GamePhase == GamePhase.LobbyPreparation)
             {
+                Debug.Log("Set ready");
                 _readyText.SetActive(true);
                 IsReady = true;
                 PlayerManager.Instance.CheckAllReady();

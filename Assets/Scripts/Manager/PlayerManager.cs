@@ -12,6 +12,9 @@ namespace GGJ.Manager
         private readonly List<PlayerController> _players = new();
         private readonly List<Transform> _startAreas = new();
 
+        [SerializeField]
+        private Color[] _colors;
+
         private void Awake()
         {
             Instance = this;
@@ -20,6 +23,7 @@ namespace GGJ.Manager
         public void Register(PlayerController pc)
         {
             pc.transform.position = _startAreas[_players.Count % _startAreas.Count].position;
+            pc.Color = _colors[_players.Count % _startAreas.Count];
             _players.Add(pc);
         }
 

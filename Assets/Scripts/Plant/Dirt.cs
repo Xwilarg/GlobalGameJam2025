@@ -31,6 +31,7 @@ public class Dirt : MonoBehaviour, IInteractible
     {
         Color playerColor = Color.blue; // TODO : get color from player;
         PlantPlant(playerColor);
+        pc.Ready();
     }
 
     public bool CanInteract(PlayerController pc)
