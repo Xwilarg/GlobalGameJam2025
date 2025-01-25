@@ -14,6 +14,9 @@ public class CutedPlant : MonoBehaviour, IInteractible, ITakeable
 
     [SerializeField] SpriteRenderer flowerSpriteRenderer;
 
+    private int playerId;
+    public int PlayerId { get => playerId; }
+
 
     public void SetFlowerColor(Color color)
     {
@@ -29,5 +32,6 @@ public class CutedPlant : MonoBehaviour, IInteractible, ITakeable
     {
         pc.Carry(this);
         pc.CutedPlantFlowerSprite.color = flowerSpriteRenderer.color;
+        playerId = pc.Id;
     }
 }
