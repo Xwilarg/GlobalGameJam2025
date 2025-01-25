@@ -25,6 +25,7 @@ public class Dirt : MonoBehaviour, IInteractible
 
         plant = Instantiate(_plantPrefab, transform.position, transform.rotation).GetComponent<Plant>();
         plant.Dirt = this;
+        plant.transform.parent = plant.Dirt.transform;
 
         plant.SetFlowerColor(flowerColor);
 

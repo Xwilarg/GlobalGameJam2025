@@ -22,7 +22,7 @@ public class Plant : MonoBehaviour, IInteractible
     bool needCut = false;
     Dirt dirt;
 
-    public Dirt Dirt { set => dirt = value; }
+    public Dirt Dirt { set; get; }
 
 
     void SetGrowthLvl(int growthLvl)
