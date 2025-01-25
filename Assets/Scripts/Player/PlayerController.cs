@@ -72,6 +72,16 @@ namespace GGJ.Player
             }
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("CutedPlant"))
+            {
+                var takeable = collision.GetComponent<ITakeable>();
+                Sellables.Add(takeable);
+                takeable.GameObject.SetActive(false);
+            }
+        }
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.blue;
@@ -203,13 +213,6 @@ namespace GGJ.Player
         /// <returns>Could the object be carried</returns>
         public bool Carry(ITakeable takeable)
         {
-            if (takeable.CanBeSold)
-            {
-                Sellables.Add(takeable);
-                takeable.GameObject.SetActive(false);
-                return true;
-            }
-
             if (CarriedObject != null) return false;
 
             CarriedObject = takeable;

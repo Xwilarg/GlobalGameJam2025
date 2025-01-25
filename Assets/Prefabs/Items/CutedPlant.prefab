@@ -186,9 +186,9 @@ GameObject:
   - component: {fileID: 385365920325629815}
   - component: {fileID: 4999592875700059566}
   - component: {fileID: 7847921587556436440}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: CutedPlant
-  m_TagString: Untagged
+  m_TagString: CutedPlant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -272,4 +272,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 1
-  offset: 0
