@@ -31,6 +31,9 @@ namespace GGJ.SO
         [Header("Audio")]
         public AnimationCurve AudioCurveIncrease;
         public AnimationCurve AudioCurveDecrease;
+
+        [Header("Plant")]
+        [Tooltip("How long before plant need water")] public float NeedWaterDeltaTime = 3;
     }
 
     [System.Serializable]
