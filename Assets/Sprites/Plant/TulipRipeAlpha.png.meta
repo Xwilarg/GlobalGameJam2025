@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: a7122f7e62d5f774285e6a457fd038d9
+guid: 6655fde72398445d6aa26b100ceaaa8f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4108581731169195084
-    second: seller_wip_0
-  - first:
-      213: -4418960467943068450
-    second: seller_wip_1
+      213: 540337217444644243
+    second: TulipRipeAlpha_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,8 +49,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.3, y: 0.05}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -99,62 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: seller_wip_0
+      name: TulipRipeAlpha_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1043
-        height: 693
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 91
+        height: 324
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c44dff8f05d940930800000000000000
-      internalID: 4108581731169195084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: seller_wip_1
-      rect:
-        serializedVersion: 2
-        x: 1041
-        y: 325
-        width: 13
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: edc62c7fdd2bca2c0800000000000000
-      internalID: -4418960467943068450
+      spriteID: 39506b026d9af7700800000000000000
+      internalID: 540337217444644243
       vertices: []
       indices: 
       edges: []
@@ -163,8 +125,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    spriteID: 36ce8fa8a234a43e29644f83db57a9ba
+    internalID: 1940027938
     vertices: []
     indices: 
     edges: []
@@ -173,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      seller_wip_0: 4108581731169195084
-      seller_wip_1: -4418960467943068450
+      TulipRipeAlpha_0: 540337217444644243
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

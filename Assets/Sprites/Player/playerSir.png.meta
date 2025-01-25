@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: a7122f7e62d5f774285e6a457fd038d9
+guid: bf7a2b12892838c4daeb4cb951f7a6b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4108581731169195084
-    second: seller_wip_0
-  - first:
-      213: -4418960467943068450
-    second: seller_wip_1
+      213: 3080576438638034324
+    second: playerSir_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,8 +49,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.58283466, y: 0.0795207}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -116,45 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: seller_wip_0
+      name: playerSir_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1043
-        height: 693
+        width: 379
+        height: 655
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c44dff8f05d940930800000000000000
-      internalID: 4108581731169195084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: seller_wip_1
-      rect:
-        serializedVersion: 2
-        x: 1041
-        y: 325
-        width: 13
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: edc62c7fdd2bca2c0800000000000000
-      internalID: -4418960467943068450
+      spriteID: 49d357803f760ca20800000000000000
+      internalID: 3080576438638034324
       vertices: []
       indices: 
       edges: []
@@ -164,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      seller_wip_0: 4108581731169195084
-      seller_wip_1: -4418960467943068450
+      playerSir_0: 3080576438638034324
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
