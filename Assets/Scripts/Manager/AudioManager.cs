@@ -4,14 +4,21 @@ namespace GGJ.Manager
 {
     public class AudioManager : MonoBehaviour
     {
+        public static AudioManager Instance { private set; get; }
+
         [SerializeField]
         private float _maxVolume;
 
         [SerializeField]
         private AudioSource _bgmHappy, _bgmSad, _bgmNeutral;
 
+        [SerializeField]
+        private AudioSource _water, _cut, _plant, _punch, _sell;
+
         private void Awake()
         {
+            Instance = this;
+
             _bgmHappy.volume = 0f;
             _bgmSad.volume = 0f;
             _bgmNeutral.volume = _maxVolume;
@@ -40,5 +47,12 @@ namespace GGJ.Manager
                 _bgmNeutral.volume = 0f;
             }
         }
+
+        public void PlayWater() => _water.PlayOneShot(_water.clip);
+
+        public void PlayCut() => _cut.PlayOneShot(_cut.clip);
+        public void PlayPlant() => _plant.PlayOneShot(_plant.clip);
+        public void PlayPunch() => _punch.PlayOneShot(_punch.clip);
+        public void PlaySell() => _sell.PlayOneShot(_sell.clip);
     }
 }
