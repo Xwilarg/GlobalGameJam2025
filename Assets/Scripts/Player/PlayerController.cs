@@ -22,6 +22,9 @@ namespace GGJ.Player
         [SerializeField]
         private SpriteRenderer _cutedPlantFlowerSprite;
 
+        [SerializeField]
+        private SpriteRenderer _spriteAlpha;
+
         private Vector2 _mov;
         private Vector2 _direction = Vector2.up;
         private Rigidbody2D _rb;
@@ -33,11 +36,24 @@ namespace GGJ.Player
 
         public ITakeable CarriedObject { private set; get; }
 
-        public Color Color { set; get; }
+        Color _color;
+
+        public Color Color
+        {
+            get => _color;
+
+            set {
+                _color = value;
+                _spriteAlpha.color = value;
+            }
+        }
+
         public Vector2 SpawnPoint { set; private get; }
 
         private Vector2? _stunDirection = null;
         public SpriteRenderer CutedPlantFlowerSprite { get => _cutedPlantFlowerSprite; }
+
+        Animator _animator;
 
         public int Id { set; get; }
 
@@ -46,6 +62,7 @@ namespace GGJ.Player
         {
             _rb = GetComponent<Rigidbody2D>();
             _sr = GetComponentInChildren<SpriteRenderer>();
+            _animator = GetComponent<Animator>();
             _readyText.SetActive(false);
         }
 
@@ -57,6 +74,13 @@ namespace GGJ.Player
         private void FixedUpdate()
         {
             _rb.linearVelocity = _stunDirection.HasValue ? (_stunDirection.Value * ResourceManager.Instance.GameInfo.StunForce) : (_mov * ResourceManager.Instance.GameInfo.Speed);
+
+            int runAnimation = 0;
+
+            if (_rb.linearVelocity.sqrMagnitude > 0.01f)
+                runAnimation = _direction.x > 0 ? 1 : -1;
+
+            _animator.SetInteger("Run", runAnimation);
         }
 
         private void OnDrawGizmos()
