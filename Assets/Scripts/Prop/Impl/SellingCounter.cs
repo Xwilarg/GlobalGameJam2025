@@ -45,7 +45,9 @@ namespace GGJ.Prop.Impl
         {
             int money = EconomyManager.Instance.CurrentPrice;
 
-            if (pc.CarriedObject != null && pc.CarriedObject is CutedPlant)
+            if (pc.CarriedObject != null &&
+                pc.CarriedObject is CutedPlant &&
+                ((CutedPlant)pc.CarriedObject).PlayerId != pc.Id)
                 money = (int)(money * ResourceManager.Instance.GameInfo.OtherPlayerPlantPriceCoef);
 
             AmountSold++;
