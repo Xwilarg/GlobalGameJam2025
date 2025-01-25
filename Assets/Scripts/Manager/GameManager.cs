@@ -39,19 +39,18 @@ namespace GGJ.Manager
 
         private void Start()
         {
-#if !UNITY_EDITOR
-            SceneManager.LoadScene("Lobby", LoadSceneMode.Additive);
-            _inputManager.EnableJoining();
-#else
             StartCoroutine(SwitchToLobbyDebug());
-#endif
         }
 
         private IEnumerator SwitchToLobbyDebug()
         {
+#if UNITY_EDITOR
             yield return SceneManager.UnloadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name);
             OnResetAll();
+#endif
             yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
+            SceneTransform = new GameObject("Container").transform;
+            SceneManager.MoveGameObjectToScene(SceneTransform.gameObject, SceneManager.GetSceneByName("Lobby"));
             _inputManager.EnableJoining();
         }
 
@@ -109,6 +108,8 @@ namespace GGJ.Manager
             yield return SceneManager.UnloadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name);
             OnResetAll();
             yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
+            SceneTransform = new GameObject("Container").transform;
+            SceneManager.MoveGameObjectToScene(SceneTransform.gameObject, SceneManager.GetSceneByName("Lobby"));
             _inputManager.EnableJoining();
         }
 
