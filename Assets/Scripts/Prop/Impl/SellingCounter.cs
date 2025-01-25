@@ -26,23 +26,13 @@ namespace GGJ.Prop.Impl
 
         private void UpdateUI()
         {
-            _priceText.text = $"{GetCurrentPrice()}ƒ";
-        }
-
-        private int GetCurrentPrice()
-        {
-            var time01 = TimeManager.Instance.Day01;
-            var info = ResourceManager.Instance.GameInfo;
-            var value = (GameManager.Instance.GamePhase == GamePhase.PriceRaise ? info.RaisePriceCurve : info.CrashPriceCurve).Evaluate(time01);
-            value *= (info.MinMaxPrice.Max - info.MinMaxPrice.Min);
-            value += info.MinMaxPrice.Min;
-            return Mathf.FloorToInt(value);
+            _priceText.text = $"{EconomyManager.Instance.CurrentPrice}ƒ";
         }
 
         public void Interact(PlayerController pc)
         {
 
-            pc.GainMoney(GetCurrentPrice());
+            pc.GainMoney(EconomyManager.Instance.CurrentPrice);
             pc.DiscardCarry();
         }
     }
