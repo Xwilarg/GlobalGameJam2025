@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GameInfo
   m_EditorClassIdentifier: 
   Speed: 15
+  SpeedWhenCarrying: 12.5
   InteractionDistance: 2
   InteractionSize: 1.75
   StunDuration: 0.5

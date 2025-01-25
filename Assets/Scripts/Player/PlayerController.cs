@@ -56,7 +56,18 @@ namespace GGJ.Player
 
         private void FixedUpdate()
         {
-            _rb.linearVelocity = _stunDirection.HasValue ? (_stunDirection.Value * ResourceManager.Instance.GameInfo.StunForce) : (_mov * ResourceManager.Instance.GameInfo.Speed);
+            if (_stunDirection.HasValue)
+            {
+                _rb.linearVelocity = _stunDirection.Value * ResourceManager.Instance.GameInfo.StunForce;
+            }
+            else if (CarriedObject != null)
+            {
+                _rb.linearVelocity = _mov * ResourceManager.Instance.GameInfo.SpeedWhenCarrying;
+            }
+            else
+            {
+                _rb.linearVelocity = _mov * ResourceManager.Instance.GameInfo.Speed;
+            }
         }
 
         private void OnDrawGizmos()
