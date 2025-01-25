@@ -1,5 +1,6 @@
 using GGJ.Manager;
 using GGJ.Prop;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -60,12 +61,22 @@ namespace GGJ.Player
             if (value.phase == InputActionPhase.Started)
             {
                 var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
-                var coll = Physics2D.OverlapCircle(center, ResourceManager.Instance.GameInfo.InteractionSize, LayerMask.GetMask("Prop"));
-                if (coll != null)
+                var colls = Physics2D.OverlapCircleAll(center, ResourceManager.Instance.GameInfo.InteractionSize, LayerMask.GetMask("Prop"));
+                if (colls.Any())
                 {
-                    if (coll.TryGetComponent<IInteractible>(out var interact) && interact.CanInteract(this))
+                    var valids = colls.Where(x =>
                     {
-                        interact.Interact(this);
+                        if (x.TryGetComponent<IInteractible>(out var interact))
+                        {
+                            return interact.CanInteract(this);
+                        }
+                        return false;
+                    });
+                    if (valids.Any())
+                    {
+                        var takeable = valids.FirstOrDefault(x => x.TryGetComponent<ITakeable>(out var _));
+                        if (takeable != null) takeable.GetComponent<IInteractible>().Interact(this);
+                        else valids.First().GetComponent<IInteractible>().Interact(this);
                     }
                 }
                 else if (CarriedObject != null) // We carry smth and there is empty space in front of us
