@@ -17,6 +17,7 @@ namespace GGJ.Prop.Impl
                 value += info.MinMaxPrice.Min;
 
                 pc.GainMoney(Mathf.FloorToInt(value));
+                pc.DiscardCarry();
             }
             return true;
         }
