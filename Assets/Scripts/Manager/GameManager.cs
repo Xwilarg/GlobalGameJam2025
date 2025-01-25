@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace GGJ.Manager
@@ -16,6 +17,9 @@ namespace GGJ.Manager
 
         [SerializeField]
         private TMP_Text _timerText;
+
+        [SerializeField]
+        private PlayerInputManager _inputManager;
 
         public GamePhase GamePhase { private set; get; }
 
@@ -35,6 +39,7 @@ namespace GGJ.Manager
         {
 #if !UNITY_EDITOR
             SceneManager.LoadScene("Lobby", LoadSceneMode.Additive);
+            _inputManager.EnableJoining();
 #else
             StartCoroutine(SwitchToLobbyDebug());
 #endif
@@ -45,6 +50,7 @@ namespace GGJ.Manager
             yield return SceneManager.UnloadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name);
             OnResetAll();
             yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
+            _inputManager.EnableJoining();
         }
 
         public void OnResetAll()
@@ -86,6 +92,7 @@ namespace GGJ.Manager
             }
             _timerText.text = "";
             _infoText.text = string.Empty;
+            _inputManager.DisableJoining();
             StartCoroutine(ReloadScene());
             PlayerManager.Instance.ResetAllPlayers();
         }
@@ -101,6 +108,7 @@ namespace GGJ.Manager
             OnResetAll();
             yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
             SetPhase(GamePhase.LobbyPreparation);
+            _inputManager.EnableJoining();
         }
 
         private IEnumerator ReloadScene()

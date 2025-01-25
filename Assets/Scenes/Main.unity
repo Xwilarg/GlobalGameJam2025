@@ -217,9 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _infoText: {fileID: 1768693292}
   _timerText: {fileID: 500502062}
-  _targetScene:
-    asset: {fileID: 102900000, guid: 2ec3bf49cafb97e4d8b7dfc9f8fbb4d1, type: 3}
-    guid: 2ec3bf49cafb97e4d8b7dfc9f8fbb4d1
+  _inputManager: {fileID: 1606002444}
 --- !u!114 &209424494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13346,7 +13344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 2
   m_MaxPlayerCount: 4
-  m_AllowJoining: 1
+  m_AllowJoining: 0
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
     m_PersistentCalls:
