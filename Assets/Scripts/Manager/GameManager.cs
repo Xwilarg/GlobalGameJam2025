@@ -33,7 +33,7 @@ namespace GGJ.Manager
             _timerText.text = string.Empty;
 
 #if !UNITY_EDITOR
-            SceneManager.LoadScene("01");
+            SceneManager.LoadScene("Lobby");
 #endif
         }
 
@@ -71,7 +71,7 @@ namespace GGJ.Manager
 
         private IEnumerator ReloadScene(string scene)
         {
-            yield return SceneManager.UnloadSceneAsync(scene);
+            yield return SceneManager.UnloadSceneAsync("Lobby");
             yield return SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
         }
 
