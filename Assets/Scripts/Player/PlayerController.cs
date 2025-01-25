@@ -70,7 +70,8 @@ namespace GGJ.Player
             if (value.phase == InputActionPhase.Started)
             {
                 var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
-                var colls = Physics2D.OverlapCircleAll(center, ResourceManager.Instance.GameInfo.InteractionSize, LayerMask.GetMask("Prop"));
+                var size = ResourceManager.Instance.GameInfo.InteractionSize;
+                var colls = Physics2D.OverlapCircleAll(center, size, LayerMask.GetMask("Prop"));
                 if (colls.Any())
                 {
                     var valids = colls.Where(x =>
@@ -90,7 +91,10 @@ namespace GGJ.Player
                 }
                 else if (CarriedObject != null) // We carry smth and there is empty space in front of us
                 {
-                    DropItem();
+                    if (Physics2D.OverlapCircleAll(center, size, LayerMask.GetMask("Wall")) == null) // Prevent dropping something inside a wall
+                    {
+                        DropItem();
+                    }
                 }
             }
         }
