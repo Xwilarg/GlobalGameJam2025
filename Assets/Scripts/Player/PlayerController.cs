@@ -102,7 +102,7 @@ namespace GGJ.Player
                         IInteractible target = null;
 
                         var takeable = colls.FirstOrDefault(x => x.TryGetComponent<ITakeable>(out var _));
-                        if (takeable != null)
+                        if (takeable != null && takeable.GetComponent<ITakeable>().IsSwitchAllowed)
                         {
                             DropItem();
                             target = takeable.GetComponent<IInteractible>();
