@@ -22,7 +22,6 @@ namespace GGJ.Player
         [SerializeField]
         private SpriteRenderer _cutedPlantFlowerSprite;
 
-
         private Vector2 _mov;
         private Vector2 _direction = Vector2.up;
         private Rigidbody2D _rb;
@@ -39,6 +38,8 @@ namespace GGJ.Player
 
         private Vector2? _stunDirection = null;
         public SpriteRenderer CutedPlantFlowerSprite { get => _cutedPlantFlowerSprite; }
+
+        public int Id { set; get; }
 
         #region Unity methods
         private void Awake()

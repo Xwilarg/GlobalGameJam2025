@@ -158,3 +158,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   NeedWaterDeltaTime: 5
+  GameLevel:
+    asset: {fileID: 102900000, guid: 2ec3bf49cafb97e4d8b7dfc9f8fbb4d1, type: 3}
+    guid: 2ec3bf49cafb97e4d8b7dfc9f8fbb4d1

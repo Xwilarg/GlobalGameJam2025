@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -23,8 +24,6 @@ namespace GGJ.Manager
 
         private readonly List<Dirt> _dirts = new();
 
-        private const string _targetScene = "01";
-
         private void Awake()
         {
             Instance = this;
@@ -33,7 +32,9 @@ namespace GGJ.Manager
             _timerText.text = string.Empty;
 
 #if !UNITY_EDITOR
-            SceneManager.LoadScene("01");
+            SceneManager.LoadScene("Lobby", LoadSceneMode.Additive);
+#else
+            SceneManager.UnloadScene(ResourceManager.Instance.GameInfo.GameLevel.Name);
 #endif
         }
 
@@ -53,6 +54,10 @@ namespace GGJ.Manager
                 {
                     StartCoroutine(ReadyupTimer());
                 }
+                else if (GamePhase == GamePhase.GameEnded)
+                {
+                    StartCoroutine(BackToLobby());
+                }
             }
         }
 
@@ -65,14 +70,25 @@ namespace GGJ.Manager
             }
             _timerText.text = "";
             _infoText.text = string.Empty;
-            StartCoroutine(ReloadScene(_targetScene));
+            StartCoroutine(ReloadScene());
             PlayerManager.Instance.ResetAllPlayers();
         }
 
-        private IEnumerator ReloadScene(string scene)
+        private IEnumerator BackToLobby()
         {
-            yield return SceneManager.UnloadSceneAsync(scene);
-            yield return SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+            for (int i = 10; i > 0; i--)
+            {
+                _infoText.text = $"Redirecting to lobby in {i}...";
+                yield return new WaitForSeconds(1f);
+            }
+            yield return SceneManager.UnloadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name);
+            yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
+        }
+
+        private IEnumerator ReloadScene()
+        {
+            yield return SceneManager.UnloadSceneAsync("Lobby");
+            yield return SceneManager.LoadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name, LoadSceneMode.Additive);
         }
 
         public void Register(Dirt d)
@@ -85,6 +101,7 @@ namespace GGJ.Manager
     {
         LobbyPreparation,
         PriceRaise,
-        PriceCrash
+        PriceCrash,
+        GameEnded
     }
 }
