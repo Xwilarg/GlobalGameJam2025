@@ -1,5 +1,6 @@
 using GGJ.Manager;
 using GGJ.Prop;
+using GGJ.Prop.Impl;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -131,6 +132,10 @@ namespace GGJ.Player
                 takeable.GameObject.SetActive(false);
                 _multiplier.text = $"x{Sellables.Count}";
                 UpdateMultiplierScale();
+            }
+            else if (collision.CompareTag("SellingCounter"))
+            {
+                collision.GetComponent<SellingCounter>().Interact(this);
             }
         }
 
