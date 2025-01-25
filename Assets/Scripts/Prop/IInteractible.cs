@@ -4,6 +4,7 @@ namespace GGJ.Prop
 {
     public interface IInteractible
     {
-        public bool Interact(PlayerController pc);
+        public void Interact(PlayerController pc);
+        public bool CanInteract(PlayerController pc);
     }
 }

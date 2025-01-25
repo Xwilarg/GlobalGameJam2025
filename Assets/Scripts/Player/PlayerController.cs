@@ -56,10 +56,20 @@ namespace GGJ.Player
         {
             if (value.phase == InputActionPhase.Started)
             {
-                var coll = Physics2D.OverlapCircle(transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance, ResourceManager.Instance.GameInfo.InteractionSize, LayerMask.GetMask("Prop"));
-                if (coll != null && coll.TryGetComponent<IInteractible>(out var interact))
+                var center = transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
+                var coll = Physics2D.OverlapCircle(center, ResourceManager.Instance.GameInfo.InteractionSize, LayerMask.GetMask("Prop"));
+                if (coll != null)
                 {
-                    interact.Interact(this);
+                    if (coll.TryGetComponent<IInteractible>(out var interact) && interact.CanInteract(this))
+                    {
+                        interact.Interact(this);
+                    }
+                }
+                else if (CarriedObject != null) // We carry smth and there is empty space in front of us
+                {
+                    CarriedObject.GameObject.SetActive(true);
+                    CarriedObject.GameObject.transform.position = center;
+                    CarriedObject = null;
                 }
             }
         }
