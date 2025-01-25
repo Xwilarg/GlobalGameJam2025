@@ -18,7 +18,7 @@ MonoBehaviour:
   MinMaxPrice:
     Min: 1
     Max: 100
-  PriceCurve:
+  RaisePriceCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -42,3 +42,39 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  CrashPriceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -2.4287066
+      outSlope: -2.4287066
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.35172775
+      value: 0.14575648
+      inSlope: -0.58484244
+      outSlope: -0.58484244
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.24457832
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.22483838
+      outSlope: -0.22483838
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  DayDuration: 30
+  RaisePhaseDuration: 10
+  CrashPhaseDuration: 10

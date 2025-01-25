@@ -12,7 +12,7 @@ namespace GGJ.Prop.Impl
             {
                 var time01 = 0f; // TODO
                 var info = ResourceManager.Instance.GameInfo;
-                var value = info.PriceCurve.Evaluate(0f);
+                var value = (GameManager.Instance.GamePhase == GamePhase.PriceRaise ? info.RaisePriceCurve : info.CrashPriceCurve).Evaluate(0f);
                 value *= (info.MinMaxPrice.Max - info.MinMaxPrice.Min);
                 value += info.MinMaxPrice.Min;
 
