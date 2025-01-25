@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GGJ.Manager
 {
@@ -8,9 +9,20 @@ namespace GGJ.Manager
 
         public GamePhase GamePhase { private set; get; } = GamePhase.PriceRaise;
 
+        public UnityEvent<GamePhase> OnNextPhase { get; } = new();
+
         private void Awake()
         {
             Instance = this;
+        }
+
+        public void SetPhase(GamePhase targetPhase)
+        {
+            if (targetPhase > GamePhase)
+            {
+                GamePhase = targetPhase;
+                OnNextPhase.Invoke(GamePhase);
+            }
         }
     }
 

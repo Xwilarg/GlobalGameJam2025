@@ -19,8 +19,8 @@ namespace GGJ.SO
 
         [Header("Time")]
         [Tooltip("How much time in seconds a day is")] public float DayDuration;
-        [Tooltip("Duration of the phase where prices increase in days")] public float RaisePhaseDuration;
-        [Tooltip("Duration of the phase where prices crashes in days")] public float CrashPhaseDuration;
+        [Tooltip("Duration of the phase where prices increase in days")] public int RaisePhaseDuration;
+        [Tooltip("Duration of the phase where prices crashes in days")] public int CrashPhaseDuration;
     }
 
     [System.Serializable]
