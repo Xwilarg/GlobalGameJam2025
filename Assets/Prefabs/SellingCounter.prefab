@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7092944722879636205}
   - component: {fileID: 1418846176440296450}
   - component: {fileID: 1931161920306346934}
+  - component: {fileID: 3860008072640195381}
   m_Layer: 7
   m_Name: SellingCounter
   m_TagString: Untagged
@@ -149,6 +150,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 10.43, y: 6.93}
   m_EdgeRadius: 0
+--- !u!114 &3860008072640195381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614852881246976711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec1a979d5953452897e7a5227bc78bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStatic: 1
 --- !u!1 &4860182493259029309
 GameObject:
   m_ObjectHideFlags: 0
