@@ -8,8 +8,8 @@ namespace GGJ.Manager
         public static ResourceManager Instance { private set; get; }
 
         [SerializeField]
-        private GameInfo _playerInfo;
-        public GameInfo PlayerInfo => _playerInfo;
+        private GameInfo _gameInfo;
+        public GameInfo GameInfo => _gameInfo;
 
         private void Awake()
         {

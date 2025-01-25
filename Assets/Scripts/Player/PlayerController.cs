@@ -1,6 +1,7 @@
 using GGJ.Manager;
 using GGJ.Prop;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
 
 namespace GGJ.Player
@@ -15,6 +16,7 @@ namespace GGJ.Player
 
         public ITakeable CarriedObject { private set; get; }
 
+        #region Unity methods
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -27,7 +29,7 @@ namespace GGJ.Player
 
         private void FixedUpdate()
         {
-            _rb.linearVelocity = _mov * ResourceManager.Instance.PlayerInfo.Speed;
+            _rb.linearVelocity = _mov * ResourceManager.Instance.GameInfo.Speed;
         }
 
         private void OnDrawGizmos()
@@ -35,10 +37,12 @@ namespace GGJ.Player
             Gizmos.color = Color.blue;
             if (ResourceManager.Instance != null)
             {
-                Gizmos.DrawWireSphere(transform.position + (Vector3)_direction * ResourceManager.Instance.PlayerInfo.InteractionDistance, ResourceManager.Instance.PlayerInfo.InteractionSize);
+                Gizmos.DrawWireSphere(transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance, ResourceManager.Instance.GameInfo.InteractionSize);
             }
         }
+        #endregion Unity methods
 
+        #region Inputs
         public void OnMovement(InputAction.CallbackContext value)
         {
             _mov = value.ReadValue<Vector2>();
@@ -52,13 +56,14 @@ namespace GGJ.Player
         {
             if (value.phase == InputActionPhase.Started)
             {
-                var coll = Physics2D.OverlapCircle(transform.position + (Vector3)_direction * ResourceManager.Instance.PlayerInfo.InteractionDistance, ResourceManager.Instance.PlayerInfo.InteractionSize, LayerMask.GetMask("Prop"));
+                var coll = Physics2D.OverlapCircle(transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance, ResourceManager.Instance.GameInfo.InteractionSize, LayerMask.GetMask("Prop"));
                 if (coll != null && coll.TryGetComponent<IInteractible>(out var interact))
                 {
                     interact.Interact(this);
                 }
             }
         }
+        #endregion Inputs
 
         /// <summary>
         /// Attempt to carry an object
@@ -71,6 +76,21 @@ namespace GGJ.Player
             CarriedObject = takeable;
             CarriedObject.GameObject.SetActive(false);
             return true;
+        }
+
+        /// <summary>
+        /// Delete object carried
+        /// </summary>
+        public void DiscardCarry()
+        {
+            Assert.IsNotNull(CarriedObject);
+            Destroy(CarriedObject.GameObject);
+            CarriedObject = null;
+        }
+
+        public void GainMoney(int amount)
+        {
+            _money += amount;
         }
 
         public override string ToString()
