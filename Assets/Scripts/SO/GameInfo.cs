@@ -21,6 +21,9 @@ namespace GGJ.SO
         [Tooltip("How much time in seconds a day is")] public float DayDuration;
         [Tooltip("Duration of the phase where prices increase in days")] public int RaisePhaseDuration;
         [Tooltip("Duration of the phase where prices crashes in days")] public int CrashPhaseDuration;
+
+        [Header("Economy")]
+        [Tooltip("% variation per flower sold (before variance with average)")] [Range(1, 100)] public int PercSellVariation;
     }
 
     [System.Serializable]

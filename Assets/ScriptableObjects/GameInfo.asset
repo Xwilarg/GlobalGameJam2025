@@ -78,3 +78,4 @@ MonoBehaviour:
   DayDuration: 10
   RaisePhaseDuration: 10
   CrashPhaseDuration: 10
+  PercSellVariation: 10

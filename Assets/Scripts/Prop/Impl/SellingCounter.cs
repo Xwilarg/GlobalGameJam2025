@@ -1,25 +1,44 @@
 using GGJ.Manager;
 using GGJ.Player;
+using TMPro;
 using UnityEngine;
 
 namespace GGJ.Prop.Impl
 {
     public class SellingCounter : MonoBehaviour, IInteractible
     {
+        [SerializeField]
+        private TMP_Text _priceText;
+
+        public int AmountSold { set; get; }
+        public float Variation { set; get; } = 1f;
+
+        private void Start()
+        {
+            EconomyManager.Instance.Register(this);
+            UpdateUI();
+        }
+
         public bool CanInteract(PlayerController pc)
         {
             return pc.CarriedObject != null && pc.CarriedObject.CanBeSold;
         }
 
+        public void UpdateUI()
+        {
+            _priceText.text = $"{EconomyManager.Instance.CurrentPrice * Variation}ƒ (+{Variation:0.00})";
+        }
+
+        public void UpdateVariation(float average)
+        {
+            Variation = (1f + Variation) / 2f;
+            Variation += AmountSold - average;
+        }
+
         public void Interact(PlayerController pc)
         {
-            var time01 = TimeManager.Instance.Day01;
-            var info = ResourceManager.Instance.GameInfo;
-            var value = (GameManager.Instance.GamePhase == GamePhase.PriceRaise ? info.RaisePriceCurve : info.CrashPriceCurve).Evaluate(time01);
-            value *= (info.MinMaxPrice.Max - info.MinMaxPrice.Min);
-            value += info.MinMaxPrice.Min;
-
-            pc.GainMoney(Mathf.FloorToInt(value));
+            AmountSold++;
+            pc.GainMoney(EconomyManager.Instance.CurrentPrice);
             pc.DiscardCarry();
         }
     }

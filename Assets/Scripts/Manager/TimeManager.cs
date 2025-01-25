@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GGJ.Manager
 {
@@ -10,7 +11,21 @@ namespace GGJ.Manager
         /// <summary>
         /// Value between 0 and 1 representing how much time elapsed in the current phase
         /// </summary>
-        public float Day01 { private set; get; }
+        private float _day01;
+        public float Day01
+        {
+            private set
+            {
+                _day01 = value;
+                OnNewDay.Invoke();
+            }
+            get
+            {
+                return _day01;
+            }
+        }
+
+        public UnityEvent OnNewDay { get; } = new();
 
         private void Awake()
         {
