@@ -27,5 +27,6 @@ public class CutedPlant : MonoBehaviour, IInteractible, ITakeable
     public void Interact(PlayerController pc)
     {
         pc.Carry(this);
+        pc.CutedPlantFlowerSprite.color = flowerSpriteRenderer.color;
     }
 }
