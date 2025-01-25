@@ -143,6 +143,10 @@ namespace GGJ.Player
             {
                 player.GetComponent<PlayerController>().GetStunned((player.transform.position - transform.position).normalized);
             }
+            if (players.Any())
+            {
+                AudioManager.Instance.PlayPunch();
+            }
         }
         public void OnAction(InputAction.CallbackContext value)
         {
