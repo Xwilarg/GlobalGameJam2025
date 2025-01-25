@@ -32,7 +32,7 @@ namespace GGJ.Prop.Impl
         public void UpdateUI()
         {
             if (GameManager.Instance.GamePhase == GamePhase.GameEnded) _priceText.text = "Closed";
-            else _priceText.text = $"{EconomyManager.Instance.CurrentPrice * Variation}f ({AddSign(Mathf.RoundToInt(Variation))})";
+            else _priceText.text = $"{Mathf.RoundToInt(EconomyManager.Instance.CurrentPrice * Variation)}f ({AddSign(Mathf.RoundToInt(Variation))})";
         }
 
         public void UpdateVariation(float average)
@@ -43,7 +43,7 @@ namespace GGJ.Prop.Impl
 
         public void Interact(PlayerController pc)
         {
-            int money = EconomyManager.Instance.CurrentPrice;
+            int money = Mathf.RoundToInt(EconomyManager.Instance.CurrentPrice * Variation);
 
             if (pc.CarriedObject != null &&
                 pc.CarriedObject is CutedPlant &&
