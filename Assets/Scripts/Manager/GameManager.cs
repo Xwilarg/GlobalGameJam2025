@@ -35,6 +35,7 @@ namespace GGJ.Manager
             SceneManager.LoadScene("Lobby", LoadSceneMode.Additive);
 #else
             SceneManager.UnloadScene(ResourceManager.Instance.GameInfo.GameLevel.Name);
+            SceneManager.LoadScene("Lobby", LoadSceneMode.Additive);
 #endif
         }
 
