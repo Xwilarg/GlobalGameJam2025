@@ -74,7 +74,7 @@ namespace GGJ.Player
             _mov = value.ReadValue<Vector2>();
             if (_mov.magnitude > 0f)
             {
-                _direction = _mov;
+                _direction = _mov.normalized;
             }
         }
 
