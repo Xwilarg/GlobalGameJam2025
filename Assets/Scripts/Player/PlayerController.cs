@@ -91,7 +91,7 @@ namespace GGJ.Player
         }
         public void OnAction(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started)
+            if (value.phase == InputActionPhase.Started && _stunDirection == null)
             {
                 var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
                 var size = ResourceManager.Instance.GameInfo.InteractionSize;

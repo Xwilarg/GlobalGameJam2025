@@ -102,6 +102,7 @@ namespace GGJ.Manager
                 _infoText.text = $"Redirecting to lobby in {i}...";
                 yield return new WaitForSeconds(1f);
             }
+            _infoText.text = string.Empty;
             yield return SceneManager.UnloadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name);
             OnResetAll();
             yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
