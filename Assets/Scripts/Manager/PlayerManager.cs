@@ -28,6 +28,18 @@ namespace GGJ.Manager
             _startAreas.Add(start);
         }
 
+        public void CheckAllReady()
+        {
+            if (_players.All(x => x.IsReady))
+            {
+                foreach (var p in _players)
+                {
+                    p.UnreadyForGameStart();
+                }
+                GameManager.Instance.SetPhase(GamePhase.PriceRaise);
+            }
+        }
+
         // TODO: Unregister
 
         public IEnumerable<string> PlayerStrings => _players.Select(x => x.ToString());

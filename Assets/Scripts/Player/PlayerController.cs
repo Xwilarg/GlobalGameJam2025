@@ -12,11 +12,16 @@ namespace GGJ.Player
         [SerializeField]
         private Transform _feet;
 
+        [SerializeField]
+        private GameObject _readyText;
+
         private Vector2 _mov;
         private Vector2 _direction = Vector2.up;
         private Rigidbody2D _rb;
 
         private int _money;
+
+        public bool IsReady { private set; get; }
 
         public ITakeable CarriedObject { private set; get; }
 
@@ -24,6 +29,7 @@ namespace GGJ.Player
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _readyText.SetActive(false);
         }
 
         private void Start()
@@ -88,6 +94,22 @@ namespace GGJ.Player
             }
         }
         #endregion Inputs
+
+        public void Ready()
+        {
+            if (GameManager.Instance.GamePhase == GamePhase.LobbyPreparation)
+            {
+                _readyText.SetActive(true);
+                IsReady = true;
+                PlayerManager.Instance.CheckAllReady();
+            }
+        }
+
+        public void UnreadyForGameStart()
+        {
+            _readyText.SetActive(false);
+            IsReady = false;
+        }
 
         /// <summary>
         /// Attempt to carry an object
