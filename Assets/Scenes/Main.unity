@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameInfo: {fileID: 11400000, guid: d4960635903ad0c4cb3cd259cbabd52f, type: 2}
-  _plantInfo: {fileID: 0}
+  _plantInfo: {fileID: 11400000, guid: 578199e0bac934a71a16e74d40ddbd48, type: 2}
 --- !u!114 &209424491
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6117461797070538103}
   - component: {fileID: 3048847893806419444}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlantSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 9137746403089926292}
   - component: {fileID: 8881086413786529095}
   - component: {fileID: 7668323259908690901}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NeedCutPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4299380022173581811}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f032256168df248d5930367e921ac12e, type: 2}
   m_CullingMode: 0
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 3149097456956332444}
   - component: {fileID: 4926613354416018455}
   - component: {fileID: 4515258621894902217}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NeedWaterPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6496814229321195538}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f032256168df248d5930367e921ac12e, type: 2}
   m_CullingMode: 0
@@ -317,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6517023700450136081}
   - component: {fileID: 653755348284270777}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FlowerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6264440821530907555}
   - component: {fileID: 3824762686026900753}
-  m_Layer: 0
+  - component: {fileID: 1239454384954076126}
+  - component: {fileID: 5480929361442895411}
+  m_Layer: 7
   m_Name: Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,3 +457,52 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 540337217444644243, guid: 6655fde72398445d6aa26b100ceaaa8f, type: 3}
+--- !u!58 &1239454384954076126
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068690272620006417}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.6
+--- !u!114 &5480929361442895411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068690272620006417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec1a979d5953452897e7a5227bc78bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStatic: 1
