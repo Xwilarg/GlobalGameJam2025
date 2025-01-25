@@ -39,6 +39,8 @@ namespace GGJ.Player
         private Vector2? _stunDirection = null;
         public SpriteRenderer CutedPlantFlowerSprite { get => _cutedPlantFlowerSprite; }
 
+        public int Id { set; get; }
+
         #region Unity methods
         private void Awake()
         {
