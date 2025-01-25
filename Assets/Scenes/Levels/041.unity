@@ -10995,6 +10995,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SellingCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 1418846176440296450, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: _sellVFX
+      value: 
+      objectReference: {fileID: 2201130258584598844, guid: 92ef4901b3dcffe40bfa72f7f3afa3dd, type: 3}
     - target: {fileID: 5461843439958581248, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.338233

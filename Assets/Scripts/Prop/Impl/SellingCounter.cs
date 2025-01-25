@@ -1,5 +1,6 @@
 using GGJ.Manager;
 using GGJ.Player;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -14,6 +15,9 @@ namespace GGJ.Prop.Impl
         [SerializeField]
         private TMP_Text _priceVariationText;
 
+        [SerializeField]
+        private GameObject _sellVFX;
+
         public int AmountSold { set; get; }
         public float Variation { set; get; } = 1f;
 
@@ -25,7 +29,7 @@ namespace GGJ.Prop.Impl
 
         public bool CanInteract(PlayerController pc)
         {
-            return (GameManager.Instance.GamePhase == GamePhase.PriceRaise || GameManager.Instance.GamePhase == GamePhase.PriceCrash) && pc.CarriedObject != null && pc.CarriedObject.CanBeSold;
+            return (GameManager.Instance.GamePhase == GamePhase.PriceRaise || GameManager.Instance.GamePhase == GamePhase.PriceCrash) && pc.Sellables.Any();
         }
 
         public string AddSign(int nb)
@@ -47,21 +51,26 @@ namespace GGJ.Prop.Impl
         public void UpdateVariation(float average)
         {
             Variation = (1f + Variation) / 2f;
-            Variation += AmountSold + average;
+            Variation += average - AmountSold;
         }
 
         public void Interact(PlayerController pc)
         {
-            int money = EconomyManager.Instance.CurrentPrice;
+            if (!pc.Sellables.Any()) return;
 
-            if (pc.CarriedObject != null &&
-                pc.CarriedObject is CutedPlant &&
-                ((CutedPlant)pc.CarriedObject).PlayerId != pc.Id)
-                money = (int)(money * ResourceManager.Instance.GameInfo.OtherPlayerPlantPriceCoef);
+            foreach (var item in pc.Sellables)
+            {
+                int money = Mathf.RoundToInt(EconomyManager.Instance.CurrentPrice * Variation);
+                if (item is CutedPlant &&
+                    ((CutedPlant)item).PlayerId != pc.Id)
+                    money = (int)(money * ResourceManager.Instance.GameInfo.OtherPlayerPlantPriceCoef);
 
-            AmountSold++;
-            pc.GainMoney(money);
-            pc.DiscardCarry();
+                pc.GainMoney(money);
+            }
+            AmountSold += pc.Sellables.Count;
+            pc.DiscardSellablesCarry();
+            AudioManager.Instance.PlaySell();
+            Destroy(Instantiate(_sellVFX, transform.position, Quaternion.identity), 1f);
         }
     }
 }

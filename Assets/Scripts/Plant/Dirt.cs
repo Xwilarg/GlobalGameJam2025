@@ -30,6 +30,7 @@ public class Dirt : MonoBehaviour, IInteractible
         plant.SetFlowerColor(flowerColor);
 
         plantCount++;
+        AudioManager.Instance.PlayPlant();
     }
 
     void IInteractible.Interact(PlayerController pc)

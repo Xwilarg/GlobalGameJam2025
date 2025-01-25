@@ -8,6 +8,7 @@ namespace GGJ.SO
     {
         [Header("Movements")]
         [Tooltip("Speed of the player")] public float Speed;
+        [Tooltip("Speed of the player when carrying an object")] public float SpeedWhenCarrying;
 
         [Header("Interactions")]
         [Tooltip("Distance between player and center point of the interaction")] public float InteractionDistance;
@@ -36,9 +37,14 @@ namespace GGJ.SO
 
         [Header("Plant")]
         [Tooltip("How long before plant need water")] public float NeedWaterDeltaTime = 3;
+        [Tooltip("How far flowers are spread when stunned")] public float SpreadRange;
 
         [Header("Levels")]
         public SceneReference GameLevel;
+
+        [Header("UI")]
+        [Tooltip("Player plants counter scale = PlayerPlantsCounterDefaultScale + PlayerPlantsCounterScaleCoef * nombreDePlantes")] public float PlayerPlantsCounterDefaultScale = 2;
+        [Tooltip("Player plants counter scale = PlayerPlantsCounterDefaultScale + PlayerPlantsCounterScaleCoef * nombreDePlantes")] public float PlayerPlantsCounterScaleCoef = 0.2f;
     }
 
     [System.Serializable]

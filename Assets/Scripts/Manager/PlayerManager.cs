@@ -15,6 +15,9 @@ namespace GGJ.Manager
         [SerializeField]
         private Color[] _colors;
 
+        [SerializeField]
+        private PlayerScore[] _pScores;
+
         private void Awake()
         {
             Instance = this;
@@ -25,7 +28,9 @@ namespace GGJ.Manager
             var spawn = _startAreas[_players.Count % _startAreas.Count].position;
             pc.transform.position = spawn;
             pc.SpawnPoint = spawn;
-            pc.Color = _colors[_players.Count % _startAreas.Count];
+            pc.Color = _colors[_players.Count % _colors.Length];
+            pc.PlayerScore = _pScores[_players.Count % _pScores.Length];
+            pc.PlayerScore.gameObject.SetActive(true);
             _players.Add(pc);
             pc.Id = _players.Count;
 

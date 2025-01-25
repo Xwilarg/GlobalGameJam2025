@@ -1,7 +1,9 @@
 using GGJ.Manager;
 using GGJ.Prop;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -22,6 +24,12 @@ namespace GGJ.Player
         [SerializeField]
         private SpriteRenderer _cutedPlantFlowerSprite;
 
+        [SerializeField]
+        private SpriteRenderer _spriteAlpha;
+
+        [SerializeField]
+        private TMP_Text _multiplier;
+
         private Vector2 _mov;
         private Vector2 _direction = Vector2.up;
         private Rigidbody2D _rb;
@@ -32,12 +40,32 @@ namespace GGJ.Player
         public bool IsReady { private set; get; }
 
         public ITakeable CarriedObject { private set; get; }
+        public List<ITakeable> Sellables { private set; get; } = new();
 
-        public Color Color { set; get; }
+        public PlayerScore PlayerScore { set; get; }
+
+        Color _color;
+
+        public Color Color
+        {
+            get => _color;
+
+            set {
+                _color = value;
+                _spriteAlpha.color = value;
+            }
+        }
+
+        bool isLookingLeft = true;
+        bool isRunning = false;
+        string animationName = "PlayerIdleLeft";
+
         public Vector2 SpawnPoint { set; private get; }
 
         private Vector2? _stunDirection = null;
         public SpriteRenderer CutedPlantFlowerSprite { get => _cutedPlantFlowerSprite; }
+
+        Animator _animator;
 
         public int Id { set; get; }
 
@@ -46,7 +74,9 @@ namespace GGJ.Player
         {
             _rb = GetComponent<Rigidbody2D>();
             _sr = GetComponentInChildren<SpriteRenderer>();
+            _animator = GetComponent<Animator>();
             _readyText.SetActive(false);
+            _multiplier.text = string.Empty;
         }
 
         private void Start()
@@ -54,9 +84,52 @@ namespace GGJ.Player
             PlayerManager.Instance.Register(this);
         }
 
+        void SetAnimationName(string animationName)
+        {
+            if (this.animationName == animationName)
+                return;
+
+            this.animationName = animationName;
+
+            _animator.Play(animationName);
+        }
+
         private void FixedUpdate()
         {
-            _rb.linearVelocity = _stunDirection.HasValue ? (_stunDirection.Value * ResourceManager.Instance.GameInfo.StunForce) : (_mov * ResourceManager.Instance.GameInfo.Speed);
+            isRunning = _rb.linearVelocity.sqrMagnitude > 0.01f;
+
+            if (Mathf.Abs(_rb.linearVelocity.x) > 0.01f)
+                isLookingLeft = _rb.linearVelocity.x < 0;
+
+            if      (isRunning && isLookingLeft)  SetAnimationName("PlayerRunLeft");
+            else if (isRunning && !isLookingLeft) SetAnimationName("PlayerRunRight");
+            else if (!isRunning && isLookingLeft) SetAnimationName("PlayerIdleLeft");
+            else                                  SetAnimationName("PlayerIdleRight");
+
+            if (_stunDirection.HasValue)
+            {
+                _rb.linearVelocity = _stunDirection.Value * ResourceManager.Instance.GameInfo.StunForce;
+            }
+            else if (CarriedObject != null)
+            {
+                _rb.linearVelocity = _mov * ResourceManager.Instance.GameInfo.SpeedWhenCarrying;
+            }
+            else
+            {
+                _rb.linearVelocity = _mov * ResourceManager.Instance.GameInfo.Speed;
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("CutedPlant"))
+            {
+                var takeable = collision.GetComponent<ITakeable>();
+                Sellables.Add(takeable);
+                takeable.GameObject.SetActive(false);
+                _multiplier.text = $"x{Sellables.Count}";
+                UpdateMultiplierScale();
+            }
         }
 
         private void OnDrawGizmos()
@@ -88,10 +161,14 @@ namespace GGJ.Player
             {
                 player.GetComponent<PlayerController>().GetStunned((player.transform.position - transform.position).normalized);
             }
+            if (players.Any())
+            {
+                AudioManager.Instance.PlayPunch();
+            }
         }
         public void OnAction(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started)
+            if (value.phase == InputActionPhase.Started && _stunDirection == null)
             {
                 var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
                 var size = ResourceManager.Instance.GameInfo.InteractionSize;
@@ -133,6 +210,13 @@ namespace GGJ.Player
         public void GetStunned(Vector2 dir)
         {
             DropItem();
+            foreach (var s in Sellables)
+            {
+                s.GameObject.SetActive(true);
+                s.GameObject.transform.position = transform.position + (Vector3)Random.insideUnitCircle * ResourceManager.Instance.GameInfo.SpreadRange;
+            }
+            Sellables.Clear();
+            _multiplier.text = string.Empty;
             _stunDirection = dir;
             StartCoroutine(StunTimer());
             StartCoroutine(HitEffect());
@@ -202,18 +286,20 @@ namespace GGJ.Player
         /// <summary>
         /// Delete object carried
         /// </summary>
-        public void DiscardCarry()
+        public void DiscardSellablesCarry()
         {
-            Assert.IsNotNull(CarriedObject);
-            Destroy(CarriedObject.GameObject);
-            CarriedObject = null;
-
-            DesactiveAllItems();
+            foreach (var item in Sellables)
+            {
+                Destroy(item.GameObject);
+            }
+            Sellables.Clear();
+            _multiplier.text = string.Empty;
         }
 
         public void GainMoney(int amount)
         {
             _money += amount;
+            PlayerScore.SetScore(_money);
         }
 
         public void ResetAll()
@@ -224,6 +310,12 @@ namespace GGJ.Player
                 Destroy(CarriedObject.GameObject);
                 CarriedObject = null;
             }
+            foreach (var s in Sellables)
+            {
+                Destroy(s.GameObject);
+            }
+            Sellables.Clear();
+            _multiplier.text = string.Empty;
             transform.position = SpawnPoint;
 
             DesactiveAllItems();
@@ -240,6 +332,11 @@ namespace GGJ.Player
             _seeds.SetActive(false);
             _wateringCan.SetActive(false);
             _cutedPlant.SetActive(false);
+        }
+
+        void UpdateMultiplierScale()
+        {
+            _multiplier.transform.localScale = Vector3.one * (ResourceManager.Instance.GameInfo.PlayerPlantsCounterDefaultScale + ResourceManager.Instance.GameInfo.PlayerPlantsCounterScaleCoef * Sellables.Count);
         }
     }
 }

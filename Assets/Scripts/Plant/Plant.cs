@@ -2,6 +2,7 @@ using GGJ.Manager;
 using GGJ.Player;
 using GGJ.Prop;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class Plant : MonoBehaviour, IInteractible
@@ -92,6 +93,7 @@ public class Plant : MonoBehaviour, IInteractible
         if (IsAtMaxGrounthLvl) SetNeedCut(true);
         else Invoke("SetNeedWaterTrue", ResourceManager.Instance.GameInfo.NeedWaterDeltaTime);
         //Invoke(IsAtMaxGrounthLvl ? "SetNeedCutTrue" : "SetNeedWaterTrue", ResourceManager.Instance.GameInfo.NeedWaterDeltaTime);
+        AudioManager.Instance.PlayWater();
     }
 
     void Cut()
@@ -100,10 +102,12 @@ public class Plant : MonoBehaviour, IInteractible
             return;
 
         CutedPlant cutedPlant = Instantiate(cutedPlantPrefab, transform.position, transform.rotation);
+        cutedPlant.transform.parent = GameManager.Instance.SceneTransform;
 
         cutedPlant.SetFlowerColor(flowerSpriteRenderer.color);
 
         DestroyGameObject();
+        AudioManager.Instance.PlayCut();
     }
 
 
@@ -119,8 +123,6 @@ public class Plant : MonoBehaviour, IInteractible
 
     public bool CanInteract(PlayerController pc)
     {
-        if (GameManager.Instance.GamePhase == GamePhase.LobbyPreparation) return false; // Can't interact with flower during rup phase
-
         return (needCut && pc.CarriedObject != null && pc.CarriedObject.CanCut) ||
                (needWater && pc.CarriedObject != null && pc.CarriedObject.CanWater);
     }
