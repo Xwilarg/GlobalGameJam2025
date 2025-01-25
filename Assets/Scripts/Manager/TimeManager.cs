@@ -59,7 +59,7 @@ namespace GGJ.Manager
                     if (_day == info.CrashPhaseDuration)
                     {
                         _day = 0;
-                        // TODO: Game end
+                        GameManager.Instance.SetPhase(GamePhase.GameEnded);
                     }
                 }
                 OnNewDay.Invoke();

@@ -85,6 +85,7 @@ namespace GGJ.Manager
     {
         LobbyPreparation,
         PriceRaise,
-        PriceCrash
+        PriceCrash,
+        GameEnded
     }
 }
