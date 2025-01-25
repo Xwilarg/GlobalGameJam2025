@@ -100,6 +100,7 @@ public class Plant : MonoBehaviour, IInteractible
             return;
 
         CutedPlant cutedPlant = Instantiate(cutedPlantPrefab, transform.position, transform.rotation);
+        cutedPlant.transform.parent = dirt.transform;
 
         cutedPlant.SetFlowerColor(flowerSpriteRenderer.color);
 
