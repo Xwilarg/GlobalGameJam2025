@@ -42,14 +42,4 @@ public class Dirt : MonoBehaviour, IInteractible
     {
         return !plant && pc.CarriedObject != null && pc.CarriedObject.CanPlant;
     }
-
-    public void Clear()
-    {
-        if (plant)
-        {
-            Destroy(plant.gameObject);
-            plantCount = 0;
-            plant = null;
-        }
-    }
 }

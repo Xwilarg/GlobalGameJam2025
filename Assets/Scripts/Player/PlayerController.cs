@@ -26,6 +26,7 @@ namespace GGJ.Player
         public ITakeable CarriedObject { private set; get; }
 
         public Color Color { set; get; }
+        public Vector2 SpawnPoint { set; private get; }
 
         #region Unity methods
         private void Awake()
@@ -139,6 +140,17 @@ namespace GGJ.Player
         public void GainMoney(int amount)
         {
             _money += amount;
+        }
+
+        public void ResetAll()
+        {
+            _money = 0;
+            if (CarriedObject != null)
+            {
+                Destroy(CarriedObject.GameObject);
+                CarriedObject = null;
+            }
+            transform.position = SpawnPoint;
         }
 
         public override string ToString()
