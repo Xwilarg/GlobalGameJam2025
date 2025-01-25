@@ -43,10 +43,6 @@ namespace GGJ.Manager
         {
             if (_players.All(x => x.IsReady))
             {
-                foreach (var p in _players)
-                {
-                    p.UnreadyForGameStart();
-                }
                 GameManager.Instance.SetPhase(GamePhase.PriceRaise);
             }
         }
@@ -56,6 +52,7 @@ namespace GGJ.Manager
             foreach (var p in _players)
             {
                 p.ResetAll();
+                p.UnreadyForGameStart();
             }
         }
 
