@@ -78,6 +78,16 @@ namespace GGJ.Player
             }
         }
 
+        private void TryHitPlayer()
+        {
+            var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
+            var size = ResourceManager.Instance.GameInfo.InteractionSize;
+            var players = Physics2D.OverlapCircleAll(center, size, LayerMask.GetMask("Player")).Where(x => x.gameObject.GetInstanceID() != gameObject.GetInstanceID());
+            foreach (var player in players)
+            {
+                player.GetComponent<PlayerController>().GetStunned((player.transform.position - transform.position).normalized);
+            }
+        }
         public void OnAction(InputAction.CallbackContext value)
         {
             if (value.phase == InputActionPhase.Started)
@@ -101,6 +111,7 @@ namespace GGJ.Player
                         else target = colls.FirstOrDefault(x => x.TryGetComponent<IInteractible>(out var interact) && interact.CanInteract(this))?.GetComponent<IInteractible>();
 
                         if (target != null) target.Interact(this);
+                        else TryHitPlayer();
                     }
                 }
                 else if (CarriedObject != null) // We carry smth and there is empty space in front of us
@@ -112,11 +123,7 @@ namespace GGJ.Player
                 }
                 else
                 {
-                    var players = Physics2D.OverlapCircleAll(center, size, LayerMask.GetMask("Player")).Where(x => x.gameObject.GetInstanceID() != gameObject.GetInstanceID());
-                    foreach (var player in players)
-                    {
-                        player.GetComponent<PlayerController>().GetStunned((player.transform.position - transform.position).normalized);
-                    }
+                    TryHitPlayer();
                 }
             }
         }
