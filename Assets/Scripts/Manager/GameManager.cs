@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace GGJ.Manager
 {
@@ -14,6 +15,10 @@ namespace GGJ.Manager
         private void Awake()
         {
             Instance = this;
+
+#if !UNITY_EDITOR
+            SceneManager.LoadScene("01");
+#endif
         }
 
         public void SetPhase(GamePhase targetPhase)
