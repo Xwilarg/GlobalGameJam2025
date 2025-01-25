@@ -10,6 +10,7 @@ public class Seeds : MonoBehaviour, IInteractible, ITakeable
     public bool CanWater => false;
     public bool CanCut => false;
     public bool CanPlant => true;
+    public bool IsSwitchAllowed => true;
 
     public bool CanInteract(PlayerController pc)
     {

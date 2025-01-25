@@ -11,6 +11,7 @@ namespace GGJ.Prop.Impl
         public bool CanWater => false;
         public bool CanCut => false;
         public bool CanPlant => false;
+        public bool IsSwitchAllowed => true;
 
         public bool CanInteract(PlayerController pc)
         {
