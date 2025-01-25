@@ -85,7 +85,7 @@ namespace GGJ.Player
                             target = takeable.GetComponent<IInteractible>();
                             if (!target.CanInteract(this)) target = null; // Safeguard
                         }
-                        else target = colls.FirstOrDefault(x => x.TryGetComponent<IInteractible>(out var interact) && interact.CanInteract(this)).GetComponent<IInteractible>();
+                        else target = colls.FirstOrDefault(x => x.TryGetComponent<IInteractible>(out var interact) && interact.CanInteract(this))?.GetComponent<IInteractible>();
 
                         if (target != null) target.Interact(this);
                     }
