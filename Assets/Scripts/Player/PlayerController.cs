@@ -22,7 +22,6 @@ namespace GGJ.Player
         [SerializeField]
         private SpriteRenderer _cutedPlantFlowerSprite;
 
-
         private Vector2 _mov;
         private Vector2 _direction = Vector2.up;
         private Rigidbody2D _rb;

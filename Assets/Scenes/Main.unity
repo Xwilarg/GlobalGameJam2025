@@ -217,6 +217,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _infoText: {fileID: 1768693292}
   _timerText: {fileID: 500502062}
+  _targetScene:
+    asset: {fileID: 102900000, guid: 2ec3bf49cafb97e4d8b7dfc9f8fbb4d1, type: 3}
+    guid: 2ec3bf49cafb97e4d8b7dfc9f8fbb4d1
 --- !u!114 &209424494
 MonoBehaviour:
   m_ObjectHideFlags: 0

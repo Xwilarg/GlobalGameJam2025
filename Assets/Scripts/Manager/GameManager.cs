@@ -1,3 +1,4 @@
+using Eflatun.SceneReference;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,13 +18,14 @@ namespace GGJ.Manager
         [SerializeField]
         private TMP_Text _timerText;
 
+        [SerializeField]
+        private SceneReference _targetScene;
+
         public GamePhase GamePhase { private set; get; }
 
         public UnityEvent<GamePhase> OnNextPhase { get; } = new();
 
         private readonly List<Dirt> _dirts = new();
-
-        private const string _targetScene = "01";
 
         private void Awake()
         {
@@ -33,7 +35,9 @@ namespace GGJ.Manager
             _timerText.text = string.Empty;
 
 #if !UNITY_EDITOR
-            SceneManager.LoadScene("Lobby");
+            SceneManager.LoadScene("Lobby", LoadSceneMode.Additive);
+#else
+            SceneManager.UnloadScene(_targetScene.Name);
 #endif
         }
 
@@ -65,7 +69,7 @@ namespace GGJ.Manager
             }
             _timerText.text = "";
             _infoText.text = string.Empty;
-            StartCoroutine(ReloadScene(_targetScene));
+            StartCoroutine(ReloadScene(_targetScene.Name));
             PlayerManager.Instance.ResetAllPlayers();
         }
 
