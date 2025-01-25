@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3069120507714320749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 5339227926592569288, guid: 191ca542dc4924b8997bd9a68485d056, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,6 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9137746403089926292}
   - component: {fileID: 8881086413786529095}
+  - component: {fileID: 7668323259908690901}
   m_Layer: 0
   m_Name: NeedCutPopup
   m_TagString: Untagged
@@ -113,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 4299380022173581811}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -163,8 +164,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -4174882035479105401, guid: 46f37bffc30b844a2914988fa0104538, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -174,6 +175,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7668323259908690901
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4299380022173581811}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f032256168df248d5930367e921ac12e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6496814229321195538
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3149097456956332444}
   - component: {fileID: 4926613354416018455}
+  - component: {fileID: 4515258621894902217}
   m_Layer: 0
   m_Name: NeedWaterPopup
   m_TagString: Untagged
@@ -200,7 +224,7 @@ Transform:
   m_GameObject: {fileID: 6496814229321195538}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -250,7 +274,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -4174882035479105401, guid: 46f37bffc30b844a2914988fa0104538, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -261,6 +285,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4515258621894902217
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6496814229321195538}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f032256168df248d5930367e921ac12e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8944974990702387090
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +333,7 @@ Transform:
   m_GameObject: {fileID: 8944974990702387090}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -337,8 +383,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 540337217444644243, guid: 6655fde72398445d6aa26b100ceaaa8f, type: 3}
+  m_Color: {r: 0.14684942, g: 0.25930288, b: 0.9433962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -359,7 +405,7 @@ GameObject:
   - component: {fileID: 6264440821530907555}
   - component: {fileID: 3824762686026900753}
   m_Layer: 0
-  m_Name: Flower
+  m_Name: Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -400,4 +446,12 @@ MonoBehaviour:
   bulbSpriteRenderer: {fileID: 653755348284270777}
   needWaterPopup: {fileID: 6496814229321195538}
   needCutPopup: {fileID: 4299380022173581811}
-  cutedFlowerPrefab: {fileID: 4209851520180438993, guid: dcffee11429d64fab8de66ff0310c436, type: 3}
+  cutedPlantPrefab: {fileID: 4209851520180438993, guid: dcffee11429d64fab8de66ff0310c436, type: 3}
+  plantSprites:
+  - {fileID: -6478797528356011927, guid: c5710c7424d884392aa13fd360724b2f, type: 3}
+  - {fileID: -4427725134241655194, guid: 145c07376695b41309ace5a4d9234641, type: 3}
+  - {fileID: 5339227926592569288, guid: 191ca542dc4924b8997bd9a68485d056, type: 3}
+  flowerSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 540337217444644243, guid: 6655fde72398445d6aa26b100ceaaa8f, type: 3}

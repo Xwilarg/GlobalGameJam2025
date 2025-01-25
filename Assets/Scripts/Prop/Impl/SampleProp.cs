@@ -8,6 +8,9 @@ namespace GGJ.Prop.Impl
         public GameObject GameObject => gameObject;
 
         public bool CanBeSold => true;
+        public bool CanWater => false;
+        public bool CanCut => false;
+        public bool CanPlant => false;
 
         public bool CanInteract(PlayerController pc)
         {

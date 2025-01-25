@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6d78b8fa3e28e48e78410dc5ff141e32
+guid: 145c07376695b41309ace5a4d9234641
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7386533189199225196
-    second: "Capture d\u2019e\u0301cran 2025-01-25 a\u0300 00.35.40_0"
+      213: -4427725134241655194
+    second: TulipButton_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Capture d\u2019e\u0301cran 2025-01-25 a\u0300 00.35.40_0"
+      name: TulipButton_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 272
-        height: 298
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 90
+        height: 324
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c616adfcccc328660800000000000000
-      internalID: 7386533189199225196
+      spriteID: 6661572137f8d82c0800000000000000
+      internalID: -4427725134241655194
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 05cfa59b7773e4b4ca4e2060fb971ee5
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Capture d\u2019e\u0301cran 2025-01-25 a\u0300 00.35.40_0": 7386533189199225196
+      TulipButton_0: -4427725134241655194
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

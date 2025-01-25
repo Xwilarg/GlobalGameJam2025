@@ -4,7 +4,7 @@ using GGJ.Prop;
 using UnityEngine;
 
 
-public class Flower : MonoBehaviour, IInteractible
+public class Plant : MonoBehaviour, IInteractible
 {
     [SerializeField] SpriteRenderer bodySpriteRenderer;
     [SerializeField] SpriteRenderer bulbSpriteRenderer;
@@ -12,8 +12,10 @@ public class Flower : MonoBehaviour, IInteractible
     [SerializeField] GameObject needWaterPopup;
     [SerializeField] GameObject needCutPopup;
 
-    [SerializeField] GameObject cutedFlowerPrefab;
+    [SerializeField] GameObject cutedPlantPrefab;
 
+    [SerializeField, Tooltip("All plant images (without flower) in growth order")] Sprite[] plantSprites;
+    [SerializeField, Tooltip("All plant flower images in growth order")] Sprite[] flowerSprites;
 
     int growthLvl = 0;
     bool needWater = false;
@@ -32,7 +34,11 @@ public class Flower : MonoBehaviour, IInteractible
     void SetNeedWater(bool needWater)
     {
         this.needWater = needWater;
+
         needWaterPopup.SetActive(needWater);
+
+        if (needWater)
+            Invoke("Water", 1); // TODO : test
     }
     void SetNeedWaterTrue() => SetNeedWater(true);
 
@@ -40,13 +46,20 @@ public class Flower : MonoBehaviour, IInteractible
     {
         this.needCut = needCut;
         needCutPopup.SetActive(needCut);
+
+        if (needCut)
+            Invoke("Cut", 1); // TODO : test
     }
 
     void SetNeedCutTrue() => SetNeedCut(true);
 
-    int MaxGrounthLvl { get => ResourceManager.Instance.FlowerInfo.BodySprites.Length - 1; }
+    int MaxGrounthLvl { get => plantSprites.Length - 1; }
     bool IsAtMaxGrounthLvl { get => growthLvl == MaxGrounthLvl; }
 
+    public void SetBulbColor(Color color)
+    {
+        bulbSpriteRenderer.color = color;
+    }
 
     void Start()
     {
@@ -55,20 +68,20 @@ public class Flower : MonoBehaviour, IInteractible
         needWaterPopup.SetActive(needWater);
         needCutPopup.SetActive(needCut);
 
-        Invoke("SetNeedWaterTrue", ResourceManager.Instance.FlowerInfo.NeedWaterDeltaTime);
+        Invoke("SetNeedWaterTrue", ResourceManager.Instance.PlantInfo.NeedWaterDeltaTime);
     }
 
 
     void OnDestroy()
     {
         if (dirt)
-            dirt.Flower = null;
+            dirt.Plant = null;
     }
 
     void UpdatebodySpriteRenderers()
     {
-        bodySpriteRenderer.sprite = ResourceManager.Instance.FlowerInfo.BodySprites[growthLvl];
-        bulbSpriteRenderer.sprite = ResourceManager.Instance.FlowerInfo.BulbSprites[growthLvl];
+        bodySpriteRenderer.sprite = plantSprites[growthLvl];
+        bulbSpriteRenderer.sprite = flowerSprites[growthLvl];
     }
 
     void Water()
@@ -80,7 +93,7 @@ public class Flower : MonoBehaviour, IInteractible
 
         SetGrowthLvl(growthLvl + 1);
 
-        Invoke(IsAtMaxGrounthLvl ? "SetNeedCutTrue" : "SetNeedWaterTrue", ResourceManager.Instance.FlowerInfo.NeedWaterDeltaTime);
+        Invoke(IsAtMaxGrounthLvl ? "SetNeedCutTrue" : "SetNeedWaterTrue", ResourceManager.Instance.PlantInfo.NeedWaterDeltaTime);
     }
 
     void Cut()
@@ -88,7 +101,7 @@ public class Flower : MonoBehaviour, IInteractible
         if (!needCut)
             return;
 
-        Instantiate(cutedFlowerPrefab, transform.position, transform.rotation);
+        Instantiate(cutedPlantPrefab, transform.position, transform.rotation);
 
         Destroy(gameObject);
     }
@@ -106,7 +119,7 @@ public class Flower : MonoBehaviour, IInteractible
 
     public bool CanInteract(PlayerController pc)
     {
-        return (needCut && pc.CarriedObject.GameObject.name == "Scissors") ||
-               (needCut && pc.CarriedObject.GameObject.name == "Water");
+        return (needCut && pc.CarriedObject.GameObject && pc.CarriedObject.CanCut) ||
+               (needWater && pc.CarriedObject.GameObject && pc.CarriedObject.CanWater);
     }
 }

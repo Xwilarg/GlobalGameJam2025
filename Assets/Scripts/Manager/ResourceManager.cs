@@ -12,8 +12,8 @@ namespace GGJ.Manager
         public GameInfo GameInfo => _gameInfo;
 
         [SerializeField]
-        private FlowerInfo _flowerInfo;
-        public FlowerInfo FlowerInfo => _flowerInfo;
+        private PlantInfo _plantInfo;
+        public PlantInfo PlantInfo => _plantInfo;
 
         private void Awake()
         {

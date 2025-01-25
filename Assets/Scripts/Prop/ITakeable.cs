@@ -7,5 +7,8 @@ namespace GGJ.Prop
         public GameObject GameObject { get; }
 
         public bool CanBeSold { get; }
+        public bool CanCut { get; }
+        public bool CanWater { get; }
+        public bool CanPlant { get; }
     }
 }
