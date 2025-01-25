@@ -122,10 +122,12 @@ namespace GGJ.Player
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("CutedPlant")) // 2 people getting that at once?
+            if (collision.CompareTag("CutedPlant"))
             {
                 var takeable = collision.GetComponent<ITakeable>();
+                if (takeable.IsReserved) return; // Prevent 2 players getting the flower at once
                 Sellables.Add(takeable);
+                takeable.IsReserved = true;
                 takeable.GameObject.SetActive(false);
                 _multiplier.text = $"x{Sellables.Count}";
                 UpdateMultiplierScale();
@@ -212,6 +214,7 @@ namespace GGJ.Player
             DropItem();
             foreach (var s in Sellables)
             {
+                s.IsReserved = false;
                 s.GameObject.SetActive(true);
                 s.GameObject.transform.position = transform.position + (Vector3)Random.insideUnitCircle * ResourceManager.Instance.GameInfo.SpreadRange;
             }

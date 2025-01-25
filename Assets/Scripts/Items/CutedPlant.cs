@@ -11,6 +11,7 @@ public class CutedPlant : MonoBehaviour, ITakeable
     public bool CanCut => false;
     public bool CanPlant => false;
     public bool IsSwitchAllowed => false;
+    public bool IsReserved { get; set; }
 
     [SerializeField] SpriteRenderer flowerSpriteRenderer;
 

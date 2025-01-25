@@ -11,6 +11,7 @@ public class Scissors : MonoBehaviour, IInteractible, ITakeable
     public bool CanCut => true;
     public bool CanPlant => false;
     public bool IsSwitchAllowed => true;
+    public bool IsReserved { get; set; }
 
     public bool CanInteract(PlayerController pc)
     {
