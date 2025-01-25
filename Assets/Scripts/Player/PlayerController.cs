@@ -3,6 +3,7 @@ using GGJ.Prop;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -22,6 +23,9 @@ namespace GGJ.Player
 
         [SerializeField]
         private SpriteRenderer _cutedPlantFlowerSprite;
+
+        [SerializeField]
+        private TMP_Text _multiplier;
 
         private Vector2 _mov;
         private Vector2 _direction = Vector2.up;
@@ -49,6 +53,7 @@ namespace GGJ.Player
             _rb = GetComponent<Rigidbody2D>();
             _sr = GetComponentInChildren<SpriteRenderer>();
             _readyText.SetActive(false);
+            _multiplier.text = string.Empty;
         }
 
         private void Start()
@@ -79,6 +84,7 @@ namespace GGJ.Player
                 var takeable = collision.GetComponent<ITakeable>();
                 Sellables.Add(takeable);
                 takeable.GameObject.SetActive(false);
+                _multiplier.text = $"x{Sellables.Count}";
             }
         }
 
@@ -162,6 +168,7 @@ namespace GGJ.Player
                 s.GameObject.transform.position = transform.position + (Vector3)Random.insideUnitCircle * ResourceManager.Instance.GameInfo.SpreadRange;
             }
             Sellables.Clear();
+            _multiplier.text = string.Empty;
             _stunDirection = dir;
             StartCoroutine(StunTimer());
             StartCoroutine(HitEffect());
@@ -238,6 +245,7 @@ namespace GGJ.Player
                 Destroy(item.GameObject);
             }
             Sellables.Clear();
+            _multiplier.text = string.Empty;
         }
 
         public void GainMoney(int amount)
