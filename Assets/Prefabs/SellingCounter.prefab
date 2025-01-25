@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _priceText: {fileID: 7470465723777113687}
+  _sellVFX: {fileID: 2201130258584598844, guid: 92ef4901b3dcffe40bfa72f7f3afa3dd, type: 3}
 --- !u!61 &1931161920306346934
 BoxCollider2D:
   m_ObjectHideFlags: 0
