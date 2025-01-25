@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,6 +15,9 @@ namespace GGJ.Manager
         [SerializeField]
         private TMP_Text _infoText;
 
+        [SerializeField]
+        private TMP_Text _timerText;
+
         public GamePhase GamePhase { private set; get; }
 
         public UnityEvent<GamePhase> OnNextPhase { get; } = new();
@@ -27,6 +31,7 @@ namespace GGJ.Manager
             Instance = this;
 
             _infoText.text = "Press any button to join...";
+            _timerText.text = "";
 
 #if !UNITY_EDITOR
             SceneManager.LoadScene("01");
@@ -47,11 +52,22 @@ namespace GGJ.Manager
 
                 if (GamePhase == GamePhase.PriceRaise)
                 {
-                    _infoText.text = string.Empty;
-                    StartCoroutine(ReloadScene(_targetScene));
-                    PlayerManager.Instance.ResetAllPlayers();
+                    StartCoroutine(ReadyupTimer());
                 }
             }
+        }
+
+        private IEnumerator ReadyupTimer()
+        {
+            for (int i = 3; i > 0; i--)
+            {
+                _timerText.text = i.ToString();
+                yield return new WaitForSeconds(1f);
+            }
+            _timerText.text = "";
+            _infoText.text = string.Empty;
+            StartCoroutine(ReloadScene(_targetScene));
+            PlayerManager.Instance.ResetAllPlayers();
         }
 
         private IEnumerator ReloadScene(string scene)

@@ -79,27 +79,32 @@ namespace GGJ.Player
             if (value.phase == InputActionPhase.Started)
             {
                 var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
-                var colls = Physics2D.OverlapCircleAll(center, ResourceManager.Instance.GameInfo.InteractionSize, LayerMask.GetMask("Prop"));
+                var size = ResourceManager.Instance.GameInfo.InteractionSize;
+                var colls = Physics2D.OverlapCircleAll(center, size, LayerMask.GetMask("Prop"));
                 if (colls.Any())
                 {
-                    var valids = colls.Where(x =>
+                    if (colls.Any())
                     {
-                        if (x.TryGetComponent<IInteractible>(out var interact))
+                        IInteractible target = null;
+
+                        var takeable = colls.FirstOrDefault(x => x.TryGetComponent<ITakeable>(out var _));
+                        if (takeable != null)
                         {
-                            return interact.CanInteract(this);
+                            DropItem();
+                            target = takeable.GetComponent<IInteractible>();
+                            if (!target.CanInteract(this)) target = null; // Safeguard
                         }
-                        return false;
-                    });
-                    if (valids.Any())
-                    {
-                        var takeable = valids.FirstOrDefault(x => x.TryGetComponent<ITakeable>(out var _));
-                        if (takeable != null) takeable.GetComponent<IInteractible>().Interact(this);
-                        else valids.First().GetComponent<IInteractible>().Interact(this);
+                        else target = colls.FirstOrDefault(x => x.TryGetComponent<IInteractible>(out var interact) && interact.CanInteract(this))?.GetComponent<IInteractible>();
+
+                        if (target != null) target.Interact(this);
                     }
                 }
                 else if (CarriedObject != null) // We carry smth and there is empty space in front of us
                 {
-                    DropItem();
+                    if (Physics2D.OverlapCircle(center, size, LayerMask.GetMask("Wall")) == null) // Prevent dropping something inside a wall
+                    {
+                        DropItem();
+                    }
                 }
             }
         }
@@ -107,9 +112,12 @@ namespace GGJ.Player
 
         public void DropItem()
         {
-            var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
-            CarriedObject.GameObject.transform.position = center;
-            CarriedObject.GameObject.SetActive(true);
+            if (CarriedObject != null)
+            {
+                var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
+                CarriedObject.GameObject.transform.position = center;
+                CarriedObject.GameObject.SetActive(true);
+            }
             CarriedObject = null;
 
             DesactiveAllItems();
