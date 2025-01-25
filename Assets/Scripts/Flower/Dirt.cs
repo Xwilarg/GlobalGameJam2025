@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Dirt : MonoBehaviour, IInteractible
 {
+    [SerializeField]
+    private GameObject _flowerPrefab;
+
     Flower flower;
     public Flower Flower { set => flower = value; }
 
@@ -17,7 +20,7 @@ public class Dirt : MonoBehaviour, IInteractible
         if (flower)
             return;
 
-        flower = Instantiate(ResourceManager.Instance.FlowerPrefab, transform.position, transform.rotation).GetComponent<Flower>();
+        flower = Instantiate(_flowerPrefab, transform.position, transform.rotation).GetComponent<Flower>();
         flower.Dirt = this;
 
         flowerCount++;

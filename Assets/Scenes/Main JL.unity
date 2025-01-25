@@ -168,7 +168,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameInfo: {fileID: 11400000, guid: d4960635903ad0c4cb3cd259cbabd52f, type: 2}
   _flowerInfo: {fileID: 11400000, guid: 578199e0bac934a71a16e74d40ddbd48, type: 2}
-  _flowerPrefab: {fileID: 9068690272620006417, guid: 896b009d056be470b88951c1c80325d6, type: 3}
 --- !u!114 &209424491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca06f77da08b4c63a9bb9a324c9a575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flowerPrefab: {fileID: 9068690272620006417, guid: 896b009d056be470b88951c1c80325d6, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
