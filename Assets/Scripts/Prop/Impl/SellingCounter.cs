@@ -8,7 +8,11 @@ namespace GGJ.Prop.Impl
     public class SellingCounter : MonoBehaviour, IInteractible
     {
         [SerializeField]
+        private GameObject _textCanvas;
+        [SerializeField]
         private TMP_Text _priceText;
+        [SerializeField]
+        private TMP_Text _priceVariationText;
 
         public int AmountSold { set; get; }
         public float Variation { set; get; } = 1f;
@@ -31,8 +35,13 @@ namespace GGJ.Prop.Impl
         }
         public void UpdateUI()
         {
-            if (GameManager.Instance.GamePhase == GamePhase.GameEnded) _priceText.text = "Closed";
-            else _priceText.text = $"{EconomyManager.Instance.CurrentPrice * Variation}f ({AddSign(Mathf.RoundToInt(Variation))})";
+            if (GameManager.Instance.GamePhase == GamePhase.GameEnded) _textCanvas.SetActive(false);
+            else
+            {
+                _priceText.text = $" = {Mathf.RoundToInt(Mathf.Max(0, EconomyManager.Instance.CurrentPrice * Variation))}";
+                _priceVariationText.text = $"({AddSign(Mathf.RoundToInt(Variation))})";
+                _textCanvas.SetActive(true);
+            }
         }
 
         public void UpdateVariation(float average)
