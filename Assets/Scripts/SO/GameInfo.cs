@@ -20,6 +20,7 @@ namespace GGJ.SO
         [Tooltip("Min/Max the selling price can reach")] public Range MinMaxPrice;
         [Tooltip("Curve for the base prices during increase phase")] public AnimationCurve RaisePriceCurve;
         [Tooltip("Curve for the base prices during crash phase")] public AnimationCurve CrashPriceCurve;
+        [Tooltip("Price coef want you sell the plant of a other player"), Range(0, 1)] public float OtherPlayerPlantPriceCoef = 0.5f;
 
         [Header("Time")]
         [Tooltip("How much time in seconds a day is")] public float DayDuration;
