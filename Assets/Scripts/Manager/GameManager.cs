@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -31,7 +30,7 @@ namespace GGJ.Manager
             Instance = this;
 
             _infoText.text = "Press any button to join...";
-            _timerText.text = "";
+            _timerText.text = string.Empty;
 
 #if !UNITY_EDITOR
             SceneManager.LoadScene("01");

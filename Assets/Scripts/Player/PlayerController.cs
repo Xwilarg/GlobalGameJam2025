@@ -1,5 +1,6 @@
 using GGJ.Manager;
 using GGJ.Prop;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -18,6 +19,7 @@ namespace GGJ.Player
         private Vector2 _mov;
         private Vector2 _direction = Vector2.up;
         private Rigidbody2D _rb;
+        private SpriteRenderer _sr;
 
         private int _money;
 
@@ -28,10 +30,13 @@ namespace GGJ.Player
         public Color Color { set; get; }
         public Vector2 SpawnPoint { set; private get; }
 
+        public Vector2? _stunDirection = null;
+
         #region Unity methods
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _sr = GetComponentInChildren<SpriteRenderer>();
             _readyText.SetActive(false);
         }
 
@@ -42,7 +47,7 @@ namespace GGJ.Player
 
         private void FixedUpdate()
         {
-            _rb.linearVelocity = _mov * ResourceManager.Instance.GameInfo.Speed;
+            _rb.linearVelocity = _stunDirection.HasValue ? (_stunDirection.Value * ResourceManager.Instance.GameInfo.StunForce) : (_mov * ResourceManager.Instance.GameInfo.Speed);
         }
 
         private void OnDrawGizmos()
@@ -97,9 +102,36 @@ namespace GGJ.Player
                         DropItem();
                     }
                 }
+                else
+                {
+                    var players = Physics2D.OverlapCircleAll(center, size, LayerMask.GetMask("Player")).Where(x => x.gameObject.GetInstanceID() != gameObject.GetInstanceID());
+                    foreach (var player in players)
+                    {
+                        player.GetComponent<PlayerController>().GetStunned((player.transform.position - transform.position).normalized);
+                    }
+                }
             }
         }
         #endregion Inputs
+
+        public void GetStunned(Vector2 dir)
+        {
+            DropItem();
+            _stunDirection = dir;
+            StartCoroutine(StunTimer());
+            StartCoroutine(HitEffect());
+        }
+        private IEnumerator HitEffect()
+        {
+            _sr.color = new Color(1f, 1f, 1f, 0f);
+            yield return new WaitForSeconds(ResourceManager.Instance.GameInfo.HitEffectTime);
+            _sr.color = Color.white;
+        }
+        private IEnumerator StunTimer()
+        {
+            yield return new WaitForSeconds(ResourceManager.Instance.GameInfo.StunDuration);
+            _stunDirection = null;
+        }
 
         public void DropItem()
         {

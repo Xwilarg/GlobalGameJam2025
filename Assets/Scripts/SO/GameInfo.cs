@@ -11,6 +11,9 @@ namespace GGJ.SO
         [Header("Interactions")]
         [Tooltip("Distance between player and center point of the interaction")] public float InteractionDistance;
         [Tooltip("Size of the interaction area")] public float InteractionSize;
+        [Tooltip("Stun duration in seconds")] public float StunDuration;
+        [Tooltip("Stun force")] public float StunForce;
+        [Tooltip("Time the sprite change to transparent when we take a hit (in seconds)")] public float HitEffectTime;
 
         [Header("Money")]
         [Tooltip("Min/Max the selling price can reach")] public Range MinMaxPrice;
