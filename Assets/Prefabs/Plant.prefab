@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6117461797070538103}
   - component: {fileID: 3048847893806419444}
   m_Layer: 0
-  m_Name: BodySprite
+  m_Name: PlantSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,8 +164,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4174882035479105401, guid: 46f37bffc30b844a2914988fa0104538, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -3410417774093980281, guid: ff8f37ee4308f480c9fef0144982b30c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 6517023700450136081}
   - component: {fileID: 653755348284270777}
   m_Layer: 0
-  m_Name: BulbSprite
+  m_Name: FlowerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -442,11 +442,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb4af94c79b54d0a9c234806f38023a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodySpriteRenderer: {fileID: 3048847893806419444}
-  bulbSpriteRenderer: {fileID: 653755348284270777}
+  plantSpriteRenderer: {fileID: 3048847893806419444}
+  flowerSpriteRenderer: {fileID: 653755348284270777}
   needWaterPopup: {fileID: 6496814229321195538}
   needCutPopup: {fileID: 4299380022173581811}
-  cutedPlantPrefab: {fileID: 4209851520180438993, guid: dcffee11429d64fab8de66ff0310c436, type: 3}
+  cutedPlantPrefab: {fileID: 385365920325629815, guid: dcffee11429d64fab8de66ff0310c436, type: 3}
   plantSprites:
   - {fileID: -6478797528356011927, guid: c5710c7424d884392aa13fd360724b2f, type: 3}
   - {fileID: -4427725134241655194, guid: 145c07376695b41309ace5a4d9234641, type: 3}

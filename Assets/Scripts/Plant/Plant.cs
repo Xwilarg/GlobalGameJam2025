@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour, IInteractible
 {
-    [SerializeField] SpriteRenderer bodySpriteRenderer;
-    [SerializeField] SpriteRenderer bulbSpriteRenderer;
+    [SerializeField] SpriteRenderer plantSpriteRenderer;
+    [SerializeField] SpriteRenderer flowerSpriteRenderer;
 
     [SerializeField] GameObject needWaterPopup;
     [SerializeField] GameObject needCutPopup;
 
-    [SerializeField] GameObject cutedPlantPrefab;
+    [SerializeField] CutedPlant cutedPlantPrefab;
 
     [SerializeField, Tooltip("All plant images (without flower) in growth order")] Sprite[] plantSprites;
     [SerializeField, Tooltip("All plant flower images in growth order")] Sprite[] flowerSprites;
@@ -56,9 +56,9 @@ public class Plant : MonoBehaviour, IInteractible
     int MaxGrounthLvl { get => plantSprites.Length - 1; }
     bool IsAtMaxGrounthLvl { get => growthLvl == MaxGrounthLvl; }
 
-    public void SetBulbColor(Color color)
+    public void SetFlowerColor(Color color)
     {
-        bulbSpriteRenderer.color = color;
+        flowerSpriteRenderer.color = color;
     }
 
     void Start()
@@ -72,16 +72,18 @@ public class Plant : MonoBehaviour, IInteractible
     }
 
 
-    void OnDestroy()
+    void DestroyGameObject()
     {
         if (dirt)
             dirt.Plant = null;
+
+        Destroy(gameObject);
     }
 
     void UpdatebodySpriteRenderers()
     {
-        bodySpriteRenderer.sprite = plantSprites[growthLvl];
-        bulbSpriteRenderer.sprite = flowerSprites[growthLvl];
+        plantSpriteRenderer.sprite = plantSprites[growthLvl];
+        flowerSpriteRenderer.sprite = flowerSprites[growthLvl];
     }
 
     void Water()
@@ -101,9 +103,11 @@ public class Plant : MonoBehaviour, IInteractible
         if (!needCut)
             return;
 
-        Instantiate(cutedPlantPrefab, transform.position, transform.rotation);
+        CutedPlant cutedPlant = Instantiate(cutedPlantPrefab, transform.position, transform.rotation);
 
-        Destroy(gameObject);
+        cutedPlant.SetFlowerColor(flowerSpriteRenderer.color);
+
+        DestroyGameObject();
     }
 
 
