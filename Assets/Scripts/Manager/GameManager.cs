@@ -7,7 +7,7 @@ namespace GGJ.Manager
     {
         public static GameManager Instance { private set; get; }
 
-        public GamePhase GamePhase { private set; get; } = GamePhase.PriceRaise;
+        public GamePhase GamePhase { private set; get; }
 
         public UnityEvent<GamePhase> OnNextPhase { get; } = new();
 
