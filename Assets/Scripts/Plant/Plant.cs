@@ -2,7 +2,6 @@ using GGJ.Manager;
 using GGJ.Player;
 using GGJ.Prop;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 public class Plant : MonoBehaviour, IInteractible
@@ -24,6 +23,7 @@ public class Plant : MonoBehaviour, IInteractible
     Dirt dirt;
 
     public Dirt Dirt { set; get; }
+    public int PlayerId { set; get; }
 
 
     void SetGrowthLvl(int growthLvl)
@@ -105,6 +105,7 @@ public class Plant : MonoBehaviour, IInteractible
         cutedPlant.transform.parent = GameManager.Instance.SceneTransform;
 
         cutedPlant.SetFlowerColor(flowerSpriteRenderer.color);
+        cutedPlant.PlayerId = PlayerId;
 
         DestroyGameObject();
         AudioManager.Instance.PlayCut();

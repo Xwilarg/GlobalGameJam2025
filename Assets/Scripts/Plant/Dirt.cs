@@ -18,7 +18,7 @@ public class Dirt : MonoBehaviour, IInteractible
         GameManager.Instance.Register(this);
     }
 
-    void PlantPlant(Color flowerColor)
+    void PlantPlant(Color flowerColor, int id)
     {
         if (plant)
             return;
@@ -26,6 +26,7 @@ public class Dirt : MonoBehaviour, IInteractible
         plant = Instantiate(_plantPrefab, transform.position, transform.rotation).GetComponent<Plant>();
         plant.Dirt = this;
         plant.transform.parent = plant.Dirt.transform;
+        plant.PlayerId = id;
 
         plant.SetFlowerColor(flowerColor);
 
@@ -36,7 +37,7 @@ public class Dirt : MonoBehaviour, IInteractible
     void IInteractible.Interact(PlayerController pc)
     {
         Color playerColor = pc.Color;
-        PlantPlant(playerColor);
+        PlantPlant(playerColor, pc.Id);
         pc.Ready();
     }
 

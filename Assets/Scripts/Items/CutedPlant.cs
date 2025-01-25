@@ -2,7 +2,7 @@ using GGJ.Player;
 using GGJ.Prop;
 using UnityEngine;
 
-public class CutedPlant : MonoBehaviour, IInteractible, ITakeable
+public class CutedPlant : MonoBehaviour, ITakeable
 {
     public GameObject GameObject => gameObject;
 
@@ -15,23 +15,11 @@ public class CutedPlant : MonoBehaviour, IInteractible, ITakeable
     [SerializeField] SpriteRenderer flowerSpriteRenderer;
 
     private int playerId;
-    public int PlayerId { get => playerId; }
+    public int PlayerId { get => playerId; set => playerId = value; }
 
 
     public void SetFlowerColor(Color color)
     {
         flowerSpriteRenderer.color = color;
-    }
-
-    public bool CanInteract(PlayerController pc)
-    {
-        return pc.CarriedObject == null;
-    }
-
-    public void Interact(PlayerController pc)
-    {
-        pc.Carry(this);
-        pc.CutedPlantFlowerSprite.color = flowerSpriteRenderer.color;
-        playerId = pc.Id;
     }
 }
