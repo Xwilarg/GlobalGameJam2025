@@ -21,7 +21,7 @@ namespace GGJ.Prop.Impl
 
         public bool CanInteract(PlayerController pc)
         {
-            return pc.CarriedObject != null && pc.CarriedObject.CanBeSold;
+            return GameManager.Instance.GamePhase > GamePhase.LobbyPreparation && pc.CarriedObject != null && pc.CarriedObject.CanBeSold;
         }
 
         public void UpdateUI()
