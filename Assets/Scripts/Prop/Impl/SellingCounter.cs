@@ -16,7 +16,7 @@ namespace GGJ.Prop.Impl
         private void Start()
         {
             EconomyManager.Instance.Register(this);
-            UpdateUI();
+            _priceText.text = "Closed";
         }
 
         public bool CanInteract(PlayerController pc)

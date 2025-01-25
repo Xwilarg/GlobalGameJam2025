@@ -41,9 +41,6 @@ namespace GGJ.Manager
                     StartCoroutine(WaitDays());
                 }
             });
-
-            // TODO: Remove following line once player management is done
-            GameManager.Instance.SetPhase(GamePhase.PriceRaise);
         }
 
         private IEnumerator WaitDays()
