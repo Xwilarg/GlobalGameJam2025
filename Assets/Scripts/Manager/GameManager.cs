@@ -27,6 +27,8 @@ namespace GGJ.Manager
 
         private readonly List<Dirt> _dirts = new();
 
+        public Transform SceneTransform { private set; get; }
+
         private void Awake()
         {
             Instance = this;
@@ -115,6 +117,8 @@ namespace GGJ.Manager
             yield return SceneManager.UnloadSceneAsync("Lobby");
             OnResetAll();
             yield return SceneManager.LoadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name, LoadSceneMode.Additive);
+            SceneTransform = new GameObject("Container").transform;
+            SceneManager.MoveGameObjectToScene(SceneTransform.gameObject, SceneManager.GetSceneByName(ResourceManager.Instance.GameInfo.GameLevel.Name));
         }
 
         public void Register(Dirt d)

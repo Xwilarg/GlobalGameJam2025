@@ -2,6 +2,7 @@ using GGJ.Manager;
 using GGJ.Player;
 using GGJ.Prop;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class Plant : MonoBehaviour, IInteractible
@@ -100,7 +101,7 @@ public class Plant : MonoBehaviour, IInteractible
             return;
 
         CutedPlant cutedPlant = Instantiate(cutedPlantPrefab, transform.position, transform.rotation);
-        cutedPlant.transform.parent = dirt.transform;
+        cutedPlant.transform.parent = GameManager.Instance.SceneTransform;
 
         cutedPlant.SetFlowerColor(flowerSpriteRenderer.color);
 
