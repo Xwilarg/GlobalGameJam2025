@@ -62,7 +62,7 @@ public class Plant : MonoBehaviour, IInteractible
         needWaterPopup.SetActive(needWater);
         needCutPopup.SetActive(needCut);
 
-        Invoke("SetNeedWaterTrue", ResourceManager.Instance.PlantInfo.NeedWaterDeltaTime);
+        Invoke("SetNeedWaterTrue", ResourceManager.Instance.GameInfo.NeedWaterDeltaTime);
     }
 
 
@@ -90,8 +90,8 @@ public class Plant : MonoBehaviour, IInteractible
         SetGrowthLvl(growthLvl + 1);
 
         if (IsAtMaxGrounthLvl) SetNeedCut(true);
-        else Invoke("SetNeedWaterTrue", ResourceManager.Instance.PlantInfo.NeedWaterDeltaTime);
-        //Invoke(IsAtMaxGrounthLvl ? "SetNeedCutTrue" : "SetNeedWaterTrue", ResourceManager.Instance.PlantInfo.NeedWaterDeltaTime);
+        else Invoke("SetNeedWaterTrue", ResourceManager.Instance.GameInfo.NeedWaterDeltaTime);
+        //Invoke(IsAtMaxGrounthLvl ? "SetNeedCutTrue" : "SetNeedWaterTrue", ResourceManager.Instance.GameInfo.NeedWaterDeltaTime);
     }
 
     void Cut()

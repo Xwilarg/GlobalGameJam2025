@@ -27,6 +27,13 @@ namespace GGJ.SO
 
         [Header("Economy")]
         [Tooltip("% variation per flower sold (before variance with average)")] [Range(1, 100)] public int PercSellVariation;
+
+        [Header("Audio")]
+        public AnimationCurve AudioCurveIncrease;
+        public AnimationCurve AudioCurveDecrease;
+
+        [Header("Plant")]
+        [Tooltip("How long before plant need water")] public float NeedWaterDeltaTime = 3;
     }
 
     [System.Serializable]
