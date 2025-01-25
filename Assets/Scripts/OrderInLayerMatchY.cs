@@ -3,6 +3,7 @@ using UnityEngine;
 public class OrderInLayerMatchY : MonoBehaviour
 {
     SpriteRenderer[] spriteRenderers;
+    int[] spriteRenderersOffset;
 
     [SerializeField] bool isStatic = true;
 
@@ -19,6 +20,10 @@ public class OrderInLayerMatchY : MonoBehaviour
     void Cache()
     {
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+        spriteRenderersOffset = new int[spriteRenderers.Length];
+
+        for (int i = 0; i < spriteRenderers.Length; i++)
+            spriteRenderersOffset[i] = spriteRenderers[i].sortingOrder;
     }
 
     void Update()
@@ -29,7 +34,7 @@ public class OrderInLayerMatchY : MonoBehaviour
 
     void UpdateOrderInLayer()
     {
-        foreach (SpriteRenderer sr in spriteRenderers)
-            sr.sortingOrder = -(int)transform.position.y;
+        for (int i = 0; i < spriteRenderers.Length; i++)
+            spriteRenderers[i].sortingOrder = -(int)(transform.position.y * 100) + spriteRenderersOffset[i];
     }
 }

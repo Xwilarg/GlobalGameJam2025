@@ -380,9 +380,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -574426315
-  m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 6655fde72398445d6aa26b100ceaaa8f, type: 3}
   m_Color: {r: 0.14684942, g: 0.25930288, b: 0.9433962, a: 1}
   m_FlipX: 0
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 6264440821530907555}
   - component: {fileID: 3824762686026900753}
   - component: {fileID: 1239454384954076126}
-  - component: {fileID: 5480929361442895411}
+  - component: {fileID: 8737994530101916612}
   m_Layer: 7
   m_Name: Plant
   m_TagString: Untagged
@@ -493,7 +493,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.6
---- !u!114 &5480929361442895411
+--- !u!114 &8737994530101916612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -506,3 +506,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 1
+  offset: 0

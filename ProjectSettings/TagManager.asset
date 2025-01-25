@@ -44,9 +44,6 @@ TagManager:
   - name: Ground
     uniqueID: 1949577395
     locked: 0
-  - name: Flower
-    uniqueID: 3720540981
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
