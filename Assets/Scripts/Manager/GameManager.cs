@@ -30,7 +30,10 @@ namespace GGJ.Manager
 
             _infoText.text = "Press any button to join...";
             _timerText.text = string.Empty;
+        }
 
+        private void Start()
+        {
 #if !UNITY_EDITOR
             SceneManager.LoadScene("Lobby", LoadSceneMode.Additive);
 #else
