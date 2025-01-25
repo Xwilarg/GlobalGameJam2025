@@ -39,6 +39,8 @@ namespace GGJ.Player
         public ITakeable CarriedObject { private set; get; }
         public List<ITakeable> Sellables { private set; get; } = new();
 
+        public PlayerScore PlayerScore { set; get; }
+
         public Color Color { set; get; }
         public Vector2 SpawnPoint { set; private get; }
 
@@ -251,6 +253,7 @@ namespace GGJ.Player
         public void GainMoney(int amount)
         {
             _money += amount;
+            PlayerScore.SetScore(_money);
         }
 
         public void ResetAll()
