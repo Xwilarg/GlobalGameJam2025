@@ -36,17 +36,13 @@ namespace GGJ.Manager
             });
         }
 
-        public void ClearRegisters()
-        {
-            OnNewDay.RemoveAllListeners();
-        }
-
         private void Update()
         {
             if (!_isTimerStarted) return;
 
             var info = ResourceManager.Instance.GameInfo;
             _timer += Time.deltaTime;
+            Debug.Log(_timer);
             if (_timer >= info.DayDuration)
             {
                 _timer = 0f;
