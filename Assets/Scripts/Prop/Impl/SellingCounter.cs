@@ -38,7 +38,7 @@ namespace GGJ.Prop.Impl
         public void UpdateVariation(float average)
         {
             Variation = (1f + Variation) / 2f;
-            Variation += AmountSold - average;
+            Variation += AmountSold + average;
         }
 
         public void Interact(PlayerController pc)
