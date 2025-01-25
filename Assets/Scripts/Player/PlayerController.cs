@@ -15,6 +15,13 @@ namespace GGJ.Player
         [SerializeField]
         private GameObject _readyText;
 
+        [SerializeField]
+        private GameObject _scissors, _seeds, _wateringCan, _cutedPlant;
+
+        [SerializeField]
+        private SpriteRenderer _cutedPlantFlowerSprite;
+
+
         private Vector2 _mov;
         private Vector2 _direction = Vector2.up;
         private Rigidbody2D _rb;
@@ -27,6 +34,8 @@ namespace GGJ.Player
 
         public Color Color { set; get; }
         public Vector2 SpawnPoint { set; private get; }
+
+        public SpriteRenderer CutedPlantFlowerSprite { get => _cutedPlantFlowerSprite; }
 
         #region Unity methods
         private void Awake()
@@ -102,6 +111,8 @@ namespace GGJ.Player
             CarriedObject.GameObject.transform.position = center;
             CarriedObject.GameObject.SetActive(true);
             CarriedObject = null;
+
+            DesactiveAllItems();
         }
 
         public void Ready()
@@ -130,6 +141,14 @@ namespace GGJ.Player
 
             CarriedObject = takeable;
             CarriedObject.GameObject.SetActive(false);
+
+            DesactiveAllItems();
+
+            if (takeable is Scissors) _scissors.SetActive(true);
+            else if (takeable is Seeds) _seeds.SetActive(true);
+            else if (takeable is WateringCan) _wateringCan.SetActive(true);
+            else if (takeable is CutedPlant) _cutedPlant.SetActive(true);
+
             return true;
         }
 
@@ -141,6 +160,8 @@ namespace GGJ.Player
             Assert.IsNotNull(CarriedObject);
             Destroy(CarriedObject.GameObject);
             CarriedObject = null;
+
+            DesactiveAllItems();
         }
 
         public void GainMoney(int amount)
@@ -157,11 +178,21 @@ namespace GGJ.Player
                 CarriedObject = null;
             }
             transform.position = SpawnPoint;
+
+            DesactiveAllItems();
         }
 
         public override string ToString()
         {
             return $"Player (Money: {_money})";
+        }
+
+        void DesactiveAllItems()
+        {
+            _scissors.SetActive(false);
+            _seeds.SetActive(false);
+            _wateringCan.SetActive(false);
+            _cutedPlant.SetActive(false);
         }
     }
 }
