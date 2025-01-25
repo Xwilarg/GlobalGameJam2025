@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048ab6372d622b14792004359411f044, type: 3}
   m_Name: GameInfo
   m_EditorClassIdentifier: 
-  Speed: 5
-  InteractionDistance: 0.75
-  InteractionSize: 0.5
+  Speed: 15
+  InteractionDistance: 2
+  InteractionSize: 1.75
   MinMaxPrice:
     Min: 1
     Max: 100

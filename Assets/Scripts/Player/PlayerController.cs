@@ -8,6 +8,9 @@ namespace GGJ.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField]
+        private Transform _feet;
+
         private Vector2 _mov;
         private Vector2 _direction = Vector2.up;
         private Rigidbody2D _rb;
@@ -37,7 +40,7 @@ namespace GGJ.Player
             Gizmos.color = Color.blue;
             if (ResourceManager.Instance != null)
             {
-                Gizmos.DrawWireSphere(transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance, ResourceManager.Instance.GameInfo.InteractionSize);
+                Gizmos.DrawWireSphere(_feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance, ResourceManager.Instance.GameInfo.InteractionSize);
             }
         }
         #endregion Unity methods
@@ -56,7 +59,7 @@ namespace GGJ.Player
         {
             if (value.phase == InputActionPhase.Started)
             {
-                var center = transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
+                var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
                 var coll = Physics2D.OverlapCircle(center, ResourceManager.Instance.GameInfo.InteractionSize, LayerMask.GetMask("Prop"));
                 if (coll != null)
                 {
