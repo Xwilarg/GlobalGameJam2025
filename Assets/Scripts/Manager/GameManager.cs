@@ -103,10 +103,10 @@ namespace GGJ.Manager
                 yield return new WaitForSeconds(1f);
             }
             _infoText.text = string.Empty;
+            GamePhase = GamePhase.LobbyPreparation;
             yield return SceneManager.UnloadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name);
             OnResetAll();
             yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
-            SetPhase(GamePhase.LobbyPreparation);
             _inputManager.EnableJoining();
         }
 
