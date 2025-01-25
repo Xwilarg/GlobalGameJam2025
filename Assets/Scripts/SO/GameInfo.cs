@@ -8,6 +8,7 @@ namespace GGJ.SO
     {
         [Header("Movements")]
         [Tooltip("Speed of the player")] public float Speed;
+        [Tooltip("Speed of the player when carrying an object")] public float SpeedWhenCarrying;
 
         [Header("Interactions")]
         [Tooltip("Distance between player and center point of the interaction")] public float InteractionDistance;

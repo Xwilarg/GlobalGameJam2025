@@ -42,7 +42,6 @@ namespace GGJ.Manager
 
             var info = ResourceManager.Instance.GameInfo;
             _timer += Time.deltaTime;
-            Debug.Log(_timer);
             if (_timer >= info.DayDuration)
             {
                 _timer = 0f;

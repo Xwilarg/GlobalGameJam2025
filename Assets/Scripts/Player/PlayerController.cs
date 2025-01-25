@@ -73,14 +73,25 @@ namespace GGJ.Player
 
         private void FixedUpdate()
         {
-            _rb.linearVelocity = _stunDirection.HasValue ? (_stunDirection.Value * ResourceManager.Instance.GameInfo.StunForce) : (_mov * ResourceManager.Instance.GameInfo.Speed);
-
             int runAnimation = 0;
 
             if (_rb.linearVelocity.sqrMagnitude > 0.01f)
                 runAnimation = _direction.x > 0 ? 1 : -1;
 
             _animator.SetInteger("Run", runAnimation);
+
+            if (_stunDirection.HasValue)
+            {
+                _rb.linearVelocity = _stunDirection.Value * ResourceManager.Instance.GameInfo.StunForce;
+            }
+            else if (CarriedObject != null)
+            {
+                _rb.linearVelocity = _mov * ResourceManager.Instance.GameInfo.SpeedWhenCarrying;
+            }
+            else
+            {
+                _rb.linearVelocity = _mov * ResourceManager.Instance.GameInfo.Speed;
+            }
         }
 
         private void OnDrawGizmos()
@@ -115,7 +126,7 @@ namespace GGJ.Player
         }
         public void OnAction(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started)
+            if (value.phase == InputActionPhase.Started && _stunDirection == null)
             {
                 var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
                 var size = ResourceManager.Instance.GameInfo.InteractionSize;
