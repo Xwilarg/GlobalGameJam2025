@@ -11,6 +11,14 @@ namespace GGJ.Manager
         private GameInfo _playerInfo;
         public GameInfo PlayerInfo => _playerInfo;
 
+        [SerializeField]
+        private FlowerInfo _flowerInfo;
+        public FlowerInfo FlowerInfo => _flowerInfo;
+
+        [SerializeField]
+        private GameObject _flowerPrefab;
+        public GameObject FlowerPrefab => _flowerPrefab;
+
         private void Awake()
         {
             Instance = this;
