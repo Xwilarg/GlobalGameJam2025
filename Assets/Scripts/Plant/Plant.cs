@@ -93,6 +93,7 @@ public class Plant : MonoBehaviour, IInteractible
         if (IsAtMaxGrounthLvl) SetNeedCut(true);
         else Invoke("SetNeedWaterTrue", ResourceManager.Instance.GameInfo.NeedWaterDeltaTime);
         //Invoke(IsAtMaxGrounthLvl ? "SetNeedCutTrue" : "SetNeedWaterTrue", ResourceManager.Instance.GameInfo.NeedWaterDeltaTime);
+        AudioManager.Instance.PlayWater();
     }
 
     void Cut()
@@ -106,6 +107,7 @@ public class Plant : MonoBehaviour, IInteractible
         cutedPlant.SetFlowerColor(flowerSpriteRenderer.color);
 
         DestroyGameObject();
+        AudioManager.Instance.PlayCut();
     }
 
 
