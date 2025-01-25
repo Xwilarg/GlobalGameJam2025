@@ -9,6 +9,10 @@ public class OrderInLayerMatchY : MonoBehaviour
     void Awake()
     {
         Cache();
+    }
+
+    void OnEnable()
+    {
         UpdateOrderInLayer();
     }
 
