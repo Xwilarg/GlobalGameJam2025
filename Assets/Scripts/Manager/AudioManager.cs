@@ -10,7 +10,7 @@ namespace GGJ.Manager
         private float _maxVolume;
 
         [SerializeField]
-        private AudioSource _bgmHappy, _bgmSad, _bgmNeutral;
+        private AudioSource _bgmHappy, _bgmSad, _bgmNeutral, _bgmLobby;
 
         [SerializeField]
         private AudioSource _water, _cut, _plant, _punch, _sell;
@@ -19,9 +19,26 @@ namespace GGJ.Manager
         {
             Instance = this;
 
+            _bgmLobby.volume = _maxVolume;
+        }
+
+        public void StartLobby()
+        {
+            _bgmHappy.Stop();
+            _bgmSad.Stop();
+            _bgmNeutral.Stop();
+            _bgmLobby.Play();
+        }
+
+        public void StartGame()
+        {
+            _bgmLobby.Stop();
             _bgmHappy.volume = 0f;
             _bgmSad.volume = 0f;
             _bgmNeutral.volume = _maxVolume;
+            _bgmHappy.Play();
+            _bgmSad.Play();
+            _bgmNeutral.Play();
         }
 
         private void Update()

@@ -98,6 +98,7 @@ namespace GGJ.Manager
             _inputManager.DisableJoining();
             StartCoroutine(ReloadScene());
             PlayerManager.Instance.ResetAllPlayers();
+            AudioManager.Instance.StartGame();
         }
 
         private IEnumerator BackToLobby()
@@ -115,6 +116,7 @@ namespace GGJ.Manager
             SceneTransform = new GameObject("Container").transform;
             SceneManager.MoveGameObjectToScene(SceneTransform.gameObject, SceneManager.GetSceneByName("Lobby"));
             _inputManager.EnableJoining();
+            AudioManager.Instance.StartLobby();
         }
 
         private IEnumerator ReloadScene()
