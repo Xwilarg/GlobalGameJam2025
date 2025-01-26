@@ -17,11 +17,15 @@ namespace GGJ.Prop.Impl
         [SerializeField]
         private Sprite _closedSprite;
         [SerializeField]
+        private Sprite _boughtSprite;
+        [SerializeField]
         private GameObject _sellVFX;
 
         private Sprite _openSprite;
         public int AmountSold { set; get; }
         public float Variation { set; get; } = 1f;
+
+        private float _boughtTimer = 0f;
 
         private SpriteRenderer _sr;
 
@@ -35,6 +39,18 @@ namespace GGJ.Prop.Impl
         {
             EconomyManager.Instance.Register(this);
             UpdateUI();
+        }
+
+        private void Update()
+        {
+            if (_boughtTimer > 0f)
+            {
+                _boughtTimer -= Time.deltaTime;
+                if (_boughtTimer <= 0f && GameManager.Instance.GamePhase != GamePhase.GameEnded)
+                {
+                    _sr.sprite = _openSprite;
+                }
+            }
         }
 
         public string AddSign(int nb)
@@ -55,6 +71,7 @@ namespace GGJ.Prop.Impl
                 _priceVariationText.text = $"({AddSign(Mathf.RoundToInt(Variation))})";
                 _textCanvas.SetActive(true);
                 _sr.sprite = _openSprite;
+                _boughtTimer = .5f;
             }
         }
 
