@@ -98,6 +98,7 @@ namespace GGJ.Prop.Impl
                 AudioManager.Instance.PlaySell();
                 Destroy(Instantiate(_sellVFX, transform.position, Quaternion.identity), 1f);
                 _boughtTimer = .5f;
+                _sr.sprite = _boughtSprite;
             }
         }
     }
