@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: efa57d578557c4998b0112f9935daf68
+guid: 4b1e1d8255c53473bb5538e13f96dc02
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8705599935551524320
-    second: winner01_0
+      213: -7443989489820868917
+    second: winner01 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.0028021864, y: 0.029411783}
+  spritePivot: {x: 0.010690501, y: 0.2668845}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: winner01_0
+      name: winner01 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 421
-        height: 154
+        y: 50
+        width: 274
+        height: 101
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 022b9cc9bfe7f2780800000000000000
-      internalID: -8705599935551524320
+      spriteID: bce5c7bbff2a1b890800000000000000
+      internalID: -7443989489820868917
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      winner01_0: -8705599935551524320
+      winner01 1_0: -7443989489820868917
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

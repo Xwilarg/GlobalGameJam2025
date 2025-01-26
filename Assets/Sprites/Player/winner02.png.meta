@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3ccb384b2c9834e48852c815de56e0bb
+guid: 5b0aa12b19ac7435cb299e66ba2a96da
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -50,7 +50,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.0052758073, y: 0.027233133}
+  spritePivot: {x: 0.021906763, y: 0.2712418}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -103,10 +103,10 @@ TextureImporter:
       name: winner02_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 341
-        height: 239
+        x: 2
+        y: 51
+        width: 265
+        height: 107
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
