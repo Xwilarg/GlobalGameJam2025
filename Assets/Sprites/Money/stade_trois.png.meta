@@ -103,7 +103,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -613,7 +613,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -622,7 +622,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      stade_trois_0: 6648560045860858514
+      stade_trois_1: -6033113756378716746
+      stade_trois_10: -4278755513846913170
+      stade_trois_11: -865687175546702286
+      stade_trois_12: -7558289771759370671
+      stade_trois_13: 6910370912755080502
+      stade_trois_14: -4338451012770897829
+      stade_trois_15: -578787793931647868
+      stade_trois_16: -7974550929416511257
+      stade_trois_17: 984419555352608867
+      stade_trois_18: -6522244587847095217
+      stade_trois_19: 1622819767948171913
+      stade_trois_2: 6631822499187180016
+      stade_trois_3: 6668412512418585942
+      stade_trois_4: -2108207344338292317
+      stade_trois_5: 1513572187244037179
+      stade_trois_6: 2170993624737095353
+      stade_trois_7: -2184931885683836721
+      stade_trois_8: -2481285075439362988
+      stade_trois_9: 6887812245461782172
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
