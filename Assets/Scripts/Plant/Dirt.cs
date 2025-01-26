@@ -8,10 +8,18 @@ public class Dirt : MonoBehaviour, IInteractible
     [SerializeField]
     private GameObject _plantPrefab;
 
+    [SerializeField]
+    private Sprite[] _sprites;
+
     Plant plant;
     public Plant Plant { set => plant = value; }
 
     int plantCount = 0;
+
+    private void Awake()
+    {
+        GetComponent<SpriteRenderer>().sprite = _sprites[Random.Range(0, _sprites.Length)];
+    }
 
     private void Start()
     {
