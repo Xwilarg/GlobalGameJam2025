@@ -70,6 +70,7 @@ namespace GGJ.Manager
         public void OnResetAll()
         {
             PlayerManager.Instance.ClearRegisters();
+            PlayerManager.Instance.ResetAllPlayers();
             EconomyManager.Instance.ClearRegisters();
         }
 
