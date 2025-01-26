@@ -184,7 +184,7 @@ namespace GGJ.Player
         }
         public void OnAction(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started && _stunDirection == null)
+            if (value.phase == InputActionPhase.Started && _stunDirection == null && !GameManager.Instance.IsPaused)
             {
                 var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
                 var size = ResourceManager.Instance.GameInfo.InteractionSize;
@@ -220,6 +220,11 @@ namespace GGJ.Player
                     TryHitPlayer();
                 }
             }
+        }
+
+        public void OnPause(InputAction.CallbackContext value)
+        {
+            GameManager.Instance.TogglePause();
         }
         #endregion Inputs
 

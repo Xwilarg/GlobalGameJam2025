@@ -22,6 +22,9 @@ namespace GGJ.Manager
         [SerializeField]
         private PlayerInputManager _inputManager;
 
+        [SerializeField]
+        private GameObject _pauseDisplay;
+
         public GamePhase GamePhase { private set; get; }
 
         public UnityEvent<GamePhase> OnNextPhase { get; } = new();
@@ -29,6 +32,7 @@ namespace GGJ.Manager
         private readonly List<Dirt> _dirts = new();
 
         public Transform SceneTransform { private set; get; }
+        public bool IsPaused => _pauseDisplay.activeInHierarchy;
 
         private void Awake()
         {
@@ -42,6 +46,12 @@ namespace GGJ.Manager
         private void Start()
         {
             StartCoroutine(SwitchToLobbyDebug());
+        }
+
+        public void TogglePause()
+        {
+            _pauseDisplay.SetActive(!_pauseDisplay.activeInHierarchy);
+            Time.timeScale = _pauseDisplay.activeInHierarchy ? 0f : 1f;
         }
 
         private IEnumerator SwitchToLobbyDebug()
