@@ -18,7 +18,7 @@ MonoBehaviour:
   InteractionSize: 1.75
   StunDuration: 0.5
   StunForce: 25
-  HitEffectTime: 0.2
+  HitEffectTime: 0.1
   MinMaxPrice:
     Min: 1
     Max: 100

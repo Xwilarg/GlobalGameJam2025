@@ -31,10 +31,12 @@ namespace GGJ.Player
         [SerializeField]
         private TMP_Text _multiplier;
 
+        [SerializeField]
+        private SpriteRenderer[] _blinkTargets;
+
         private Vector2 _mov;
         private Vector2 _direction = Vector2.up;
         private Rigidbody2D _rb;
-        private SpriteRenderer _sr;
 
         private int _money;
 
@@ -74,7 +76,6 @@ namespace GGJ.Player
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
-            _sr = GetComponentInChildren<SpriteRenderer>();
             _animator = GetComponent<Animator>();
             _readyText.SetActive(false);
             _multiplier.text = string.Empty;
@@ -231,9 +232,9 @@ namespace GGJ.Player
         }
         private IEnumerator HitEffect()
         {
-            _sr.color = new Color(1f, 1f, 1f, 0f);
+            foreach (var sr in _blinkTargets) sr.color = new Color(1f, 1f, 1f, 0f);
             yield return new WaitForSeconds(ResourceManager.Instance.GameInfo.HitEffectTime);
-            _sr.color = Color.white;
+            foreach (var sr in _blinkTargets) sr.color = Color.white;
         }
         private IEnumerator StunTimer()
         {
