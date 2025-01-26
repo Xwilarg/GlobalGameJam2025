@@ -39,7 +39,7 @@ namespace GGJ.Prop.Impl
         private void Start()
         {
             EconomyManager.Instance.Register(this);
-            _lastPrice = EconomyManager.Instance.CurrentPrice;
+            _lastPrice = Mathf.RoundToInt(EconomyManager.Instance.CurrentPrice * Variation);
             UpdateUI();
         }
 
@@ -70,10 +70,10 @@ namespace GGJ.Prop.Impl
             else
             {
                 _priceText.text = $" = {Mathf.RoundToInt(Mathf.Max(0, EconomyManager.Instance.CurrentPrice * Variation))}";
-                _priceVariationText.text = $"({AddSign(EconomyManager.Instance.CurrentPrice - _lastPrice)})";
+                _priceVariationText.text = $"({AddSign(Mathf.RoundToInt(EconomyManager.Instance.CurrentPrice * Variation) - _lastPrice)})";
                 _textCanvas.SetActive(true);
                 _sr.sprite = _openSprite;
-                _lastPrice = EconomyManager.Instance.CurrentPrice;
+                _lastPrice = Mathf.RoundToInt(EconomyManager.Instance.CurrentPrice * Variation);
             }
         }
 
