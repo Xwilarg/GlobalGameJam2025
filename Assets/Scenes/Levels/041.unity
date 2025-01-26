@@ -3121,6 +3121,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7470465723777113687, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: m_text
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470465723777113687, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470465723777113687, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: m_overflowMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470465723777113687, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: m_TextWrappingMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
