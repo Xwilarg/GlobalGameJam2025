@@ -3026,6 +3026,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 745127749832957586, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 745127749832957586, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3048,6 +3052,22 @@ PrefabInstance:
     - target: {fileID: 783128194780205545, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044293520372393932, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: m_fontSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044293520372393932, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044293520372393932, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044293520372393932, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2091548801979337548, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3120,6 +3140,14 @@ PrefabInstance:
     - target: {fileID: 5461843439958581248, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470465723777113687, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: m_fontSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470465723777113687, guid: 7aacac8cc3be3bc4baf67eb94d212d1d, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
