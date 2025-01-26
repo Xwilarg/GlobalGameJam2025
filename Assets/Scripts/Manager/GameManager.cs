@@ -116,20 +116,23 @@ namespace GGJ.Manager
 
         private IEnumerator BackToLobby()
         {
-            for (int i = 10; i > 0; i--)
+            if (GamePhase == GamePhase.GameEnded)
             {
-                _infoText.text = $"Redirecting to lobby in {i}...";
-                yield return new WaitForSeconds(1f);
+                GamePhase = GamePhase.LobbyPreparation;
+                for (int i = 10; i > 0; i--)
+                {
+                    _infoText.text = $"Redirecting to lobby in {i}...";
+                    yield return new WaitForSeconds(1f);
+                }
+                _infoText.text = string.Empty;
+                yield return SceneManager.UnloadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name);
+                OnResetAll();
+                yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
+                SceneTransform = new GameObject("Container").transform;
+                SceneManager.MoveGameObjectToScene(SceneTransform.gameObject, SceneManager.GetSceneByName("Lobby"));
+                _inputManager.EnableJoining();
+                AudioManager.Instance.StartLobby();
             }
-            _infoText.text = string.Empty;
-            GamePhase = GamePhase.LobbyPreparation;
-            yield return SceneManager.UnloadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name);
-            OnResetAll();
-            yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
-            SceneTransform = new GameObject("Container").transform;
-            SceneManager.MoveGameObjectToScene(SceneTransform.gameObject, SceneManager.GetSceneByName("Lobby"));
-            _inputManager.EnableJoining();
-            AudioManager.Instance.StartLobby();
         }
 
         private IEnumerator ReloadScene()

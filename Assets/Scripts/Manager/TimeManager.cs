@@ -63,6 +63,7 @@ namespace GGJ.Manager
                     {
                         _day = 0;
                         GameManager.Instance.SetPhase(GamePhase.GameEnded);
+                        _isTimerStarted = false;
                     }
                 }
                 OnNewDay.Invoke();
