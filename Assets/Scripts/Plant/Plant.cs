@@ -122,7 +122,10 @@ public class Plant : MonoBehaviour
                 Cut();
 
             else if (needWater)
+            {
                 Water();
+                pc.WaterinCanAnimator.Play("WaterinCanGlou", 0, 0);
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 15
   SpeedWhenCarrying: 12.5
-  InteractionDistance: 0
+  InteractionDistance: 0.01
   InteractionSize: 2.5
   StunDuration: 0.5
   StunForce: 25

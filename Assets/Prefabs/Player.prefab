@@ -361,6 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7810315534005463683}
   - component: {fileID: 4853345350184591583}
+  - component: {fileID: 5073406618992158600}
   m_Layer: 6
   m_Name: WateringCan
   m_TagString: Untagged
@@ -377,7 +378,7 @@ Transform:
   m_GameObject: {fileID: 1893400757190755302}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8, y: -0.68, z: 0}
+  m_LocalPosition: {x: 0.21, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -427,7 +428,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 2732248c47e3341028bad436c24ae994, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 408c493bd9a544a319c9e344fbfad897, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -438,6 +439,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5073406618992158600
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893400757190755302}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 000daeafe39f64e0c8b76cb5682a8682, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2255754443425028037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1386,7 @@ MonoBehaviour:
   _blinkTargets:
   - {fileID: 1965315085031434938}
   - {fileID: 8387135472553323613}
+  _waterinCanAnimator: {fileID: 5073406618992158600}
 --- !u!114 &840272370479334935
 MonoBehaviour:
   m_ObjectHideFlags: 0

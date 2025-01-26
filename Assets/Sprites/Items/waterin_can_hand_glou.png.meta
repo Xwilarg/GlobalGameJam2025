@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: b10a7ee4d105348dcba5becff4deda6c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5697219713657959626
+    second: waterin_can_hand_glou_0
+  - first:
+      213: 5450048120679020762
+    second: waterin_can_hand_glou_1
+  - first:
+      213: 7449610480116269829
+    second: waterin_can_hand_glou_2
+  - first:
+      213: 8876681768269493453
+    second: waterin_can_hand_glou_3
+  - first:
+      213: 8612218513644554829
+    second: waterin_can_hand_glou_4
+  - first:
+      213: 740493634602406503
+    second: waterin_can_hand_glou_5
+  - first:
+      213: 3691984676993666804
+    second: waterin_can_hand_glou_6
+  - first:
+      213: 6311552325715114553
+    second: waterin_can_hand_glou_7
+  - first:
+      213: -1304179170229277329
+    second: waterin_can_hand_glou_8
+  - first:
+      213: 5577046174522146913
+    second: waterin_can_hand_glou_9
+  - first:
+      213: 3890860341798492535
+    second: waterin_can_hand_glou_10
+  - first:
+      213: 4450623863364759059
+    second: waterin_can_hand_glou_11
+  - first:
+      213: 8293248141192792081
+    second: waterin_can_hand_glou_12
+  - first:
+      213: -2805709380741641197
+    second: waterin_can_hand_glou_13
+  - first:
+      213: -283253516637186951
+    second: waterin_can_hand_glou_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.9, y: 0.77}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 431
+        width: 57
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac47fe7f427901f40800000000000000
+      internalID: 5697219713657959626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_1
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 451
+        width: 159
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad8bbd1e3e572ab40800000000000000
+      internalID: 5450048120679020762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_2
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 328
+        width: 509
+        height: 349
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5038b5e0345526760800000000000000
+      internalID: 7449610480116269829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 337
+        width: 160
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4b3ed990f403b70800000000000000
+      internalID: 8876681768269493453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_4
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 207
+        width: 139
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4a83d1db1fb48770800000000000000
+      internalID: 8612218513644554829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_5
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 348
+        width: 82
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7621ae09903c64a00800000000000000
+      internalID: 740493634602406503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_6
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 42
+        width: 151
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fe8464b0809c3330800000000000000
+      internalID: 3691984676993666804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_7
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 255
+        width: 77
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93a3a837663279750800000000000000
+      internalID: 6311552325715114553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_8
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 134
+        width: 32
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6d250b54ff96ede0800000000000000
+      internalID: -1304179170229277329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_9
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 119
+        width: 70
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 160085082f5a56d40800000000000000
+      internalID: 5577046174522146913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 108
+        width: 39
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 779dd8fbddc1ff530800000000000000
+      internalID: 3890860341798492535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_11
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 86
+        width: 43
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31eabb4c2dac3cd30800000000000000
+      internalID: 4450623863364759059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_12
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 32
+        width: 30
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11807f1be39871370800000000000000
+      internalID: 8293248141192792081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_13
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 90
+        width: 54
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31cc9e9fe2e1019d0800000000000000
+      internalID: -2805709380741641197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterin_can_hand_glou_14
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 974d5776d6ea11cf0800000000000000
+      internalID: -283253516637186951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      waterin_can_hand_glou_0: 5697219713657959626
+      waterin_can_hand_glou_1: 5450048120679020762
+      waterin_can_hand_glou_10: 3890860341798492535
+      waterin_can_hand_glou_11: 4450623863364759059
+      waterin_can_hand_glou_12: 8293248141192792081
+      waterin_can_hand_glou_13: -2805709380741641197
+      waterin_can_hand_glou_14: -283253516637186951
+      waterin_can_hand_glou_2: 7449610480116269829
+      waterin_can_hand_glou_3: 8876681768269493453
+      waterin_can_hand_glou_4: 8612218513644554829
+      waterin_can_hand_glou_5: 740493634602406503
+      waterin_can_hand_glou_6: 3691984676993666804
+      waterin_can_hand_glou_7: 6311552325715114553
+      waterin_can_hand_glou_8: -1304179170229277329
+      waterin_can_hand_glou_9: 5577046174522146913
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

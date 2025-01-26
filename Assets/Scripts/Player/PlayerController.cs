@@ -73,6 +73,10 @@ namespace GGJ.Player
 
         Animator _animator;
 
+        [SerializeField]
+        private Animator _waterinCanAnimator;
+        public Animator WaterinCanAnimator { get => _waterinCanAnimator; }
+
         public int Id { set; get; }
 
         #region Unity methods
