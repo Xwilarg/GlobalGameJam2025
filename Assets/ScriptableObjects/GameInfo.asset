@@ -21,14 +21,14 @@ MonoBehaviour:
   HitEffectTime: 0.1
   punchAnimationTime: 0.25
   MinMaxPrice:
-    Min: 1
+    Min: 0
     Max: 100
   RaisePriceCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.009990721
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -108,10 +108,17 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   OtherPlayerPlantPriceCoef: 0.2
+<<<<<<< HEAD
   DayDuration: 5
   RaisePhaseDuration: 5
   CrashPhaseDuration: 5
   PercSellVariation: 10
+=======
+  DayDuration: 1
+  RaisePhaseDuration: 40
+  CrashPhaseDuration: 20
+  PercSellVariation: 0
+>>>>>>> c56cbf757225e028b29eaf69d4e2cb514205123c
   AudioCurveIncrease:
     serializedVersion: 2
     m_Curve:
