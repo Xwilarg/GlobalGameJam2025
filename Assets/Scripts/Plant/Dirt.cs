@@ -1,9 +1,8 @@
 using GGJ.Manager;
 using GGJ.Player;
-using GGJ.Prop;
 using UnityEngine;
 
-public class Dirt : MonoBehaviour, IInteractible
+public class Dirt : MonoBehaviour
 {
     [SerializeField]
     private GameObject _plantPrefab;
@@ -42,15 +41,13 @@ public class Dirt : MonoBehaviour, IInteractible
         AudioManager.Instance.PlayPlant();
     }
 
-    void IInteractible.Interact(PlayerController pc)
+    public void Interact(PlayerController pc)
     {
-        Color playerColor = pc.Color;
-        PlantPlant(playerColor, pc.Id);
-        pc.Ready();
-    }
-
-    public bool CanInteract(PlayerController pc)
-    {
-        return !plant && !pc.IsReady && pc.CarriedObject != null && pc.CarriedObject.CanPlant;
+        if (!plant && !pc.IsReady && pc.CarriedObject != null && pc.CarriedObject.CanPlant)
+        {
+            Color playerColor = pc.Color;
+            PlantPlant(playerColor, pc.Id);
+            pc.Ready();
+        }
     }
 }

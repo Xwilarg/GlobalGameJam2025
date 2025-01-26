@@ -34,6 +34,8 @@ namespace GGJ.Manager
             _players.Add(pc);
             pc.Id = _players.Count;
 
+            AudioManager.Instance.PlayNewPlayer();
+
             if (_players.Count == 2)
             {
                 GameManager.Instance.ShowReadyPendingText();
