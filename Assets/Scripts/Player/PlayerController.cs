@@ -142,6 +142,10 @@ namespace GGJ.Player
             {
                 collision.GetComponent<Plant>().Interact(this);
             }
+            if (collision.CompareTag("Dirt"))
+            {
+                collision.GetComponent<Dirt>().Interact(this);
+            }
         }
 
         private void OnDrawGizmos()
