@@ -20,6 +20,10 @@ namespace GGJ.Prop.Impl
         private Sprite _boughtSprite;
         [SerializeField]
         private GameObject _sellVFX;
+        [SerializeField]
+        private Sprite _money1Sprite, _money2Sprite, _money3Sprite;
+        [SerializeField]
+        private SpriteRenderer _moneySpriteRenderer;
 
         private Sprite _openSprite;
         public int AmountSold { set; get; }
@@ -71,7 +75,19 @@ namespace GGJ.Prop.Impl
                 _priceVariationText.text = $"({AddSign(Mathf.RoundToInt(Variation))})";
                 _textCanvas.SetActive(true);
                 _sr.sprite = _openSprite;
+
+                UpdateMoneySprite();
             }
+        }
+
+        void UpdateMoneySprite()
+        {
+            int money = Mathf.RoundToInt(EconomyManager.Instance.CurrentPrice * Variation);
+            float money01 = (float)money / ResourceManager.Instance.GameInfo.MinMaxPrice.Max;
+
+            if      (money01 < 0.333f) _moneySpriteRenderer.sprite = _money1Sprite;
+            else if (money01 < 0.666f) _moneySpriteRenderer.sprite = _money2Sprite;
+            else                       _moneySpriteRenderer.sprite = _money3Sprite;
         }
 
         public void UpdateVariation(float average)

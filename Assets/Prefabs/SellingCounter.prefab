@@ -112,6 +112,10 @@ MonoBehaviour:
   _closedSprite: {fileID: 21300000, guid: 8774af60a32aa7a4da66b069cd62f670, type: 3}
   _boughtSprite: {fileID: 21300000, guid: dd29abf15f0ce4043b32e7ab81daab87, type: 3}
   _sellVFX: {fileID: 2201130258584598844, guid: 92ef4901b3dcffe40bfa72f7f3afa3dd, type: 3}
+  _money1Sprite: {fileID: 21300000, guid: f8f9ac3968d6cd64f892f880d5b24509, type: 3}
+  _money2Sprite: {fileID: 21300000, guid: df01702e19764c14f9f8b3c14b5c898a, type: 3}
+  _money3Sprite: {fileID: 21300000, guid: f50c048ec68e49546bda1ecb76c8a202, type: 3}
+  _moneySpriteRenderer: {fileID: 1226875940294792552}
 --- !u!61 &1931161920306346934
 BoxCollider2D:
   m_ObjectHideFlags: 0
