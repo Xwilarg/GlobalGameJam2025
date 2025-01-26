@@ -11,6 +11,7 @@ namespace GGJ.Manager
         /// Value between 0 and 1 representing how much time elapsed in the current phase
         /// </summary>
         public float Day01 => _day / (float)PhaseDuration;
+        public float Day01Money => _day / (float)(PhaseDuration - 1);
         public float TimeWithinDay01 => _timer / ResourceManager.Instance.GameInfo.DayDuration;
         public float PhaseDuration => GameManager.Instance.GamePhase == GamePhase.PriceRaise ? ResourceManager.Instance.GameInfo.RaisePhaseDuration :
                                                                                                ResourceManager.Instance.GameInfo.CrashPhaseDuration;

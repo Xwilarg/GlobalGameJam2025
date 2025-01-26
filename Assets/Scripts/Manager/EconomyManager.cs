@@ -46,7 +46,7 @@ namespace GGJ.Manager
         {
             get
             {
-                var time01 = TimeManager.Instance.Day01 + 1 ;
+                var time01 = TimeManager.Instance.Day01Money;
                 var info = ResourceManager.Instance.GameInfo;
                 var value = (GameManager.Instance.GamePhase == GamePhase.PriceRaise ? info.RaisePriceCurve : info.CrashPriceCurve).Evaluate(time01);
                 value *= (info.MinMaxPrice.Max - info.MinMaxPrice.Min);
