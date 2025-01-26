@@ -90,6 +90,7 @@ namespace GGJ.Manager
                 }
                 else if (GamePhase == GamePhase.GameEnded)
                 {
+                    AudioManager.Instance.PlayVictory();
                     StartCoroutine(BackToLobby());
                 }
             }
