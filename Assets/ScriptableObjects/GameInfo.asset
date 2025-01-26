@@ -20,14 +20,14 @@ MonoBehaviour:
   StunForce: 25
   HitEffectTime: 0.1
   MinMaxPrice:
-    Min: 1
+    Min: 0
     Max: 100
   RaisePriceCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.009990721
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -107,10 +107,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   OtherPlayerPlantPriceCoef: 0.2
-  DayDuration: 5
-  RaisePhaseDuration: 45
-  CrashPhaseDuration: 15
-  PercSellVariation: 10
+  DayDuration: 1
+  RaisePhaseDuration: 40
+  CrashPhaseDuration: 20
+  PercSellVariation: 0
   AudioCurveIncrease:
     serializedVersion: 2
     m_Curve:
