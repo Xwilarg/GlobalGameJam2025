@@ -240,9 +240,9 @@ namespace GGJ.Player
         }
         private IEnumerator HitEffect()
         {
-            foreach (var sr in _blinkTargets) sr.color = new Color(1f, 1f, 1f, 0f);
+            foreach (var sr in _blinkTargets) sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0f);
             yield return new WaitForSeconds(ResourceManager.Instance.GameInfo.HitEffectTime);
-            foreach (var sr in _blinkTargets) sr.color = Color.white;
+            foreach (var sr in _blinkTargets) sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
         }
         private IEnumerator StunTimer()
         {
