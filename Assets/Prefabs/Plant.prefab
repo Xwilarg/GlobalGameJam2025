@@ -450,12 +450,12 @@ MonoBehaviour:
   needCutPopup: {fileID: 4299380022173581811}
   cutedPlantPrefab: {fileID: 385365920325629815, guid: dcffee11429d64fab8de66ff0310c436, type: 3}
   plantSprites:
-  - {fileID: 21300000, guid: c5710c7424d884392aa13fd360724b2f, type: 3}
-  - {fileID: 21300000, guid: 145c07376695b41309ace5a4d9234641, type: 3}
+  - {fileID: 21300000, guid: 4a320337fd9ed424d829376dac7048a2, type: 3}
+  - {fileID: 21300000, guid: a5d125c382c7b4dc6b057b97caf8263c, type: 3}
   - {fileID: 21300000, guid: 191ca542dc4924b8997bd9a68485d056, type: 3}
   flowerSprites:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 831c4d209f4904cfcaa10d4b221032e6, type: 3}
+  - {fileID: 21300000, guid: e269ac1168a97488283f01a32da5ff6e, type: 3}
   - {fileID: 21300000, guid: 6655fde72398445d6aa26b100ceaaa8f, type: 3}
 --- !u!58 &1239454384954076126
 CircleCollider2D:
