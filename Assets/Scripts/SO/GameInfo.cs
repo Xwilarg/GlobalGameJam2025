@@ -29,7 +29,7 @@ namespace GGJ.SO
         [Tooltip("Duration of the phase where prices crashes in days")] public int CrashPhaseDuration;
 
         [Header("Economy")]
-        [Tooltip("% variation per flower sold (before variance with average)")] [Range(1, 100)] public int PercSellVariation;
+        [Tooltip("% variation per flower sold (before variance with average)")] [Range(0, 100)] public int PercSellVariation;
 
         [Header("Audio")]
         public AnimationCurve AudioCurveIncrease;

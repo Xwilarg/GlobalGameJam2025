@@ -408,6 +408,7 @@ MonoBehaviour:
   _plant: {fileID: 215967934}
   _punch: {fileID: 990293027}
   _sell: {fileID: 612010465}
+  _newPlayer: {fileID: 1604641835}
 --- !u!1 &215967932
 GameObject:
   m_ObjectHideFlags: 0
