@@ -108,17 +108,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   OtherPlayerPlantPriceCoef: 0.2
-<<<<<<< HEAD
-  DayDuration: 5
-  RaisePhaseDuration: 5
-  CrashPhaseDuration: 5
-  PercSellVariation: 10
-=======
   DayDuration: 1
   RaisePhaseDuration: 40
   CrashPhaseDuration: 20
   PercSellVariation: 0
->>>>>>> c56cbf757225e028b29eaf69d4e2cb514205123c
   AudioCurveIncrease:
     serializedVersion: 2
     m_Curve:
