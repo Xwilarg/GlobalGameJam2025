@@ -28,6 +28,7 @@ namespace GGJ.Prop.Impl
         private float _boughtTimer = 0f;
 
         private SpriteRenderer _sr;
+        private int _lastPrice;
 
         private void Awake()
         {
@@ -38,6 +39,7 @@ namespace GGJ.Prop.Impl
         private void Start()
         {
             EconomyManager.Instance.Register(this);
+            _lastPrice = EconomyManager.Instance.CurrentPrice;
             UpdateUI();
         }
 
@@ -68,9 +70,10 @@ namespace GGJ.Prop.Impl
             else
             {
                 _priceText.text = $" = {Mathf.RoundToInt(Mathf.Max(0, EconomyManager.Instance.CurrentPrice * Variation))}";
-                _priceVariationText.text = $"({AddSign(Mathf.RoundToInt(Variation))})";
+                _priceVariationText.text = $"({AddSign(EconomyManager.Instance.CurrentPrice - _lastPrice)})";
                 _textCanvas.SetActive(true);
                 _sr.sprite = _openSprite;
+                _lastPrice = EconomyManager.Instance.CurrentPrice;
             }
         }
 
