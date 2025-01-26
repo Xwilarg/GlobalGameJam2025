@@ -62,11 +62,14 @@ namespace GGJ.Player
         bool isLookingLeft = true;
         bool isRunning = false;
         string animationName = "PlayerIdleLeft";
+        bool isPunching = false;
+        bool isPunched = false;
 
         public Vector2 SpawnPoint { set; private get; }
 
         private Vector2? _stunDirection = null;
         public SpriteRenderer CutedPlantFlowerSprite { get => _cutedPlantFlowerSprite; }
+        void SetIsPunchingFalse() => isPunching = false;
 
         Animator _animator;
 
@@ -103,10 +106,20 @@ namespace GGJ.Player
             if (Mathf.Abs(_rb.linearVelocity.x) > 0.01f)
                 isLookingLeft = _rb.linearVelocity.x < 0;
 
-            if      (isRunning && isLookingLeft)  SetAnimationName("PlayerRunLeft");
-            else if (isRunning && !isLookingLeft) SetAnimationName("PlayerRunRight");
-            else if (!isRunning && isLookingLeft) SetAnimationName("PlayerIdleLeft");
-            else                                  SetAnimationName("PlayerIdleRight");
+            if (isPunched)
+            {
+                SetAnimationName(isLookingLeft ? "PlayerPunchedLeft" : "PlayerPunchedRight");
+            }
+            else if (isPunching)
+            {
+                SetAnimationName(isLookingLeft ? "PlayerPunchingLeft" : "PlayerPunchingRight");
+            }
+            else {
+                if      (isRunning && isLookingLeft)  SetAnimationName("PlayerRunLeft");
+                else if (isRunning && !isLookingLeft) SetAnimationName("PlayerRunRight");
+                else if (!isRunning && isLookingLeft) SetAnimationName("PlayerIdleLeft");
+                else                                  SetAnimationName("PlayerIdleRight");
+            }
 
             if (_stunDirection.HasValue)
             {
@@ -180,11 +193,15 @@ namespace GGJ.Player
             if (players.Any())
             {
                 AudioManager.Instance.PlayPunch();
+                StartCoroutine(PunchingEffect());
             }
         }
+
+        
+
         public void OnAction(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started && _stunDirection == null)
+            if (value.phase == InputActionPhase.Started && _stunDirection == null && !GameManager.Instance.IsPaused)
             {
                 var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
                 var size = ResourceManager.Instance.GameInfo.InteractionSize;
@@ -221,6 +238,11 @@ namespace GGJ.Player
                 }
             }
         }
+
+        public void OnPause(InputAction.CallbackContext value)
+        {
+            GameManager.Instance.TogglePause();
+        }
         #endregion Inputs
 
         public void GetStunned(Vector2 dir)
@@ -244,10 +266,18 @@ namespace GGJ.Player
             yield return new WaitForSeconds(ResourceManager.Instance.GameInfo.HitEffectTime);
             foreach (var sr in _blinkTargets) sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
         }
+        private IEnumerator PunchingEffect()
+        {
+            isPunching = true;
+            yield return new WaitForSeconds(ResourceManager.Instance.GameInfo.punchAnimationTime);
+            isPunching = false;
+        }
         private IEnumerator StunTimer()
         {
+            isPunched = true;
             yield return new WaitForSeconds(ResourceManager.Instance.GameInfo.StunDuration);
             _stunDirection = null;
+            isPunched = false;
         }
 
         public void DropItem()

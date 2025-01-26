@@ -16,6 +16,7 @@ namespace GGJ.SO
         [Tooltip("Stun duration in seconds")] public float StunDuration;
         [Tooltip("Stun force")] public float StunForce;
         [Tooltip("Time the sprite change to transparent when we take a hit (in seconds)")] public float HitEffectTime;
+        [Tooltip("Punch animation time")] public float punchAnimationTime = 0.5f;
 
         [Header("Money")]
         [Tooltip("Min/Max the selling price can reach")] public Range MinMaxPrice;
