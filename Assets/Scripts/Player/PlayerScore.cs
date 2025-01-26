@@ -10,7 +10,7 @@ namespace GGJ.Player
 
         public void SetScore(int score)
         {
-            _text.text = $"{score}f";
+            _text.text = $"{score}";
         }
     }
 }
