@@ -53,44 +53,44 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.30167788
-      outSlope: -0.30167788
+      inSlope: -0.43620396
+      outSlope: -0.43620396
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.24178281
-      value: 0.9270595
-      inSlope: -0.77320135
-      outSlope: -0.77320135
+      time: 0.19511381
+      value: 0.9148906
+      inSlope: -0.7495728
+      outSlope: -0.7495728
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.37747413
-      value: 0.7581611
-      inSlope: -2.1828313
-      outSlope: -2.1828313
+      time: 0.33748084
+      value: 0.76356274
+      inSlope: -1.3666265
+      outSlope: -1.3666265
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5099424
-      value: 0.34473583
-      inSlope: -2.1274967
-      outSlope: -2.1274967
+      time: 0.58660257
+      value: 0.3474519
+      inSlope: -1.3030331
+      outSlope: -1.3030331
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.76217705
-      value: 0.05868774
-      inSlope: -0.6904131
-      outSlope: -0.6904131
+      time: 0.8388372
+      value: 0.111422114
+      inSlope: -0.8135593
+      outSlope: -0.8135593
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -98,8 +98,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -0.24677071
-      outSlope: -0.24677071
+      inSlope: -0.69136375
+      outSlope: -0.69136375
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -108,16 +108,16 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   OtherPlayerPlantPriceCoef: 0.2
-  DayDuration: 1
-  RaisePhaseDuration: 40
-  CrashPhaseDuration: 20
+  DayDuration: 9.473684
+  RaisePhaseDuration: 15
+  CrashPhaseDuration: 5
   PercSellVariation: 0
   AudioCurveIncrease:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.0010431081
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
+      value: -0.0030191038
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -67,6 +67,7 @@ namespace GGJ.Prop.Impl
             }
             else
             {
+                Debug.Log(EconomyManager.Instance.CurrentPrice);
                 _priceText.text = $" = {Mathf.RoundToInt(Mathf.Max(0, EconomyManager.Instance.CurrentPrice * Variation))}";
                 _priceVariationText.text = $"({AddSign(Mathf.RoundToInt(Variation))})";
                 _textCanvas.SetActive(true);
