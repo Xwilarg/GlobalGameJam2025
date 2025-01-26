@@ -54,6 +54,10 @@ namespace GGJ.Manager
 
         public void CheckAllReady()
         {
+#if !UNITY_EDITOR
+            if (_players.Count < 2) return;
+#endif
+
             if (_players.All(x => x.IsReady))
             {
                 GameManager.Instance.SetPhase(GamePhase.PriceRaise);
