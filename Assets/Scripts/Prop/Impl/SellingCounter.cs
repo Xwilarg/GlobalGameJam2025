@@ -77,7 +77,7 @@ namespace GGJ.Prop.Impl
         public void UpdateVariation(float average)
         {
             Variation = (1f + Variation) / 2f;
-            Variation += (average - AmountSold) * ResourceManager.Instance.GameInfo.PercSellVariation;
+            Variation += (average - AmountSold) * ResourceManager.Instance.GameInfo.PercSellVariation * 0.01f;
         }
 
         public void Interact(PlayerController pc)
