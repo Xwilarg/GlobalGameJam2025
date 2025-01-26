@@ -35,6 +35,6 @@ public class OrderInLayerMatchY : MonoBehaviour
     void UpdateOrderInLayer()
     {
         for (int i = 0; i < spriteRenderers.Length; i++)
-            spriteRenderers[i].sortingOrder = -(int)(transform.position.y * 100) + spriteRenderersOffset[i];
+            spriteRenderers[i].sortingOrder = -(int)(transform.position.y * 1000) + spriteRenderersOffset[i];
     }
 }

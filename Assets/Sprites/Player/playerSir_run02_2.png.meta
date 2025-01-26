@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: a5d125c382c7b4dc6b057b97caf8263c
+guid: 398080ef60f594ba9b24664752ea498d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4427725134241655194
-    second: TulipButton_0
+      213: 8904873771011641794
+    second: playerSir_run02_2_0
+  - first:
+      213: -7359362919140605682
+    second: playerSir_run02_2_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,7 +53,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.4, y: 0.06}
+  spritePivot: {x: 0.5, y: 0.1}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,13 +103,35 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TulipButton_0
+      name: playerSir_run02_2_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 1
-        width: 59
-        height: 141
+        x: 0
+        y: 0
+        width: 633
+        height: 685
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c197d2c387749b70800000000000000
+      internalID: 8904873771011641794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerSir_run02_2_1
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 226
+        width: 63
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6661572137f8d82c0800000000000000
-      internalID: -4427725134241655194
+      spriteID: e014177aa6a4ed990800000000000000
+      internalID: -7359362919140605682
       vertices: []
       indices: 
       edges: []
@@ -125,8 +150,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: cf3e0cf04d2d5492bbceb14fc4bb1b31
+    internalID: 1841558635
     vertices: []
     indices: 
     edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TulipButton_0: -4427725134241655194
+      playerSir_run02_2_0: 8904873771011641794
+      playerSir_run02_2_1: -7359362919140605682
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
