@@ -58,8 +58,9 @@ namespace GGJ.Manager
         {
 #if UNITY_EDITOR
             yield return SceneManager.UnloadSceneAsync(ResourceManager.Instance.GameInfo.GameLevel.Name);
-            OnResetAll();
 #endif
+            OnResetAll();
+            PlayerManager.Instance.ResetAllPlayers();
             yield return SceneManager.LoadSceneAsync("Lobby", LoadSceneMode.Additive);
             SceneTransform = new GameObject("Container").transform;
             SceneManager.MoveGameObjectToScene(SceneTransform.gameObject, SceneManager.GetSceneByName("Lobby"));
