@@ -13,7 +13,7 @@ namespace GGJ.Manager
         private AudioSource _bgmHappy, _bgmSad, _bgmNeutral, _bgmLobby;
 
         [SerializeField]
-        private AudioSource _water, _cut, _plant, _punch, _sell, _newPlayer;
+        private AudioSource _water, _cut, _plant, _punch, _sell, _newPlayer, _victory;
 
         private void Awake()
         {
@@ -71,5 +71,13 @@ namespace GGJ.Manager
         public void PlayPunch() => _punch.PlayOneShot(_punch.clip);
         public void PlaySell() => _sell.PlayOneShot(_sell.clip);
         public void PlayNewPlayer() => _newPlayer.PlayOneShot(_newPlayer.clip);
+
+        public void PlayVictory()
+        {
+            _bgmHappy.Stop();
+            _bgmSad.Stop();
+            _bgmNeutral.Stop();
+            _victory.Play();
+        }
     }
 }

@@ -23,6 +23,9 @@ namespace GGJ.Player
         private GameObject _scissors, _seeds, _wateringCan, _cutedPlant;
 
         [SerializeField]
+        private GameObject _crown;
+
+        [SerializeField]
         private SpriteRenderer _cutedPlantFlowerSprite;
 
         [SerializeField]
@@ -351,11 +354,15 @@ namespace GGJ.Player
         {
             _money += amount;
             PlayerScore.SetScore(_money);
+            UpdateCrown();
         }
 
         public void ResetAll()
         {
             _money = 0;
+
+            _crown.SetActive(false);
+
             if (CarriedObject != null)
             {
                 Destroy(CarriedObject.GameObject);
@@ -388,6 +395,17 @@ namespace GGJ.Player
         void UpdateMultiplierScale()
         {
             _multiplier.transform.localScale = Vector3.one * (ResourceManager.Instance.GameInfo.PlayerPlantsCounterDefaultScale + ResourceManager.Instance.GameInfo.PlayerPlantsCounterScaleCoef * Sellables.Count);
+        }
+
+        void UpdateCrown()
+        {
+            int maxMoney = 0;
+
+            foreach (PlayerController pc in PlayerManager.Instance.Players)
+                maxMoney = Mathf.Max(maxMoney, pc._money);
+
+            foreach (PlayerController pc in PlayerManager.Instance.Players)
+                pc._crown.SetActive(pc._money == maxMoney);
         }
     }
 }
