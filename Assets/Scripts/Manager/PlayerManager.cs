@@ -18,6 +18,8 @@ namespace GGJ.Manager
         [SerializeField]
         private PlayerScore[] _pScores;
 
+        public List<PlayerController> Players { get => _players; }
+
         private void Awake()
         {
             Instance = this;
