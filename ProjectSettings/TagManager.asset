@@ -48,6 +48,9 @@ TagManager:
   - name: Ground
     uniqueID: 1949577395
     locked: 0
+  - name: Sign
+    uniqueID: 1302259291
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -7,6 +7,9 @@ public class OrderInLayerMatchY : MonoBehaviour
 
     [SerializeField] bool isStatic = true;
 
+    [SerializeField]
+    private bool _ignoreChild;
+
     void Awake()
     {
         Cache();
@@ -19,11 +22,18 @@ public class OrderInLayerMatchY : MonoBehaviour
 
     void Cache()
     {
-        spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
-        spriteRenderersOffset = new int[spriteRenderers.Length];
 
-        for (int i = 0; i < spriteRenderers.Length; i++)
-            spriteRenderersOffset[i] = spriteRenderers[i].sortingOrder;
+        if (_ignoreChild)
+        {
+            spriteRenderers = new SpriteRenderer[] { GetComponent<SpriteRenderer>() };
+        }
+        else
+        {
+            spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+            spriteRenderersOffset = new int[spriteRenderers.Length];
+            for (int i = 0; i < spriteRenderers.Length; i++)
+                spriteRenderersOffset[i] = spriteRenderers[i].sortingOrder;
+        }
     }
 
     void Update()
@@ -34,7 +44,14 @@ public class OrderInLayerMatchY : MonoBehaviour
 
     void UpdateOrderInLayer()
     {
-        for (int i = 0; i < spriteRenderers.Length; i++)
-            spriteRenderers[i].sortingOrder = -(int)(transform.position.y * 1000) + spriteRenderersOffset[i];
+        if (_ignoreChild)
+        {
+            spriteRenderers[0].sortingOrder = -(int)(transform.position.y * 1000);
+        }
+        else
+        {
+            for (int i = 0; i < spriteRenderers.Length; i++)
+                spriteRenderers[i].sortingOrder = -(int)(transform.position.y * 1000) + spriteRenderersOffset[i];
+        }
     }
 }
