@@ -289,11 +289,17 @@ namespace GGJ.Player
 
         public void DropItem()
         {
-            if (CarriedObject != null)
+            try
             {
-                var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
-                CarriedObject.GameObject.transform.position = center;
-                CarriedObject.GameObject.SetActive(true);
+                if (CarriedObject != null)
+                {
+                    var center = _feet.transform.position + (Vector3)_direction * ResourceManager.Instance.GameInfo.InteractionDistance;
+                    CarriedObject.GameObject.transform.position = center;
+                    CarriedObject.GameObject.SetActive(true);
+                }
+            } catch (System.Exception e)
+            {
+                Debug.LogException(e);
             }
             CarriedObject = null;
 
