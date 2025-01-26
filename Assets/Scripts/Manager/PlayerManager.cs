@@ -25,6 +25,17 @@ namespace GGJ.Manager
             Instance = this;
         }
 
+        public void ResetSpawns()
+        {
+            for (int i = 0; i < _players.Count; i++)
+            {
+                var pc = _players[i];
+                var spawn = _startAreas[i].position;
+                pc.transform.position = spawn;
+                pc.SpawnPoint = spawn;
+            }
+        }
+
         public void Register(PlayerController pc)
         {
             var spawn = _startAreas[_players.Count % _startAreas.Count].position;

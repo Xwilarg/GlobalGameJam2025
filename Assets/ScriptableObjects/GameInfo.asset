@@ -111,7 +111,7 @@ MonoBehaviour:
   DayDuration: 9.473684
   RaisePhaseDuration: 15
   CrashPhaseDuration: 5
-  PercSellVariation: 0
+  PercSellVariation: 1
   AudioCurveIncrease:
     serializedVersion: 2
     m_Curve:
