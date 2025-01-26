@@ -14,12 +14,22 @@ namespace GGJ.Prop.Impl
         private TMP_Text _priceText;
         [SerializeField]
         private TMP_Text _priceVariationText;
-
+        [SerializeField]
+        private Sprite _closedSprite;
         [SerializeField]
         private GameObject _sellVFX;
 
+        private Sprite _openSprite;
         public int AmountSold { set; get; }
         public float Variation { set; get; } = 1f;
+
+        private SpriteRenderer _sr;
+
+        private void Awake()
+        {
+            _sr = GetComponent<SpriteRenderer>();
+            _openSprite = _sr.sprite;
+        }
 
         private void Start()
         {
@@ -34,12 +44,17 @@ namespace GGJ.Prop.Impl
         }
         public void UpdateUI()
         {
-            if (GameManager.Instance.GamePhase == GamePhase.GameEnded) _textCanvas.SetActive(false);
+            if (GameManager.Instance.GamePhase == GamePhase.GameEnded)
+            {
+                _textCanvas.SetActive(false);
+                _sr.sprite = _closedSprite;
+            }
             else
             {
                 _priceText.text = $" = {Mathf.RoundToInt(Mathf.Max(0, EconomyManager.Instance.CurrentPrice * Variation))}";
                 _priceVariationText.text = $"({AddSign(Mathf.RoundToInt(Variation))})";
                 _textCanvas.SetActive(true);
+                _sr.sprite = _openSprite;
             }
         }
 

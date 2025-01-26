@@ -107,6 +107,7 @@ MonoBehaviour:
   _textCanvas: {fileID: 5931312693264406690}
   _priceText: {fileID: 7470465723777113687}
   _priceVariationText: {fileID: 2044293520372393932}
+  _closedSprite: {fileID: 3951525919808828769, guid: 8774af60a32aa7a4da66b069cd62f670, type: 3}
   _sellVFX: {fileID: 2201130258584598844, guid: 92ef4901b3dcffe40bfa72f7f3afa3dd, type: 3}
 --- !u!61 &1931161920306346934
 BoxCollider2D:
@@ -146,7 +147,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.54, y: 6.93}
+    oldSize: {x: 9.06, y: 8.68}
     newSize: {x: 10.54, y: 6.93}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -205,7 +206,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.54, y: 6.93}
+    oldSize: {x: 9.06, y: 8.68}
     newSize: {x: 10.54, y: 6.93}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
