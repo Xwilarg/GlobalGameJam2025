@@ -18,14 +18,14 @@ namespace GGJ.Manager
         {
             TimeManager.Instance.OnNewDay.AddListener(() =>
             {
+                foreach (var c in _counters)
+                {
+                    c.UpdateUI();
+                }
                 var average = _counters.Sum(x => x.AmountSold) / (float)_counters.Count;
                 foreach (var c in _counters)
                 {
                     c.UpdateVariation(average);
-                }
-                foreach (var c in _counters)
-                {
-                    c.UpdateUI();
                 }
             });
         }
