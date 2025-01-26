@@ -73,6 +73,10 @@ namespace GGJ.Manager
                 p.ResetAll();
                 p.UnreadyForGameStart();
             }
+            foreach (var sc in _pScores)
+            {
+                sc.SetScore(0);
+            }
         }
 
         // TODO: Unregister
