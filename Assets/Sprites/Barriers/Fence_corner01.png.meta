@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d1e447e48c4fb404e8d572cf1e740c31
+guid: e31c738c21ddd3b4d9ccdd01b6d16e08
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7375147489655262564
-    second: Fence_01_0
+      213: 4878435711059890119
+    second: Fence_corner01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fence_01_0
+      name: Fence_corner01_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 30
-        width: 260
-        height: 110
+        x: 77
+        y: 0
+        width: 203
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c92fbf0fe6636a990800000000000000
-      internalID: -7375147489655262564
+      spriteID: 7cf0e41ae6fa3b340800000000000000
+      internalID: 4878435711059890119
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fence_01_0: -7375147489655262564
+      Fence_corner01_0: 4878435711059890119
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
