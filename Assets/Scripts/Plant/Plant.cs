@@ -4,7 +4,7 @@ using GGJ.Prop;
 using UnityEngine;
 
 
-public class Plant : MonoBehaviour, IInteractible
+public class Plant : MonoBehaviour
 {
     [SerializeField] SpriteRenderer plantSpriteRenderer;
     [SerializeField] SpriteRenderer flowerSpriteRenderer;
@@ -113,18 +113,16 @@ public class Plant : MonoBehaviour, IInteractible
 
 
   
-    void IInteractible.Interact(PlayerController pc)
+    public void Interact(PlayerController pc)
     {
-        if (needCut)
-            Cut();
+        if ((needCut && pc.CarriedObject != null && pc.CarriedObject.CanCut) ||
+               (needWater && pc.CarriedObject != null && pc.CarriedObject.CanWater))
+        {
+            if (needCut)
+                Cut();
 
-        else if (needWater)
-            Water();
-    }
-
-    public bool CanInteract(PlayerController pc)
-    {
-        return (needCut && pc.CarriedObject != null && pc.CarriedObject.CanCut) ||
-               (needWater && pc.CarriedObject != null && pc.CarriedObject.CanWater);
+            else if (needWater)
+                Water();
+        }
     }
 }

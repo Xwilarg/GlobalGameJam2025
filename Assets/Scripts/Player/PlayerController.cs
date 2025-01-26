@@ -134,9 +134,13 @@ namespace GGJ.Player
                 _multiplier.text = $"x{Sellables.Count}";
                 UpdateMultiplierScale();
             }
-            else if (collision.CompareTag("SellingCounter"))
+            if (collision.CompareTag("SellingCounter"))
             {
                 collision.GetComponent<SellingCounter>().Interact(this);
+            }
+            if (collision.CompareTag("Plant"))
+            {
+                collision.GetComponent<Plant>().Interact(this);
             }
         }
 

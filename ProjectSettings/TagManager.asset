@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CutedPlant
   - SellingCounter
+  - Plant
   layers:
   - Default
   - TransparentFX
