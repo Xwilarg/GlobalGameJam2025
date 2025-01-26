@@ -71,7 +71,6 @@ namespace GGJ.Prop.Impl
                 _priceVariationText.text = $"({AddSign(Mathf.RoundToInt(Variation))})";
                 _textCanvas.SetActive(true);
                 _sr.sprite = _openSprite;
-                _boughtTimer = .5f;
             }
         }
 
@@ -98,6 +97,7 @@ namespace GGJ.Prop.Impl
                 pc.DiscardSellablesCarry();
                 AudioManager.Instance.PlaySell();
                 Destroy(Instantiate(_sellVFX, transform.position, Quaternion.identity), 1f);
+                _boughtTimer = .5f;
             }
         }
     }
